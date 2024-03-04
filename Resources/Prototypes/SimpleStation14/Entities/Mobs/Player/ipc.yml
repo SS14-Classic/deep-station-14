@@ -29,6 +29,7 @@
   - type: NpcFactionMember
     factions:
       - NanoTrasen
+  - type: StandingState
   - type: MobState
     allowedStates:
       - Alive
@@ -57,9 +58,9 @@
   - type: SiliconDownOnDead
   - type: Inventory
     templateId: ipc
-  - type: EyeProtection
-    protectionTime: 12
-  
+  - type: GuideHelp
+    guides:
+      - IPCs
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
@@ -75,7 +76,7 @@
       0: 0.00
   - type: BatteryDrinker
   - type: EncryptionKeyHolder
-    keySlots: 3
+    keySlots: 4
     examineWhileLocked: false
     keysExtractionMethod: Cutting
   - type: ActiveRadio

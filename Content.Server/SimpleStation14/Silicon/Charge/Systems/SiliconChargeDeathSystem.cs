@@ -5,6 +5,9 @@ using Content.Shared.Bed.Sleep;
 using Content.Server.Sound.Components;
 using Content.Server.SimpleStation14.Silicon.Charge;
 using System.Threading;
+using Content.Server.Humanoid;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 
@@ -14,6 +17,7 @@ public sealed class SiliconDeathSystem : EntitySystem
 {
     [Dependency] private readonly SleepingSystem _sleep = default!;
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
 
     public override void Initialize()
     {
@@ -72,6 +76,12 @@ public sealed class SiliconDeathSystem : EntitySystem
 
         EntityManager.EnsureComponent<SleepingComponent>(uid);
         EntityManager.EnsureComponent<ForcedSleepingComponent>(uid);
+
+        if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
+        {
+            var layers = HumanoidVisualLayersExtension.Sublayers(HumanoidVisualLayers.HeadSide);
+            _humanoidAppearanceSystem.SetLayersVisibility(uid, layers, false, true, humanoidAppearanceComponent);
+        }
 
         siliconDeadComp.Dead = true;
 

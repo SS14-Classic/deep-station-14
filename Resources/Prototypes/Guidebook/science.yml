@@ -49,6 +49,7 @@
   text: "/ServerInfo/Guidebook/Science/Robotics.xml"
   children:
   - Cyborgs
+  - IPCs
 
 - type: guideEntry
   id: ArtifactReports
@@ -64,3 +65,8 @@
   id: Cyborgs
   name: guide-entry-cyborgs
   text: "/ServerInfo/Guidebook/Science/Cyborgs.xml"
+
+- type: guideEntry
+  id: IPCs
+  name: guide-entry-IPCs
+  text: "/ServerInfo/Guidebook/Science/IPCs.xml"

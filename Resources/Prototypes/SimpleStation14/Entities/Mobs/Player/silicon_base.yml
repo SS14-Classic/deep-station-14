@@ -1,68 +1,41 @@
 - type: entity
   save: false
+  id: PlayerSiliconHumanoidBase
+  parent: [BaseMob, MobDamageable, MobCombat, MobAtmosExposed, MobFlammable]
   abstract: true
-  id: PlayerSiliconBaseIndividual # For player controlled silicons
   components:
     - type: ContentEye
     - type: CameraRecoil
-    - type: LagCompensation
     - type: Reactive
       groups:
+        Flammable: [Touch]
+        Extinguish: [Touch]
         Acidic: [Touch]
-    - type: Input
-      context: "human"
-    - type: InputMover
-    - type: MobMover
+      reactions:
+        - reagents: [Water, SpaceCleaner]
+          methods: [Touch]
+          effects:
+            - !type:WashCreamPieReaction
     - type: DamageOnHighSpeedImpact
       damage:
         types:
-          Blunt: 5
+          Blunt: 10
       soundHit:
         path: /Audio/Effects/hit_kick.ogg
-    - type: Clickable
     - type: Damageable
       damageContainer: Silicon
-    # - type: Bloodstream # This is left commented out because it's not necessary for a robot, but you may want it.
-    #   bloodReagent: MotorOil
-    #   bloodlossDamage:
-    #     types:
-    #       Bloodloss:
-    #         1
-    #   bloodlossHealDamage:
-    #     types:
-    #       Bloodloss:
-    #         -0.25
+      damageModifierSet: IPC
     - type: InteractionOutline
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeCircle
-            radius: 0.35
-          density: 50
-          mask:
-            - MobMask
-          layer:
-            - MobLayer
     - type: MovementSpeedModifier
       baseWalkSpeed: 4
       baseSprintSpeed: 3
-    - type: Stamina
-    - type: Sprite
-      sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
-      state: full
-      noRot: true
-      drawdepth: Mobs
-    - type: Physics
-      bodyType: KinematicController
-    - type: Body
-      prototype: Drone
+    - type: ZombieImmune
     - type: DoAfter
+    - type: RotationVisuals
+      horizontalRotation: 90
     - type: Examiner
     # - type: Recyclable
     #   safe: false
-    - type: StandingState
-    - type: Alerts
     # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
     #   protectionTime: 12
     - type: Silicon
@@ -77,34 +50,13 @@
         2: 0.80
         1: 0.45
         0: 0.00
-    - type: RadiationReceiver
-    - type: AtmosExposed
     - type: Temperature
-      heatDamageThreshold: 700
-      coldDamageThreshold: 0
-      currentTemperature: 400
-      specificHeat: 24
-      coldDamage:
-        types:
-          Cold: 0.1 #per second, scales with temperature & other constants
       heatDamage:
         types:
-          Heat: 0.25 #per second, scales with temperature & other constants
+          Heat: 3 #per second, scales with temperature & other constants
       atmosTemperatureTransferEfficiency: 0.05
-    - type: ThermalRegulator
-      metabolismHeat: 600
-      radiatedHeat: 350
-      implicitHeatRegulation: 350
-      sweatHeatRegulation: 0 # This might end up being a problem if they can't cool themselves down?
-      shiveringHeatRegulation: 1200
-      normalBodyTemperature: 400
-      thermalRegulationTemperatureThreshold: 125
-
-- type: entity
-  parent: PlayerSiliconBaseIndividual
-  id: PlayerSiliconHumanoidBase
-  abstract: true
-  components:
+    - type: Deathgasp
+      prototype: SiliconDeathgasp
     - type: MobState
       allowedStates:
         - Alive
@@ -179,24 +131,23 @@
           visible: false
     - type: Repairable
       fuelcost: 10
-      doAfterDelay: 10
-    - type: Bloodstream
-      damageBleedModifiers: BloodlossIPC
-      bloodReagent: Oil
-      bleedReductionAmount: 0
-      bloodMaxVolume: 500
-      chemicalMaxVolume: 0
-      bleedPuddleThreshold: 3
-      bleedRefreshAmount: 0
-      bloodLossThreshold: 0
-      maxBleedAmount: 14
-      bloodlossDamage:
-        types:
-          Burn: 1.5
-      bloodlossHealDamage:
-        types:
-          Burn: 0
-    - type: UnblockableSpeech
+      doAfterDelay: 40
+    #- type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
+    #  damageBleedModifiers: BloodlossIPC
+    #  bloodReagent: Oil
+    #  bleedReductionAmount: 0
+    #  bloodMaxVolume: 500
+    #  chemicalMaxVolume: 0
+    #  bleedPuddleThreshold: 3
+    #  bleedRefreshAmount: 0
+    #  bloodLossThreshold: 0
+    #  maxBleedAmount: 14
+    #  bloodlossDamage:
+    #    types:
+    #      Burn: 1.5
+    #  bloodlossHealDamage:
+    #    types:
+    #      Burn: 0
     - type: Flashable
     - type: Flammable
       fireSpread: true
@@ -208,36 +159,10 @@
     #   damage:
     #     types:
     #       Blunt: 0.28 #per second, scales with pressure and other constants.
-    - type: Temperature
-      heatDamageThreshold: 320
-      coldDamageThreshold: 255
-      currentTemperature: 280
-      specificHeat: 50
-      coldDamage:
-        types:
-          Cold: 0.1 #per second, scales with temperature & other constants
-      heatDamage:
-        types:
-          Heat: 0.15 #per second, scales with temperature & other constants
       atmosTemperatureTransferEfficiency: 0.4
-    - type: ThermalRegulator
-      metabolismHeat: 1000 # Increase once we have more ways to regulate temperature
-      radiatedHeat: 800
-      implicitHeatRegulation: 600
-      sweatHeatRegulation: 0
-      shiveringHeatRegulation: 12000 # Overclocking, yo
-      normalBodyTemperature: 280
-      thermalRegulationTemperatureThreshold: 32
-    - type: Polymorphable
     - type: Identity
-    - type: MovedByPressure
-    - type: DamageOnHighSpeedImpact
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/metalbreak.ogg
-    - type: LagCompensation
+    #  soundHit:
+    #    path: /Audio/Effects/metalbreak.ogg
     - type: RangedDamageSound
       soundGroups:
         Brute:
@@ -261,18 +186,7 @@
           clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
             True: { visible: true }
             False: { visible: false }
-    - type: RotationVisuals
-    - type: FloatingVisuals
-    - type: FireVisuals
-      sprite: Mobs/Effects/onfire.rsi
-      normalState: Generic_mob_burning
-      alternateState: Standing
-      fireStackAlternateState: 3
-    - type: CombatMode
-      canDisarm: true
-    - type: Climbing
     - type: Cuffable
-      state: icon
     - type: AnimationPlayer
     - type: Buckle
     - type: CreamPied
@@ -290,7 +204,11 @@
     - type: Grammar
       attributes:
         proper: true
+    - type: Climbing
     - type: StandingState
+    - type: MindContainer
+      showExamineInfo: true
+    - type: SSDIndicator
     - type: CanEscapeInventory
     - type: HumanoidAppearance
       species: IPC
@@ -303,9 +221,9 @@
       speechSounds: Pai
     - type: Vocal
       sounds:
-        Male: MaleHuman
-        Female: FemaleHuman
-        Unsexed: MaleHuman
+        Male: UnisexIPC
+        Female: UnisexIPC
+        Unsexed: UnisexIPC
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -321,16 +239,7 @@
       deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
     - type: Pullable
     - type: Puller
-    - type: Reactive
-      groups:
-        Flammable: [Touch]
-        Extinguish: [Touch]
-        Acidic: [Touch, Ingestion]
-      reactions:
-        - reagents: [Water, SpaceCleaner]
-          methods: [Touch]
-          effects:
-            - !type:WashCreamPieReaction
+
     - type: BodyEmotes
       soundsId: GeneralBodyEmotes
     - type: DamageVisuals
@@ -375,3 +284,19 @@
         # - PsionicsDisabled
         # - PsionicallyInsulated
     - type: Blindable
+    - type: FireVisuals
+      alternateState: Standing
+    - type: LightningTarget
+      priority: 1
+      lightningExplode: false
+    - type: Fingerprint
+
+
+- type: damageModifierSet
+  id: IPC
+  coefficients:
+    Poison: 0
+    Cold: 0.2
+    Heat: 2
+    Shock: 2.5
+

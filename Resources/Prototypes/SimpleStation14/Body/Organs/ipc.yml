@@ -14,26 +14,8 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: MotorOil
+        - ReagentId: Oil
           Quantity: 10
-
-- type: entity
-  id: OrganIPCBrain
-  parent: BaseIPCOrgan
-  name: positronic brain
-  description: "The source of as much controversy as the existence of the soul."
-  components:
-  - type: Sprite
-    state: brain
-  - type: Organ
-  - type: Input
-    context: "ghost"
-  - type: InputMover
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 0
-    baseSprintSpeed: 0
-  - type: GhostOnMove
-  - type: Brain
 
 - type: entity
   id: OrganIPCEyes
