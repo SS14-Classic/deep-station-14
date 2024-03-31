@@ -84,6 +84,7 @@
   - type: IntrinsicRadioTransmitter
   - type: Wires
     layoutId: IPC
+  - type: EmitBuzzOnCrit
 
 - type: entity
   save: false
