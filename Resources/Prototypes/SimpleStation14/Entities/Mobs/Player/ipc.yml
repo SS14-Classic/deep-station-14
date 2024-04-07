@@ -10,8 +10,12 @@
   - type: ItemSlots
     slots:
       cell_slot:
+        locked: true
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+  - type: BatterySlotRequiresLock
+    cellSlotId: cell_slot
+  - type: EncryptionHolderRequiresLock
   - type: SiliconEmitSoundOnDrained
     sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg"
     interval: 15
@@ -21,6 +25,9 @@
     locked: true
     lockOnClick: false
     unlockOnClick: false
+    # Por algum motivo esse componente é bem bugado, então o "LockTime" é quem diz o tempo de tudo enquanto o unlock só está servindo como um bool (???)
+    lockTime: 5
+    unlockTime: 5
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
@@ -79,6 +86,7 @@
     keySlots: 4
     examineWhileLocked: false
     keysExtractionMethod: Cutting
+    keysUnlocked: false
   - type: ActiveRadio
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
