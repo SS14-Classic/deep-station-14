@@ -1,8 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Repairable;
@@ -17,7 +15,6 @@ namespace Content.Server.Repairable
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger= default!;
-        [Dependency] private readonly BlindableSystem _blindableSystem = default!;
 
         public override void Initialize()
         {
@@ -27,18 +24,11 @@ namespace Content.Server.Repairable
 
         private void OnRepairFinished(EntityUid uid, RepairableComponent component, RepairFinishedEvent args)
         {
-
-
             if (args.Cancelled)
                 return;
-            TryComp(uid, out BlindableComponent? blindcomp);
-            if(!EntityManager.TryGetComponent(uid, out DamageableComponent? damageable))
+
+            if (!EntityManager.TryGetComponent(uid, out DamageableComponent? damageable) || damageable.TotalDamage == 0)
                 return;
-
-            if (damageable.TotalDamage == 0 || blindcomp is { EyeDamage: 0 })
-                return;
-
-
 
             if (component.Damage != null)
             {
@@ -48,8 +38,6 @@ namespace Content.Server.Repairable
 
             else
             {
-                if (blindcomp != null)
-                    _blindableSystem.AdjustEyeDamage((uid, blindcomp), -blindcomp!.EyeDamage);
                 // Repair all damage
                 _damageableSystem.SetAllDamage(uid, damageable, 0);
                 _adminLogger.Add(LogType.Healed, $"{ToPrettyString(args.User):user} repaired {ToPrettyString(uid):target} back to full health");
@@ -67,12 +55,8 @@ namespace Content.Server.Repairable
                 return;
 
             // Only try repair the target if it is damaged
-            TryComp(uid, out BlindableComponent? blindcomp);
-            if(!EntityManager.TryGetComponent(uid, out DamageableComponent? damageable))
+            if (!TryComp<DamageableComponent>(uid, out var damageable) || damageable.TotalDamage == 0)
                 return;
-            if (damageable.TotalDamage == 0 || blindcomp is { EyeDamage: 0 })
-                return;
-
 
             float delay = component.DoAfterDelay;
 

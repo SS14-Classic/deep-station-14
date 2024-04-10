@@ -27,16 +27,21 @@
   </Box>
 
   IPCs do [bold]not[/bold] use external radios because they already have one built in. They only need to get an encryption key from a radio. By clicking on an IPC with a [color=yellow]wire cutter[/color], you can remove their keys.
-
   You can find new keys around the station or remove one from a sector radio using a [color=yellow]screwdriver[/color].
 
   ## Repairing
-  <Box>
+  <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
-    <GuideEntityEmbed Entity="Defibrillator" Caption="Defibrillator"/>
+    Welders can be used to repair [color=yellow]Brute[/color] damage.
   </Box>
-
-  IPCs can repair themselves and be repaired using a welder. Make sure the [color=yellow]welder[/color] has enough fuel for the job!
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
+    Cables can be used to repair [color=yellow]Burns[/color].
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="SheetGlass" Caption="Glass Sheets (any type)"/>
+    Glass Sheets can be used to repair [color=yellow]Blindness[/color].
+  </Box>
   In the event an IPC dies, after being fully repaired, it should receive a shock to reboot. Simply use a [color=yellow]Defibrillator[/color] to perform this task.
 </Document>
 
