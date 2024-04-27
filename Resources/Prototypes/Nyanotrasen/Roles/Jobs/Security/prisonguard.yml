@@ -3,18 +3,18 @@
   name: job-name-guard
   description: job-description-guard
   playTimeTracker: JobPrisonGuard
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 14400
+  # requirements:
+    # - !type:OverallPlaytimeRequirement
+      # time: 18000
+    # - !type:DepartmentTimeRequirement
+      # department: Security
+      # time: 14400
   startingGear: PrisonGuardGear
   alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconPrisonGuard"
   supervisors: job-supervisors-warden
-  setPreference: true
+  setPreference: false  # disabled because why?
 #  whitelistRequired: true
   access:
   - Security

@@ -1,13 +1,6 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-# DeltaV
-  - Arena
-  - Asterisk
-  - Edge
-  - Hammurabi
-  - Pebble
-  - Shoukou
-  - Tortuga
-  - TheHive
-  #- Submarine
+  - Saltern
+  - Packed
+  - Pillar

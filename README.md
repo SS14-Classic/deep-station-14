@@ -1,3 +1,9 @@
+# Deep Station 14
+Deep Station 14 is a fork of SS14 with a focus on a more "classic" space station experience, respecting our contributors efforts and a more open administrative and project management approach. Check out our [Discord](https://discord.gg/4gGSWyNbQF) to get involved in the conversation and development.
+
+All information below this point refers to upstream which we are forked from.
+___
+
 # Einstein Engines
 
 <p align="center"><img src="https://raw.githubusercontent.com/Simple-Station/Einstein-Engines/master/Resources/Textures/Logo/splashlogo.png" width="512px" /></p>
