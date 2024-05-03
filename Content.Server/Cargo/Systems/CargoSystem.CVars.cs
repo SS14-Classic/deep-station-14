@@ -21,6 +21,6 @@ namespace Content.Server.Cargo.Systems
         ///      comment out the "trade:" section.
         /// </remarks>
         public static readonly CVarDef<bool> CreateCargoMap =
-            CVarDef.Create("cargo.tradestation_spawns_in_ftl_map", false, CVar.SERVERONLY);
+            CVarDef.Create("cargo.tradestation_spawns_in_ftl_map", true, CVar.SERVERONLY);
     }
 }
