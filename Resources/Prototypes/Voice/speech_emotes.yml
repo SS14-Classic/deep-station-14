@@ -281,7 +281,7 @@
 
 # IPC emotes
 - type: emote
-  id: Whirr
+  id: IPCWhirr
   category: Vocal
   chatMessages: [whirrs]
   chatTriggers:
@@ -290,8 +290,9 @@
     - whirrs.
     - whirrs!
 
+# HarpyBeep
 # - type: emote
-  # id: Beep
+  # id: IPCBeep
   # category: Vocal
   # chatMessages: [beeps]
   # chatTriggers:
@@ -301,7 +302,7 @@
     # - beeps!
     
 - type: emote
-  id: Boop
+  id: IPCBoop
   category: Vocal
   chatMessages: [boops]
   chatTriggers:
@@ -311,7 +312,7 @@
     - boops!
 
 - type: emote
-  id: Ping
+  id: IPCPing
   category: Vocal
   chatMessages: [pings]
   chatTriggers:

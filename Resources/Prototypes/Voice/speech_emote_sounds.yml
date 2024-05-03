@@ -308,15 +308,15 @@
       path: /Audio/Effects/sparks1.ogg
       params:
         variation: 0.125
-    Ping:
+    IPCPing:
       path: /Audio/Effects/beep1.ogg
       params:
         variation: 0.125
-    Beep:
-      collection: IPCBeeps
-    Boop:
+    HarpyBeep:
+      collection: HarpyBeeps
+    IPCBoop:
       collection: IPCBoops
-    Whirr:
+    IPCWhirr:
       collection: IPCWhirrs
     Honk:
       collection: BikeHorn
