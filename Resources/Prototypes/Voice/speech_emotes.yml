@@ -170,91 +170,19 @@
    - click
    - click.
    - click!
+   - click?
    - clicks
    - clicks.
    - clicks!
-   
-- type: emote
-  id: Chirp
-  category: Vocal
-  chatMessages: [chirps!]
-  chatTriggers:
-    - chirp
-    - chirp!
-    - chirp.
-    - chirps
-    - churps.
-    - chirps!
-    - chirped
-    - chirped.
-    - chirped!
-    - chirping
-    - chirping.
-    - chirping! 
-    
-- type: emote
-  id: Buzz
-  category: Vocal
-  chatMessages: [buzz!]
-  chatTriggers:
-    - buzzing
-    - buzzing!
-    - buzzing.
-    - buzz
-    - buzz.
-    - buzz!
-    - buzzed
-    - buzzed.
-    - buzzed!
-    - buzzes
-    - buzzes.
-    - buzzes!
-    
-- type: emote
-  id: Weh
-  category: Vocal
-  chatMessages: [Wehs!]
-    
-# IPC emotes
-- type: emote
-  id: Whirr
-  category: Vocal
-  chatMessages: [whirrs]
-  chatTriggers:
-    - whirr
-    - whirrs
-    - whirrs.
-    - whirrs!
-
-# - type: emote
-  # id: Beep
-  # category: Vocal
-  # chatMessages: [beeps]
-  # chatTriggers:
-    # - beep
-    # - beeps
-    # - beeps.
-    # - beeps!
-    
-- type: emote
-  id: Boop
-  category: Vocal
-  chatMessages: [boops]
-  chatTriggers:
-    - boop
-    - boops
-    - boops.
-    - boops!
-
-- type: emote
-  id: Ping
-  category: Vocal
-  chatMessages: [pings]
-  chatTriggers:
-    - ping
-    - pings
-    - pings.
-    - pings!
+   - clicks?
+   - clicked
+   - clicked.
+   - clicked!
+   - clicked?
+   - clicking
+   - clicking.
+   - clicking!
+   - clicking?
 
 # hand emotes
 - type: emote
@@ -305,3 +233,48 @@
   chatMessages: ["emote-deathgasp"]
   chatTriggers:
   - deathgasp
+
+- type: emote
+  id: Buzz
+  category: Vocal
+  chatMessages: [buzz!]
+  chatTriggers:
+    - buzzing
+    - buzzing!
+    - buzzing.
+    - buzz
+    - buzz.
+    - buzz!
+    - buzzed
+    - buzzed.
+    - buzzed!
+    - buzzes
+    - buzzes.
+    - buzzes!
+
+- type: emote
+  id: Weh
+  category: Vocal
+  chatMessages: [Wehs!]
+
+- type: emote
+  id: Chirp
+  category: Vocal
+  chatMessages: [chirps!]
+  chatTriggers:
+    - chirp
+    - chirp.
+    - chirp!
+    - chirp?
+    - chirps
+    - chirps.
+    - chirps!
+    - chirps?
+    - chirped
+    - chirped.
+    - chirped!
+    - chirped?
+    - chirping
+    - chirping.
+    - chirping!
+    - chirping?
