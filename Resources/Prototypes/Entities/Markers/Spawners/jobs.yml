@@ -440,15 +440,14 @@
 - type: entity
   id: SpawnPointResearchDirector
   parent: SpawnPointJobBase
-  name: mystagogue # DeltaV - Epistemics Department replacing Science
+  name: research director
   components:
   - type: SpawnPoint
     job_id: ResearchDirector
   - type: Sprite
     layers:
       - state: green
-      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Epistemics new labcoats
-        state: mystagogue
+        state: rd
 
 - type: entity
   id: SpawnPointSeniorResearcher

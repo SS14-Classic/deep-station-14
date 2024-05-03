@@ -589,7 +589,7 @@
 - type: entity
   parent: BasePDA
   id: RnDPDA
-  name: mystagogue PDA # DeltaV - Epistemics Department replacing Science
+  name: research director PDA
   description: It appears surprisingly ordinary.
   components:
   - type: Pda
@@ -611,7 +611,7 @@
 - type: entity
   parent: BasePDA
   id: SciencePDA
-  name: epistemics PDA # DeltaV - Epistemics Department replacing Science
+  name: science PDA
   description: It's covered with an unknown gooey substance.
   components:
   - type: Pda

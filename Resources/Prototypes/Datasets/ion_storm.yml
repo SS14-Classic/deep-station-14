@@ -326,6 +326,7 @@
   - CHEMISTS
   - CHIEF ENGINEERS
   - CHIEF MEDICAL OFFICERS
+  - RESEARCH DIRECTORS
   - CLOWNS
   - CREW-MEMBERS
   - CYBORGS
@@ -346,7 +347,7 @@
   - LOGISTICS OFFICERS
   # End of modified code
   # DeltaV - Epistemics Department - Replace Research Director with Mystagogue
-  - MYSTAGOGUES
+  # - MYSTAGOGUES
   # End of modified code
   - ROBOTICISTS
   - SALVAGE SPECIALISTS
