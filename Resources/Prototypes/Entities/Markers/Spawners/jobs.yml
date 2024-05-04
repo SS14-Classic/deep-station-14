@@ -447,7 +447,7 @@
   - type: Sprite
     layers:
       - state: green
-        state: rd
+      - state: rd
 
 - type: entity
   id: SpawnPointSeniorResearcher
