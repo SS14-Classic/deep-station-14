@@ -34,7 +34,7 @@ This is the "short" form of the rules, which has all the information any regular
     - By picking prisoner, you have chosen to RP as a prisoner. You are still subject to rules pertaining to escalation, and should only seek to escape from the brig with good roleplay reasoning, such as abusive security, or a badly damaged perma.
     - Creatures taken over by player characters should act accordingly to their role and that creatures intelligence. Dumb animals won't dodge bullets.
 
-[color=#a4885c]2.[/color] Metagame Rules
+[color=#a4885c]3.[/color] Metagame Rules
     - Metagrudging or harassing or killing someone who harmed you in a previous life or round is not allowed. Do not act on things you saw while dead either.
 	- Meta communication is also banned. Don’t use VC or other means to communicate IC or current round information to others.
 	- Don't blur the lines between IC and OOC. Keep them strictly separate and remember rule 1.1.
@@ -47,10 +47,11 @@ This is the "short" form of the rules, which has all the information any regular
     - Do not make yourself a major problem/annoyance/disruption for the crew while not being an antagonist (i.e. self-antagging).
     - Do not make yourself a major problem/annoyance/disruption for one specific crew member in a way that would actively detract from the other player's enjoyment of the shift.
     - Do not, as a crewmate, hide the nuclear fission explosive (i.e. "the nuke") in an impossible to see location.
-    - Do not ignore the admin help relay or abuse it by flooding it with garbage, checking for admins before stating a problem (ex: "hello?", "any admins?"), using it as a chatroom, or sending messages of no substance. Hostility to administrators in the relay will result in your removal. All ahelp messages are sent to the Delta-V Discord.
+    - Do not ignore the admin help relay or abuse it by flooding it with garbage, checking for admins before stating a problem (ex: "hello?", "any admins?"), using it as a chatroom, or sending messages of no substance. Hostility to administrators in the relay will result in your removal. All ahelp messages are sent to the Singularity Network Discord.
     - Department strikes (ex: cargonia and any variation thereof), riots, cults, and any other type of similar largely disruptive behavior are discouraged. Members must obtain admin Central Command permission before engaging in this behavior.
     - AFK (aka SSD) and catatonic players are considered to have the same rights as a conscious crewmate.
     - End-of-round grief (EORG) is only allowed post end round screen. This includes attacking, destroying, polluting, and injuring without reason both *at* and *on the way to* Central Command.
+        * Please be considerate to players trying to finish up their roleplay and do not wish to engage in EORG. Refer to rule 1.2.
         * This also extends to the following:
             * Neutral parties, such as space dragons or sentient artifacts activating harmful nodes.
             * Attempts to block the docking ports or ports leading into Central Command.
@@ -102,7 +103,7 @@ In the following special circumstances, lethal force may be used by Security:
     - As a psionic mantis, it is not your goal to hunt down psionics. Do not mindbreak others against their will solely because they have psionic powers.
 
 
-[color=#a4885c]0.[/color] Admins can disregard any and all of these rules if they deem it in the best interest of the current round, server, and/or community at large.
+[color=#a4885c]5.[/color] Admins can disregard any and all of these rules if they deem it in the best interest of the current round, server, and/or community at large.
     - Administrators will be held fully accountable for their actions if they exercise this privilege.
     - All of these rules apply as they are intended. Every example of a rule break cannot be defined as written, therefore, enforcement of the rules is subject to staff interpretation of the rule's intention.
 
