@@ -3,7 +3,9 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
-  # requirements:
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 3600 # 1 Hour
     # - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
       # role: JobSecurityOfficer
       # time: 43200 # DeltaV - 12 hrs

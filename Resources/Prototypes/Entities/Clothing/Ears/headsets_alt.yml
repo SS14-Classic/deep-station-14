@@ -118,7 +118,7 @@
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltScience
-  name: mystagogue's over-ear headset # DeltaV - Epistemics Department replacing Science
+  name: research director's over-ear headset
   components:
   - type: ContainerFill
     containers:

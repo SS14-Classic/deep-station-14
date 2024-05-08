@@ -1146,6 +1146,9 @@
   id: SuitEVA
 
 - type: Tag
+  id: SurgeryTool
+
+- type: Tag
   id: SurveillanceCameraMonitorCircuitboard
 
 - type: Tag
@@ -1183,6 +1186,9 @@
 
 - type: Tag
   id: Torch
+
+- type: Tag
+  id: ToySidearm
 
 - type: Tag
   id: Trash

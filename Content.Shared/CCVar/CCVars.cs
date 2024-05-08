@@ -773,6 +773,12 @@ namespace Content.Shared.CCVar
             CVarDef.Create("admin.see_own_notes", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
+        /// Should the server play a quick sound to the active admins whenever a new player joins?
+        /// </summary>
+        public static readonly CVarDef<bool> AdminNewPlayerJoinSound =
+            CVarDef.Create("admin.new_player_join_sound", false, CVar.SERVERONLY);
+
+        /// <summary>
         /// The amount of days before the note starts fading. It will slowly lose opacity until it reaches stale. Set to 0 to disable.
         /// </summary>
         public static readonly CVarDef<double> NoteFreshDays =
@@ -1070,7 +1076,7 @@ namespace Content.Shared.CCVar
 		///     Also looks weird on slow spacing for unrelated reasons. If you do want to enable this, you should probably turn on instaspacing.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosRipTiles =
-            CVarDef.Create("atmos.monstermos_rip_tiles", false, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.

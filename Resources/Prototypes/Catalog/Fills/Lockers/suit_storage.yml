@@ -178,7 +178,7 @@
 - type: entity
   id: SuitStorageRD
   parent: SuitStorageBase
-  suffix: Mystagogue # DeltaV - Epistemics Department replacing Science
+  suffix: Research Director
   components:
   - type: StorageFill
     contents:
@@ -275,6 +275,8 @@
       - id: OxygenTankFilled
       - id: ClothingOuterHardsuitCombatCorpsman
       - id: ClothingMaskBreath
+  - type: AccessReader
+    access: [ [ "Corpsman" ] ]
 
 # DeltaV - End Changes
 
