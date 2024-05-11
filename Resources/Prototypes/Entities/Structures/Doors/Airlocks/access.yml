@@ -24,7 +24,7 @@
     access: [["Theatre"]]
 
 - type: entity
-  parent: AirlockScience # DeltaV - Chapel is in Epistemics
+  parent: AirlockServiceLocked
   id: AirlockChapelLocked
   suffix: Chapel, Locked
   components:
@@ -82,7 +82,7 @@
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalCargoLocked
-  suffix: External, Logistics, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: External, Logistics, Locked
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -162,7 +162,7 @@
 - type: entity
   parent: AirlockCargo
   id: AirlockCargoLocked
-  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: Logistics, Locked
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -218,7 +218,7 @@
 - type: entity
   parent: AirlockScience
   id: AirlockScienceLocked
-  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
+  suffix: Science, Locked
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -226,7 +226,7 @@
 - type: entity
   parent: AirlockScience
   id: AirlockMedicalScienceLocked
-  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
+  suffix: Medical/Science, Locked 
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
@@ -302,7 +302,7 @@
 - type: entity
   parent: AirlockCommand
   id: AirlockQuartermasterLocked
-  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: Logistics Officer, Locked
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -418,7 +418,7 @@
 - type: entity
   parent: AirlockExternalGlass
   id: AirlockExternalGlassCargoLocked
-  suffix: External, Glass, Logistics, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: External, Glass, Logistics, Locked
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -480,7 +480,7 @@
     access: [["Hydroponics"]]
 
 - type: entity
-  parent: AirlockScienceGlass  # DeltaV - Chapel is in Epistemics
+  parent: AirlockScienceGlass
   id: AirlockChapelGlassLocked
   suffix: Chapel, Locked
   components:
@@ -506,7 +506,7 @@
 - type: entity
   parent: AirlockCargoGlass
   id: AirlockCargoGlassLocked
-  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: Logistics, Locked
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -562,7 +562,7 @@
 - type: entity
   parent: AirlockScienceGlass
   id: AirlockScienceGlassLocked
-  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
+  suffix: Science, Locked
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -570,7 +570,7 @@
 - type: entity
   parent: AirlockScienceGlass
   id: AirlockMedicalScienceGlassLocked
-  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
+  suffix: Medical/Science, Locked
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
@@ -644,7 +644,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockQuartermasterGlassLocked
-  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: Logistics Officer, Locked
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -742,7 +742,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintCargoLocked
-  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: Logistics, Locked
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -870,7 +870,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintRnDLocked
-  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
+  suffix: Science, Locked
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -878,7 +878,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintRnDMedLocked
-  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
+  suffix: Medical/Science, Locked
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]

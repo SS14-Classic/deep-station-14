@@ -107,7 +107,7 @@
     allowSpeech: true
     requirements:
     - !type:DepartmentTimeRequirement
-      department: Epistemics
+      department: Science
       time: 14400 # DeltaV - 4 hours
 
 - type: entity

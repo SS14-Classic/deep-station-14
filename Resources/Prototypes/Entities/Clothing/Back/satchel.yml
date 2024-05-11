@@ -99,7 +99,7 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelScience
-  name: epistemics satchel # DeltaV - Epistemics Department replacing Science
+  name: science satchel
   description: Useful for holding research materials.
   components:
   - type: Sprite

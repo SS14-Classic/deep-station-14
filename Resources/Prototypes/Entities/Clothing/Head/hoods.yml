@@ -46,7 +46,7 @@
   parent: ClothingHeadHatHoodBioGeneral
   id: ClothingHeadHatHoodBioScientist
   name: bio hood
-  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
+  suffix: Science
   description: A hood that protects the head and face from biological contaminants.
   components:
   - type: IdentityBlocker

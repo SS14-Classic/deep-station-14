@@ -139,7 +139,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackScience
-  name: epistemics backpack # DeltaV - Epistemics Department replacing Science
+  name: science backpack
   description: A backpack specially designed to repel stains and hazardous liquids.
   components:
   - type: Sprite
