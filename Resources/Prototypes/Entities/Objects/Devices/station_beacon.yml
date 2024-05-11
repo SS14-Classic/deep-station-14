@@ -24,7 +24,7 @@
   - type: NavMapBeacon
     text: station-beacon-general
     color: "#D4D4D496"
-  - type: WarpPoint
+  #- type: WarpPoint # Delta V - Removes in favor of Warp Point Markers
   - type: ActivatableUI
     key: enum.NavMapBeaconUiKey.Key
     singleUser: true
@@ -294,10 +294,10 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconScience
-  suffix: Epistemics #Delta V - Renamed
+  suffix: Science
   components:
   - type: NavMapBeacon
-    text: station-beacon-epistemics #Delta V - Renamed
+    text: station-beacon-science
     color: "#D381C9"
 
 - type: entity

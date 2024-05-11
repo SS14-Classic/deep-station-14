@@ -167,7 +167,7 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetScience
-  name: epistemics headset # DeltaV - Epistemics Department replacing Science
+  name: science headset # DeltaV - Epistemics Department replacing Science
   description: A sciency headset. Like usual. # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
@@ -215,7 +215,7 @@
 - type: entity
   parent: ClothingHeadsetScience
   id: ClothingHeadsetRD
-  name: mysta headset # DeltaV - Epistemics Department replacing Science
+  name: research director headset
   description: Lamarr used to love chewing on this...
   components:
   - type: ContainerFill

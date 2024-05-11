@@ -107,7 +107,7 @@
 - type: entity
   parent: CrateGenericSteel
   id: CrateScience
-  name: epistemics crate # DeltaV - Epistemics Department replacing Science
+  name: science crate
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/science.rsi
@@ -228,7 +228,7 @@
 - type: entity
   parent: CrateBaseSecure
   id: CrateScienceSecure
-  name: secure epistemics crate # DeltaV - Epistemics Department replacing Science
+  name: secure science crate
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/scicrate_secure.rsi
@@ -280,6 +280,18 @@
     sprite: Structures/Storage/Crates/weapon.rsi
   - type: Sprite
     sprite: Structures/Storage/Crates/weapon.rsi
+  - type: AccessReader
+    access: [["Armory"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  suffix: Armory, Secure
+  id: CrateContrabandStorageSecure
+  name: contraband storage crate
+  description: An armory access locked crate for storing contraband confiscated from suspects or prisoners.
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/Crates/sec_gear.rsi
   - type: AccessReader
     access: [["Armory"]]
 
