@@ -195,7 +195,7 @@
     state: base
   product: CrateVendingMachineRestockRoboticsFilled
   cost: 1600
-  category: Science # DeltaV - Epistemics Department replacing Science
+  category: Science
   group: market
 
 - type: cargoProduct
