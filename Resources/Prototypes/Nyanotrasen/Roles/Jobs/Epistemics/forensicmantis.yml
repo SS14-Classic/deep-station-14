@@ -3,6 +3,7 @@
   name: job-name-mantis
   description: job-description-mantis
   playTimeTracker: JobForensicMantis
+<<<<<<< HEAD
   # requirements:
     # - !type:OverallPlaytimeRequirement
       # time: 18000
@@ -15,14 +16,30 @@
   antagAdvantage: 5 # DeltaV - From 4 to 5
   canBeAntag: true 
   # whitelistRequired: true
+=======
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 3600
+  startingGear: ForensicMantisGear
+  icon: "JobIconForensicMantis"
+  supervisors: job-supervisors-rd
+  antagAdvantage: 5
+  canBeAntag: true
+>>>>>>> my-fork/Psionic-Power-Refactor
   access:
   - Research
   - Maintenance
-  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+  - Mantis
   special:
   - !type:AddComponentSpecial
     components:
+    - type: PotentialPsionic
     - type: Psionic
+      amplification: 0.3
+      dampening: 0.3
     - type: MetapsionicPower
 
 - type: startingGear

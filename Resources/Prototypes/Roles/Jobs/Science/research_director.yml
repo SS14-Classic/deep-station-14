@@ -3,7 +3,17 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
+<<<<<<< HEAD
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
+=======
+  antagAdvantage: 6
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 54000
+    - !type:OverallPlaytimeRequirement
+      time: 72000
+>>>>>>> my-fork/Psionic-Power-Refactor
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -15,19 +25,24 @@
   - Command
   - Maintenance
   - ResearchDirector
+<<<<<<< HEAD
   - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+=======
+  - Mantis
+  - Chapel
+>>>>>>> my-fork/Psionic-Power-Refactor
   - Cryogenics
   special:
   - !type:AddComponentSpecial
     components:
-    - type: BibleUser # Nyano - Lets them heal with bibles
-    - type: Psionic # Nyano - They start with telepathic chat
-    - type: DispelPower # Nyano - They get the Dispel psionic power on spawn
+    - type: BibleUser
+    - type: PotentialPsionic
+    - type: Psionic
+      dampening: 1 #Mystagogue gets a significant buff to his antimage abilities, making him better at dispelling than other people
+    - type: DispelPower
+    - type: CommandStaff
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial
-    components:
-      - type: CommandStaff
 
 - type: startingGear
   id: ResearchDirectorGear
@@ -38,6 +53,10 @@
     outerClothing: ClothingOuterCoatRD
     id: RnDPDA
     ears: ClothingHeadsetRD
+<<<<<<< HEAD
+=======
+    belt: BibleMystagogue
+>>>>>>> my-fork/Psionic-Power-Refactor
   innerClothingSkirt: ClothingUniformJumpskirtResearchDirector
   satchel: ClothingBackpackSatchelResearchDirectorFilled
   duffelbag: ClothingBackpackDuffelResearchDirectorFilled
