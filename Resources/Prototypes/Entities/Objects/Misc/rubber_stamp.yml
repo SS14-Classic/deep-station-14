@@ -172,7 +172,7 @@
       state: stamp-qm
 
 - type: entity
-  name: mystagogue's rubber stamp # DeltaV - Epistemics Department replacing Science
+  name: research director's rubber stamp
   parent: RubberStampBase
   id: RubberStampRd
   suffix: DO NOT MAP

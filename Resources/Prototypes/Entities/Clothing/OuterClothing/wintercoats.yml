@@ -358,7 +358,7 @@
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterRD
-  name: mystagogue's winter coat # DeltaV - Epistemics Department replacing Science
+  name: research director's winter coat
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
@@ -390,7 +390,7 @@
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterSci
-  name: epistemics winter coat # DeltaV - Epistemics Department replacing Science
+  name: scientists winter coat
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi

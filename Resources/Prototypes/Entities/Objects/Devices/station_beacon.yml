@@ -294,10 +294,10 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconScience
-  suffix: Epistemics #Delta V - Renamed
+  suffix: Science
   components:
   - type: NavMapBeacon
-    text: station-beacon-epistemics #Delta V - Renamed
+    text: station-beacon-science
     color: "#D381C9"
 
 - type: entity

@@ -46,7 +46,7 @@
   parent: ClothingHeadHatHoodBioGeneral
   id: ClothingHeadHatHoodBioScientist
   name: bio hood
-  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
+  suffix: Science
   description: A hood that protects the head and face from biological contaminants.
   components:
   - type: IdentityBlocker
@@ -415,7 +415,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterRD
   noSpawn: true
-  name: mystagogue's coat hood # DeltaV - Epistemics Department replacing Science
+  name: research director's coat hood
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodrd.rsi

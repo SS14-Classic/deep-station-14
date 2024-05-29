@@ -69,8 +69,8 @@
 - type: entity
   parent: ClothingNeckMedalBase
   id: ClothingNeckSciencemedal
-  name: epistemics medal # DeltaV - Epistemics Department replacing Science
-  description: Whether it's pushing the edges of modern science and technology, foraying into the vast expanses of the noosphere, or just fetching the coffee - this medal is to be assigned only for the best work in the epistemics department. # DeltaV - Epistemics Department replacing Science. Updated description for flavour
+  name: science medal
+  description: Whether it's pushing the edges of modern science and technology, foraying into the vast expanses of the noosphere, or just fetching the coffee - this medal is to be assigned only for the best work in the science department.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Neck/Medals/sciencemedal.rsi # DeltaV - resprite

@@ -179,7 +179,7 @@
 - type: entity
   id: IntercomScience
   parent: Intercom
-  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
+  suffix: Science
   components:
   - type: Intercom
     supportedChannels:

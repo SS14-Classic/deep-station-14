@@ -1,9 +1,10 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-# DeltaV
-  - Arena
-  - Asterisk
+  - Saltern
+  - Packed
+  - PackedSM
+  - Pillar
   - Edge
   - Hammurabi
   - Lighthouse
