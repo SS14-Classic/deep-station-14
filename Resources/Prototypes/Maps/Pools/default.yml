@@ -1,8 +1,14 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - Saltern
-  - Packed
-  - PackedSM
-  - Pillar
+# DeltaV
+  - Arena
+  - Asterisk
   - Edge
+  - Hammurabi
+  - Lighthouse
+  - Pebble
+  - Shoukou
+  - Tortuga
+  - TheHive
+  - Submarine
