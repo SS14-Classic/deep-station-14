@@ -1177,7 +1177,7 @@
   conditions:
     - !type:BuyerDepartmentCondition
       whitelist:
-      - Science
+      - Epistemics
 
 - type: listing
   id: uplinkProximityMine
