@@ -65,7 +65,7 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/science.rsi
   - type: PaintableAirlock
-    department: Science
+    department: Epistemics
 
 - type: entity
   parent: Airlock
@@ -247,7 +247,7 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/science.rsi
   - type: PaintableAirlock
-    department: Science
+    department: Epistemics
 
 - type: entity
   parent: AirlockGlass
