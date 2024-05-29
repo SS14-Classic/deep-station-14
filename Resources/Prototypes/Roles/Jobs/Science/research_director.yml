@@ -17,7 +17,7 @@
   - ResearchDirector
   - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
   - Cryogenics
-  special: 
+  special:
   - !type:AddComponentSpecial
     components:
     - type: BibleUser # Nyano - Lets them heal with bibles
