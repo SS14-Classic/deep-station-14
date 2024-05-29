@@ -39,10 +39,7 @@
     outerClothing: ClothingOuterCoatRD
     id: RnDPDA
     ears: ClothingHeadsetRD
-<<<<<<< HEAD
-=======
-    belt: BibleMystagogue
->>>>>>> my-fork/Psionic-Power-Refactor
+    belt: BibleMystagogue #This isn't the chaplain bible lol, it's for performing his summon Ifrit ritual
   innerClothingSkirt: ClothingUniformJumpskirtResearchDirector
   satchel: ClothingBackpackSatchelResearchDirectorFilled
   duffelbag: ClothingBackpackDuffelResearchDirectorFilled
