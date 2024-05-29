@@ -55,13 +55,12 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomScienceCorpse
-  suffix: Dead, Epistemics # DeltaV - Epistemics Department replacing Science
+  suffix: Dead, Science
   components:
   - type: Loadout
     prototypes:
     - ResearchAssistantGear
     - ScientistGear
-    - ChaplainGear # DeltaV - Move Chaplain into Epistemics
     - ForensicMantisGear # Nyanotrasen - Forensic Mantis
 
 - type: entity

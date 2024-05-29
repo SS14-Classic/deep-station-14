@@ -332,7 +332,7 @@
 
 - type: stealTargetGroup
   id: PlantRD
-  name: Mystagogue's potted plant # DeltaV - Epistemics Department - Replace Research Director with Mystagogue
+  name: Research Director's potted plant
   sprite:
     sprite: Structures/Furniture/potted_plants.rsi
     state: plant-25
