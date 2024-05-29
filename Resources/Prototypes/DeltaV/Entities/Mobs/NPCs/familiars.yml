@@ -84,7 +84,8 @@
   - type: PotentialPsionic
   - type: Psionic
     removable: false
-  # - type: PyrokinesisPower # Pending psionic rework
+    amplification: 4
+  - type: PyrokinesisPower
   - type: Grammar
     attributes:
       proper: true
@@ -105,10 +106,6 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 14400 # DeltaV - 4 hours
 
 - type: entity
   parent: WelderExperimental

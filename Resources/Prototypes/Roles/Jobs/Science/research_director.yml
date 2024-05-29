@@ -4,12 +4,6 @@
   description: job-description-rd
   playTimeTracker: JobResearchDirector
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
-  # requirements:
-    # - !type:DepartmentTimeRequirement
-      # department: Science
-      # time: 54000 # 15 hours
-    # - !type:OverallPlaytimeRequirement
-      # time: 72000 # 20 hours
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -21,19 +15,20 @@
   - Command
   - Maintenance
   - ResearchDirector
-  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+  - Mantis
+  - Chapel
   - Cryogenics
-  special: 
+  special:
   - !type:AddComponentSpecial
     components:
-    # - type: BibleUser # Nyano - Lets them heal with bibles
-    - type: Psionic # Nyano - They start with telepathic chat
-    - type: DispelPower # Nyano - They get the Dispel psionic power on spawn
+    - type: BibleUser
+    - type: PotentialPsionic
+    - type: Psionic
+      dampening: 1 #Mystagogue gets a significant buff to his antimage abilities, making him better at dispelling than other people
+    - type: DispelPower
+    - type: CommandStaff
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial
-    components:
-      - type: CommandStaff
 
 - type: startingGear
   id: ResearchDirectorGear
@@ -44,6 +39,7 @@
     outerClothing: ClothingOuterCoatRD
     id: RnDPDA
     ears: ClothingHeadsetRD
+    belt: BibleMystagogue #This isn't the chaplain bible lol, it's for performing his summon Ifrit ritual
   innerClothingSkirt: ClothingUniformJumpskirtResearchDirector
   satchel: ClothingBackpackSatchelResearchDirectorFilled
   duffelbag: ClothingBackpackDuffelResearchDirectorFilled
