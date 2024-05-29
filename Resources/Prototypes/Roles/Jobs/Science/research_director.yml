@@ -3,17 +3,7 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
-<<<<<<< HEAD
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
-=======
-  antagAdvantage: 6
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Epistemics
-      time: 54000
-    - !type:OverallPlaytimeRequirement
-      time: 72000
->>>>>>> my-fork/Psionic-Power-Refactor
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -25,12 +15,8 @@
   - Command
   - Maintenance
   - ResearchDirector
-<<<<<<< HEAD
-  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
-=======
   - Mantis
   - Chapel
->>>>>>> my-fork/Psionic-Power-Refactor
   - Cryogenics
   special:
   - !type:AddComponentSpecial
