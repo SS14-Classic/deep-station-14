@@ -26,6 +26,7 @@
     - type: Psionic
       dampening: 1 #Mystagogue gets a significant buff to his antimage abilities, making him better at dispelling than other people
     - type: DispelPower
+    - type: MetapsionicPower
     - type: CommandStaff
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

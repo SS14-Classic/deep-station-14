@@ -83,11 +83,6 @@ namespace Content.Server.Psionics.Abilities
             _doAfterSystem.TryStartDoAfter(doAfterArgs);
 
             ToggleInvisibility(args.Performer);
-            var action = Spawn(PsionicInvisibilityUsedComponent.PsionicInvisibilityUsedActionPrototype);
-            _actions.AddAction(uid, action, action);
-            _actions.TryGetActionData(action, out var actionData);
-            if (actionData is { UseDelay: not null })
-                _actions.StartUseDelay(action);
 
             _psionics.LogPowerUsed(uid, "psionic invisibility",
                 (int) MathF.Round(8 * psionic.Amplification - 2 * psionic.Dampening),
@@ -97,9 +92,6 @@ namespace Content.Server.Psionics.Abilities
 
         private void OnPowerOff(RemovePsionicInvisibilityOffPowerActionEvent args)
         {
-            if (!HasComp<PsionicInvisibilityUsedComponent>(args.Performer))
-                return;
-
             ToggleInvisibility(args.Performer);
             args.Handled = true;
         }
