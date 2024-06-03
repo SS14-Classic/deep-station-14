@@ -61,7 +61,7 @@ namespace Content.IntegrationTests.Tests
 			"Submarine", //DeltaV
             "Packed",
             "PackedSM",
-            "Pillaer",
+            "Pillar",
             "Saltern"
         };
 
