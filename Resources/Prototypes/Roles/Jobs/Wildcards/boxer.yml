@@ -3,7 +3,7 @@
   name: job-name-boxer
   description: job-description-boxer
   playTimeTracker: JobBoxer
-  setPreference: false # disabled because what even is this role
+  setPreference: true
   # requirements:
     # - !type:OverallPlaytimeRequirement
       # time: 7200 #DeltaV 2 hours

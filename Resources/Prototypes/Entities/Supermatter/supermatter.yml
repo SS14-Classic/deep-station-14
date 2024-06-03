@@ -63,3 +63,12 @@
       maxIntensity: 10000
       intensitySlope: 10
       totalIntensity: 10000
+    - type: IntrinsicRadioReceiver
+      channels:
+      - Engineering
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Engineering
+    - type: ActiveRadio
+      channels:
+      - Engineering

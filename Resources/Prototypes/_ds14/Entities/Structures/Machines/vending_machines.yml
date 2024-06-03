@@ -61,7 +61,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineColaDS14
   parent: VendingMachineCola
@@ -80,7 +80,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-    
+
 - type: entity
   id: VendingMachineDinnerwareDS14
   parent: VendingMachineDinnerware
@@ -137,7 +137,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineFitnessDS14
   parent: VendingMachineDS14
@@ -145,6 +145,7 @@
   description: An exercise aid and nutrition supplement vendor that preys on your inadequacy.
   components:
   - type: Sprite
+    noRot: true
     sprite: _ds14/Structures/Machines/VendingMachines/fitness.rsi
     layers:
     - state: "off"
@@ -164,7 +165,7 @@
     normalState: normal-unshaded
   - type: Advertise
     pack: FitnessVendAds
-  
+
 - type: entity
   id: VendingMachineGamesDS14
   parent: VendingMachineGames
@@ -183,7 +184,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineHotfoodDS14
   parent: VendingMachineDS14
@@ -191,6 +192,7 @@
   description: An old vending machine promising 'hot foods'. You doubt any of its contents are still edible.
   components:
   - type: Sprite
+    noRot: true
     sprite: _ds14/Structures/Machines/VendingMachines/hotfood.rsi
     layers:
     - state: "off"
@@ -207,7 +209,7 @@
     normalState: normal-unshaded
   - type: Advertise
     pack: HotfoodAds
-      
+
 - type: entity
   id: VendingMachineCartDS14 # Laptop vendor actually
   parent: VendingMachineCart # DS14:TODO: Placeholder
@@ -226,7 +228,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineJanitorDS14 # Lavatory vendor actually, for bathrooms.
   parent: VendingMachineJaniDrobe # DS14:TODO: Placeholder
@@ -245,7 +247,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineMagivendDS14
   parent: VendingMachineMagivend
@@ -264,7 +266,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineMedicalDS14
   parent: VendingMachineMedical
@@ -283,7 +285,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineNutrimaxDS14
   parent: VendingMachineNutri
@@ -302,7 +304,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineRoboticsDS14
   parent: VendingMachineRobotics
@@ -321,7 +323,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineSectechDS14
   parent: VendingMachineSec
@@ -340,7 +342,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineSeedsUnlockedDS14
   parent: VendingMachineSeedsUnlocked
@@ -359,7 +361,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   parent: VendingMachineSeedsUnlockedDS14
   id: VendingMachineSeedsDS14
@@ -367,7 +369,7 @@
   components:
   - type: AccessReader
     access: [["Hydroponics"]]
-    
+
 - type: entity
   id: VendingMachineSnackDS14
   parent: VendingMachineSnack
@@ -386,7 +388,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineSnixDS14
   parent: VendingMachineSnack # DS14:TODO: Placeholder
@@ -405,7 +407,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineSolsnackDS14
   parent: VendingMachineDS14
@@ -429,7 +431,7 @@
     normalState: normal-unshaded
   - type: Advertise
     pack: SolsnackAds
-      
+
 - type: entity
   id: VendingMachineSodaDS14
   parent: VendingMachineSoda
@@ -448,7 +450,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineSodaFoxDS14
   parent: VendingMachineSoda
@@ -467,7 +469,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineSovietSodaDS14
   parent: VendingMachineSovietSoda
@@ -486,7 +488,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineTheaterDS14
   parent: VendingMachineTheater
@@ -507,7 +509,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineWallMedicalDS14
   parent: VendingMachineWallMedical
@@ -526,7 +528,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     noRot: false
-      
+
 - type: entity
   id: VendingMachineWeebDS14
   parent: VendingMachineDS14
@@ -551,7 +553,7 @@
     normalState: normal-unshaded
   - type: Advertise
     pack: WeebVendAds
-      
+
 - type: entity
   id: VendingMachineYoutoolDS14
   parent: VendingMachineYouTool

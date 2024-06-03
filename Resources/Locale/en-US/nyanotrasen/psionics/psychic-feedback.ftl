@@ -14,6 +14,9 @@ sophic-grammateus-feedback = SEEKER, YOU NEED ONLY ASK FOR MY WISDOM.
 oracle-feedback = WHY DO YOU BOTHER ME SEEKER? HAVE I NOT MADE MY DESIRES CLEAR?
 metempsychotic-machine-feedback = The sea of fate flows through this machine
 ifrit-feedback = A spirit of Gehenna, bound by the will of a powerful psychic
+regeneration-feedback = {CAPITALIZE($entity)} demonstrates an overwhelming will to live
+regenerative-stasis-feedback = {CAPITALIZE($entity)} holds the life of others within their hands
+prober-feedback = A mirror into the end of time, the screaming of dead stars emanates from this machine
 
 # Power PVS Messages
 focused-metapsionic-pulse-begin = The air around {CAPITALIZE($entity)} begins to shimmer faintly

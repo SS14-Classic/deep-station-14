@@ -14,7 +14,7 @@
       path: /Audio/Ambience/Objects/vending_machine_hum.ogg
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/empty.rsi
-    snapCardinals: true
+    snapCardinals: false
   - type: Physics
     bodyType: Static
   - type: Transform
