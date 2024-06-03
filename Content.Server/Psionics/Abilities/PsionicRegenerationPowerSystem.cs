@@ -28,7 +28,6 @@ namespace Content.Server.Psionics.Abilities
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ExamineSystemShared _examine = default!;
 
         public override void Initialize()
         {
