@@ -8,7 +8,7 @@
   canBeAntag: false
   icon: "JobIconGladiator"
   supervisors: job-supervisors-security
-  setPreference: false # why does this exist
+  setPreference: true
 #  whitelistRequired: true
   requirements:
     - !type:DepartmentTimeRequirement

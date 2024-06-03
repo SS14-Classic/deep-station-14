@@ -6,7 +6,7 @@
   maxPlayers: 200
   stations:
     Pillar:
-      stationProto: StandartNanotrasenStation
+      stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} NSS Pillar {1}'
