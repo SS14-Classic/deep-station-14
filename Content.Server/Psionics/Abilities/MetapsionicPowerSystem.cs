@@ -142,9 +142,6 @@ namespace Content.Server.Psionics.Abilities
 
         private void OnDoAfter(EntityUid uid, MetapsionicPowerComponent component, FocusedMetapsionicDoAfterEvent args)
         {
-            if (!TryComp<PsionicComponent>(args.Target, out var psychic))
-                return;
-
             component.DoAfter = null;
 
             if (args.Target == null) return;
@@ -172,6 +169,9 @@ namespace Content.Server.Psionics.Abilities
                 _popups.PopupEntity(Loc.GetString("psychic-potential", ("entity", args.Target)), uid, uid, PopupType.LargeCaution);
                 return;
             }
+
+            if (!TryComp<PsionicComponent>(args.Target, out var psychic))
+                return;
 
             foreach (var psychicFeedback in psychic.PsychicFeedback)
             {

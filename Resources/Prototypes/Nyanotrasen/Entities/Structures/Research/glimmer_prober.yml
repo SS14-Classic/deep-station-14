@@ -5,6 +5,8 @@
   description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem.
   components:
   - type: Psionic
+    psychicFeedback:
+    - "prober-feedback"
   - type: GlimmerSource
   - type: Construction
     graph: GlimmerDevices

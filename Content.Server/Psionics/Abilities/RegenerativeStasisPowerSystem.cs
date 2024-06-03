@@ -61,9 +61,10 @@ namespace Content.Server.Psionics.Abilities
             && TryComp<BloodstreamComponent>(args.Target, out var stream))
             {
                 var solution = new Solution();
-                solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(MathF.Min(2.5f * psionic.Amplification + psionic.Dampening, 15f)));
-                solution.AddReagent("Epinephrine", FixedPoint2.New(MathF.Min(2.5f * psionic.Dampening + psionic.Amplification, 15f)));
-                solution.AddReagent("Nocturine", FixedPoint2.New(20f));
+                var amount = FixedPoint2.New(MathF.Min(2.5f * psionic.Amplification + psionic.Dampening, 15f));
+                solution.AddReagent("PsionicRegenerationEssence", amount);
+                solution.AddReagent("Epinephrine", amount);
+                solution.AddReagent("Nocturine", amount * 2);
                 _bloodstreamSystem.TryAddToChemicals(args.Target, solution, stream);
 
                 _psionics.LogPowerUsed(uid, "regenerative stasis",

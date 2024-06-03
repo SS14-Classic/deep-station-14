@@ -85,6 +85,8 @@
   - type: Psionic
     removable: false
     amplification: 4
+    psychicFeedback:
+    - "ifrit-feedback"
   - type: PyrokinesisPower
   - type: Grammar
     attributes:
