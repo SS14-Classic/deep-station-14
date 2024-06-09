@@ -19,8 +19,11 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Explosion.Components;
+using Content.Shared.Radio;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.Supermatter.Components;
 using Content.Shared.Supermatter.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Supermatter.Systems
 {
@@ -36,6 +39,8 @@ namespace Content.Server.Supermatter.Systems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly AmbientSoundSystem _ambient = default!;
+        [Dependency] private readonly RadioSystem _radioSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         public override void Initialize()
         {
@@ -347,21 +352,21 @@ namespace Content.Server.Supermatter.Systems
                 {
                     if (sMcomponent.Damage > sMcomponent.EmergencyPoint)
                     {
-                        _chat.TrySendInGameICMessage(uid,
-                            Loc.GetString("supermatter-danger-message", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true);
+                        var message = Loc.GetString("supermatter-danger-message", ("integrity", integrity.ToString("0.00")));
+                        var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+                        _radioSystem.SendRadioMessage(uid, message, channel, uid);
                     }
                     else if (sMcomponent.Damage >= sMcomponent.DamageArchived)
                     {
-                        _chat.TrySendInGameICMessage(uid,
-                            Loc.GetString("supermatter-warning-message", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true);
+                        var message = Loc.GetString("supermatter-warning-message", ("integrity", integrity.ToString("0.00")));
+                        var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+                        _radioSystem.SendRadioMessage(uid, message, channel, uid);
                     }
                     else
                     {
-                        _chat.TrySendInGameICMessage(uid,
-                            Loc.GetString("supermatter-safe-alert", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true);
+                        var message = Loc.GetString("supermatter-safe-alert", ("integrity", integrity.ToString("0.00")));
+                        var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+                        _radioSystem.SendRadioMessage(uid, message, channel, uid);
                     }
 
                     sMcomponent.YellAccumulator = 0;
@@ -409,15 +414,17 @@ namespace Content.Server.Supermatter.Systems
                     if (absorbedTotalMoles >= sMcomponent.MolePenaltyThreshold)
                     {
                         sMcomponent.DelamType = DelamType.Singulo;
-                        _chat.TrySendInGameICMessage(uid, Loc.GetString("supermatter-delamination-overmass"),
-                            InGameICChatType.Speak, hideChat: true);
+                        var message = Loc.GetString("supermatter-delamination-overmass");
+                        var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+                        _radioSystem.SendRadioMessage(uid, message, channel, uid);
                     }
                 }
                 else
                 {
                     sMcomponent.DelamType = DelamType.Explosion;
-                    _chat.TrySendInGameICMessage(uid, Loc.GetString("supermatter-delamination-default"),
-                        InGameICChatType.Speak, hideChat: true);
+                    var message = Loc.GetString("supermatter-delamination-default");
+                    var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+                    _radioSystem.SendRadioMessage(uid, message, channel, uid);
                 }
             }
 
@@ -430,18 +437,18 @@ namespace Content.Server.Supermatter.Systems
             //we're more than 5 seconds from delam, only yell every 5 seconds.
             if (roundSeconds >= sMcomponent.YellDelam && sMcomponent.SpeakAccumulator >= sMcomponent.YellDelam)
             {
+                var message = Loc.GetString("supermatter-seconds-before-delam", ("seconds", roundSeconds));
+                var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+                _radioSystem.SendRadioMessage(uid, message, channel, uid);
                 sMcomponent.SpeakAccumulator -= sMcomponent.YellDelam;
-                _chat.TrySendInGameICMessage(uid,
-                    Loc.GetString("supermatter-seconds-before-delam", ("Seconds", roundSeconds)),
-                    InGameICChatType.Speak, hideChat: true);
             }
             //less than 5 seconds to delam, count every second.
             else if (roundSeconds < sMcomponent.YellDelam && sMcomponent.SpeakAccumulator >= 1)
             {
                 sMcomponent.SpeakAccumulator -= 1;
-                _chat.TrySendInGameICMessage(uid,
-                    Loc.GetString("supermatter-seconds-before-delam", ("Seconds", roundSeconds)),
-                    InGameICChatType.Speak, hideChat: true);
+                var message = Loc.GetString("supermatter-seconds-before-delam", ("seconds", roundSeconds));
+                var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+                _radioSystem.SendRadioMessage(uid, message, channel, uid);
             }
 
             //TODO: make tesla(?) spawn at SupermatterComponent.PowerPenaltyThreshold and think up other delam types
