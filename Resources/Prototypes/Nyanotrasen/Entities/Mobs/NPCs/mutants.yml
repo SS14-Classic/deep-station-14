@@ -140,6 +140,7 @@
   - type: Psionic
     removable: false
   - type: MetapsionicPower
+  - type: InvisibilityPower
   - type: AntiPsionicWeapon
     punish: false
     modifiers:
