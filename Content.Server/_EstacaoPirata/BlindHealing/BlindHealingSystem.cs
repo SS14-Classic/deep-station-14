@@ -79,7 +79,6 @@ namespace Content.Server._EstacaoPirata.BlindHealing
                     BreakOnUserMove = true,
                     BreakOnWeightlessMove = false,
                 };
-            Log.Info("aaa");
 
             _doAfter.TryStartDoAfter(doAfterEventArgs);
             return true;

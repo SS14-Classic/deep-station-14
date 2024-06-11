@@ -93,4 +93,7 @@ public sealed partial class SiliconComponent : Component
     /// </summary>
     [DataField("speedModifierThresholds", required: true)]
     public Dictionary<ChargeState, float> SpeedModifierThresholds = default!;
+
+    [DataField("fireStackMultiplier"), ViewVariables(VVAccess.ReadWrite)]
+    public float FireStackMultiplier = 1f;
 }

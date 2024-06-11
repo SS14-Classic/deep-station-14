@@ -178,24 +178,23 @@ public sealed class SiliconChargeSystem : EntitySystem
             // If the silicon is hot enough, it has a chance to catch fire.
 
             siliconComp.OverheatAccumulator += frameTime;
-            if (siliconComp.OverheatAccumulator >= 5)
+            if (!(siliconComp.OverheatAccumulator >= 5))
+                return hotTempMulti;
+
+            siliconComp.OverheatAccumulator -= 5;
+
+            if (!EntityManager.TryGetComponent<FlammableComponent>(silicon, out var flamComp)
+                || flamComp is { OnFire: true }
+                || !(temperComp.CurrentTemperature > temperComp.HeatDamageThreshold))
+                return hotTempMulti;
+
+            _popup.PopupEntity(Loc.GetString("silicon-overheating"), silicon, silicon, PopupType.MediumCaution);
+            if (_random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
             {
-                siliconComp.OverheatAccumulator -= 5;
-
-                if (EntityManager.TryGetComponent<FlammableComponent>(silicon, out var flamComp) &&
-                    temperComp.CurrentTemperature > temperComp.HeatDamageThreshold &&
-                    !flamComp.OnFire &&
-                    _random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
-                {
-                    _flammable.Ignite(silicon, silicon, flamComp);
-                }
-                else if ((flamComp == null || !flamComp.OnFire) &&
-                        _random.Prob(Math.Clamp(temperComp.CurrentTemperature / upperThresh, 0.001f, 0.75f)))
-                {
-                    _popup.PopupEntity(Loc.GetString("silicon-overheating"), silicon, silicon, PopupType.SmallCaution);
-                }
+                //MaximumFireStacks and MinimumFireStacks doesn't exists on EE
+                _flammable.AdjustFireStacks(silicon, Math.Clamp(siliconComp.FireStackMultiplier,  -10, 10), flamComp);
+                _flammable.Ignite(silicon, silicon, flamComp);
             }
-
             return hotTempMulti;
         }
 
