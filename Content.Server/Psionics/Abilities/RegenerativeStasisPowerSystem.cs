@@ -2,11 +2,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Psionics.Abilities;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
-using Content.Shared.Mind;
 using Content.Shared.Actions.Events;
 using Content.Shared.FixedPoint;
 
@@ -61,10 +57,9 @@ namespace Content.Server.Psionics.Abilities
             && TryComp<BloodstreamComponent>(args.Target, out var stream))
             {
                 var solution = new Solution();
-                var amount = FixedPoint2.New(MathF.Min(2.5f * psionic.Amplification + psionic.Dampening, 15f));
-                solution.AddReagent("PsionicRegenerationEssence", amount);
-                solution.AddReagent("Epinephrine", amount);
-                solution.AddReagent("Nocturine", amount * 2);
+                solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(MathF.Min(2.5f * psionic.Amplification + psionic.Dampening, 15f)));
+                solution.AddReagent("Epinephrine", FixedPoint2.New(MathF.Min(2.5f * psionic.Dampening + psionic.Amplification, 15f)));
+                solution.AddReagent("Nocturine", 10f + (1 * psionic.Amplification + psionic.Dampening));
                 _bloodstreamSystem.TryAddToChemicals(args.Target, solution, stream);
 
                 _psionics.LogPowerUsed(uid, "regenerative stasis",
