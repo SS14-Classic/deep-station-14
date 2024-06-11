@@ -1,12 +1,16 @@
 using Content.Server.Mind;
 using Content.Shared.Language;
 using Content.Shared.Language.Events;
-using Content.Shared.Language.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Player;
 
 namespace Content.Server.Language;
+
+/// <summary>
+///   LanguageSystem Networking
+///   This is used to update client state when mind change entity.
+/// </summary>
 
 public sealed partial class LanguageSystem
 {
@@ -26,10 +30,11 @@ public sealed partial class LanguageSystem
         SubscribeNetworkEvent<RequestLanguagesMessage>((_, session) => SendLanguageStateToClient(session.SenderSession));
     }
 
+
     private void SendLanguageStateToClient(EntityUid uid, LanguageSpeakerComponent? comp = null)
     {
         // Try to find a mind inside the entity and notify its session
-        if (!_mind.TryGetMind(uid, out var mind, out var mindComp) || mindComp.Session == null)
+        if (!_mind.TryGetMind(uid, out _, out var mindComp) || mindComp.Session == null)
             return;
 
         SendLanguageStateToClient(uid, mindComp.Session, comp);
@@ -47,9 +52,6 @@ public sealed partial class LanguageSystem
     private void SendLanguageStateToClient(EntityUid uid, ICommonSession session, LanguageSpeakerComponent? component = null)
     {
         var langs = GetLanguages(uid, component);
-        if (langs == null)
-            return;
-
         var message = new LanguagesUpdatedMessage(langs.CurrentLanguage, langs.SpokenLanguages, langs.UnderstoodLanguages);
         RaiseNetworkEvent(message, session);
     }

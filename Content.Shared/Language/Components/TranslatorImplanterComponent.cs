@@ -8,27 +8,28 @@ namespace Content.Shared.Language.Components;
 [RegisterComponent]
 public sealed partial class TranslatorImplanterComponent : Component
 {
-    [DataField("spoken", customTypeSerializer: typeof(PrototypeIdListSerializer<LanguagePrototype>)), ViewVariables]
+    [DataField("spoken", customTypeSerializer: typeof(PrototypeIdListSerializer<LanguagePrototype>))]
     public List<string> SpokenLanguages = new();
 
-    [DataField("understood", customTypeSerializer: typeof(PrototypeIdListSerializer<LanguagePrototype>)), ViewVariables]
+    [DataField("understood", customTypeSerializer: typeof(PrototypeIdListSerializer<LanguagePrototype>))]
     public List<string> UnderstoodLanguages = new();
 
     /// <summary>
     ///   The list of languages the mob must understand in order for this translator to have effect.
     ///   Knowing one language is enough.
     /// </summary>
-    [DataField("requires", customTypeSerializer: typeof(PrototypeIdListSerializer<LanguagePrototype>)), ViewVariables]
+    [DataField("requires", customTypeSerializer: typeof(PrototypeIdListSerializer<LanguagePrototype>))]
     public List<string> RequiredLanguages = new();
 
     /// <summary>
     ///   If true, only allows to use this implanter on mobs.
     /// </summary>
-    [DataField("mobsOnly")]
+    [DataField]
     public bool MobsOnly = true;
 
     /// <summary>
     ///   Whether this implant has been used already.
     /// </summary>
+    [DataField]
     public bool Used = false;
 }

@@ -16,7 +16,7 @@ public sealed class SayLanguageCommand : IConsoleCommand
     {
         if (shell.Player is not { } player)
         {
-            shell.WriteError("This command cannot be run from the server.");
+            shell.WriteError(Loc.GetString("shell-cannot-run-command-from-server"));
             return;
         }
 
@@ -25,7 +25,7 @@ public sealed class SayLanguageCommand : IConsoleCommand
 
         if (player.AttachedEntity is not {} playerEntity)
         {
-            shell.WriteError("You don't have an entity!");
+            shell.WriteError(Loc.GetString("shell-must-be-attached-to-entity"));
             return;
         }
 
@@ -41,7 +41,7 @@ public sealed class SayLanguageCommand : IConsoleCommand
         var languages = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>();
         var chats = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>();
 
-        var language = languages.GetLanguage(languageId);
+        var language = languages.GetLanguagePrototype(languageId);
         if (language == null || !languages.CanSpeak(playerEntity, language.ID))
         {
             shell.WriteError($"Language {languageId} is invalid or you cannot speak it!");

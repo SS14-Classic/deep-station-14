@@ -30,7 +30,7 @@ public abstract class SharedLanguageSystem : EntitySystem
         Universal = _prototype.Index<LanguagePrototype>("Universal");
     }
 
-    public LanguagePrototype? GetLanguage(string id)
+    public LanguagePrototype? GetLanguagePrototype(string id)
     {
         _prototype.TryIndex<LanguagePrototype>(id, out var proto);
         return proto;

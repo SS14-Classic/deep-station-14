@@ -2,8 +2,8 @@
   abstract: true
   id: TranslatorUnpowered
   parent: [ BaseItem ]
-  name: Translator
-  description: "Translates speech."
+  name: translator
+  description: Translates speech.
   components:
   - type: Sprite
     sprite: Objects/Devices/translator.rsi
@@ -35,7 +35,7 @@
 
 - type: entity
   abstract: true
-  id: TranslatorEmtpy
+  id: TranslatorEmpty
   parent: [ Translator ]
   suffix: Empty
   components:
@@ -44,14 +44,14 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
 
+
 - type: entity
   id: CanilunztTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: Canilunzt translator
-  description: "Translates speech between Canilunzt and Galactic Common."
+  description: Translates speech between Canilunzt and Galactic Common.
   components:
   - type: HandheldTranslator
-    default-language: GalacticCommon
     spoken:
     - GalacticCommon
     - Canilunzt
@@ -61,16 +61,14 @@
     requires:
     - GalacticCommon
     - Canilunzt
-    requires-all: false
 
 - type: entity
   id: BubblishTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: Bubblish translator
-  description: "Translates speech between Bubblish and Galactic Common."
+  description: Translates speech between Bubblish and Galactic Common.
   components:
   - type: HandheldTranslator
-    default-language: GalacticCommon
     spoken:
     - GalacticCommon
     - Bubblish
@@ -80,16 +78,14 @@
     requires:
     - GalacticCommon
     - Bubblish
-    requires-all: false
 
 - type: entity
   id: NekomimeticTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: Nekomimetic translator
-  description: "Translates speech between Nekomimetic and Galactic Common. Why would you want that?"
+  description: Translates speech between Nekomimetic and Galactic Common. Why would you want that?
   components:
   - type: HandheldTranslator
-    default-language: GalacticCommon
     spoken:
     - GalacticCommon
     - Nekomimetic
@@ -99,16 +95,14 @@
     requires:
     - GalacticCommon
     - Nekomimetic
-    requires-all: false
 
 - type: entity
   id: DraconicTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: Draconic translator
-  description: "Translates speech between Draconic and Galactic Common."
+  description: Translates speech between Draconic and Galactic Common.
   components:
   - type: HandheldTranslator
-    default-language: GalacticCommon
     spoken:
     - GalacticCommon
     - Draconic
@@ -118,16 +112,14 @@
     requires:
     - GalacticCommon
     - Draconic
-    requires-all: false
 
 - type: entity
   id: SolCommonTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: Sol Common translator
-  description: "Translates speech between Sol Common and Galactic Common. Like a true Earthman!"
+  description: Translates speech between Sol Common and Galactic Common. Like a true Earthman!
   components:
   - type: HandheldTranslator
-    default-language: GalacticCommon
     spoken:
     - GalacticCommon
     - SolCommon
@@ -137,16 +129,14 @@
     requires:
     - GalacticCommon
     - SolCommon
-    requires-all: false
 
 - type: entity
   id: RootSpeakTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: RootSpeak translator
-  description: "Translates speech between RootSpeak and Galactic Common. Like a true plant?"
+  description: Translates speech between RootSpeak and Galactic Common. Like a true plant?
   components:
   - type: HandheldTranslator
-    default-language: GalacticCommon
     spoken:
     - GalacticCommon
     - RootSpeak
@@ -156,16 +146,14 @@
     requires:
     - GalacticCommon
     - RootSpeak
-    requires-all: false
 
 - type: entity
   id: MofficTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: Moffic translator
-  description: "Translates speech between Moffic and Galactic Common. Like a true moth... or bug?"
+  description: Translates speech between Moffic and Galactic Common. Like a true moth... or bug?
   components:
   - type: HandheldTranslator
-    default-language: GalacticCommon
     spoken:
     - GalacticCommon
     - Moffic
@@ -175,16 +163,14 @@
     requires:
     - GalacticCommon
     - Moffic
-    requires-all: false
 
 - type: entity
   id: XenoTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: Xeno translator
-  description: "Translates speech between Xeno and Galactic Common. Not sure if that will help."
+  description: Translates speech between Xeno and Galactic Common. Not sure if that will help.
   components:
   - type: HandheldTranslator
-    default-language: GalacticCommon
     spoken:
     - GalacticCommon
     - Xeno
@@ -196,9 +182,9 @@
 
 - type: entity
   id: AnimalTranslator
-  parent: [ TranslatorEmtpy ]
+  parent: [ TranslatorEmpty ]
   name: Animal translator
-  description: "Translates all the cutes nosies that animals make into a more understandable form!"
+  description: Translates all the cutes noises that animals make into a more understandable form!
   components:
   - type: HandheldTranslator
     understood:
@@ -217,4 +203,3 @@
     - Kobold
     requires:
     - GalacticCommon
-    requires-all: false
