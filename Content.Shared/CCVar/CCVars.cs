@@ -258,7 +258,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("game.diagonalmovement", true, CVar.ARCHIVE);
 
         public static readonly CVarDef<int> SoftMaxPlayers =
-            CVarDef.Create("game.soft_max_players", 90, CVar.SERVERONLY | CVar.ARCHIVE);
+            CVarDef.Create("game.soft_max_players", 150, CVar.SERVERONLY | CVar.ARCHIVE);
 
         /// <summary>
         /// Whether or not panic bunker is currently enabled.
