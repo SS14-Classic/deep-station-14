@@ -5,7 +5,9 @@
   speciesRestriction: [IPC] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_monitor.rsi
-    state: head
+    state: head-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_monitor.rsi
+    state: head-2
 
 - type: marking
   id: CyberLimbsMarkingHesphiastosChest
@@ -14,7 +16,9 @@
   speciesRestriction: [IPC] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: torso
+    state: torso-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: torso-2
 
 - type: marking
   id: CyberLimbsMarkingHesphiastosLArm
@@ -23,7 +27,9 @@
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: l_arm
+    state: l_arm-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: l_arm-2
 
 - type: marking
   id: CyberLimbsMarkingHesphiastosLHand
@@ -32,7 +38,9 @@
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: l_hand
+    state: l_hand-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: l_hand-2
 
 - type: marking
   id: CyberLimbsMarkingHesphiastosLLeg
@@ -41,7 +49,9 @@
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: l_leg
+    state: l_leg-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: l_leg-2
 
 
 - type: marking
@@ -51,7 +61,9 @@
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: l_foot
+    state: l_foot-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: l_foot-2
 
 
 
@@ -62,7 +74,9 @@
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: r_arm
+    state: r_arm-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: r_arm-2
 
 
 - type: marking
@@ -72,7 +86,10 @@
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: r_hand
+    state: r_hand-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: r_hand-2
+  
 
 - type: marking
   id: CyberLimbsMarkingHesphiastosRLeg
@@ -81,7 +98,9 @@
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: r_leg
+    state: r_leg-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: r_leg-2
 
 
 - type: marking
@@ -91,4 +110,6 @@
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian] 
   sprites:
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
-    state: r_foot
+    state: r_foot-1
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/hesphiastos/hesphiastos_main.rsi
+    state: r_foot-2

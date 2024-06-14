@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "copyright": "Sprites from Paradise Station (https://github.com/ParadiseSS13/Paradise)",
+  "copyright": "Sprites originally from Paradise Station (https://github.com/ParadiseSS13/Paradise). Monochromatic version made by: DayOS (https://github.com/Day-OS)",
   "license": "CC-BY-SA-3.0",
   "size": {
     "x": 32,
@@ -8,7 +8,11 @@
   },
   "states": [
     {
-      "name": "head",
+      "name": "head-1",
+      "directions": 4
+    },
+    {
+      "name": "head-2",
       "directions": 4
     }
   ]
