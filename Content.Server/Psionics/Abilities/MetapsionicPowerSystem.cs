@@ -2,16 +2,12 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Psionics.Abilities;
 using Content.Shared.DoAfter;
-using Content.Shared.Examine;
-using static Content.Shared.Examine.ExamineSystemShared;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
-using Robust.Shared.Player;
 using Content.Server.DoAfter;
 using Content.Shared.Psionics.Events;
-using Content.Server.Psionics;
 
 namespace Content.Server.Psionics.Abilities
 {
@@ -170,14 +166,13 @@ namespace Content.Server.Psionics.Abilities
                 return;
             }
 
-            if (!TryComp<PsionicComponent>(args.Target, out var psychic))
-                return;
-
-            foreach (var psychicFeedback in psychic.PsychicFeedback)
+            if (TryComp<PsionicComponent>(args.Target, out var psychic))
             {
-                _popups.PopupEntity(Loc.GetString(psychicFeedback, ("entity", args.Target)), uid, uid, PopupType.LargeCaution);
+                foreach (var psychicFeedback in psychic.PsychicFeedback)
+                {
+                    _popups.PopupEntity(Loc.GetString(psychicFeedback, ("entity", args.Target)), uid, uid, PopupType.LargeCaution);
+                }
             }
-
         }
     }
 }

@@ -72,7 +72,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
     public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
-    public const float DefaultObfuscationFactor = 0.2f; // Einstein Engines - percentage of symbols in a whispered message that can be seen even by "far" listeners
+    public const float DefaultObfuscationFactor = 0.2f; // Percentage of symbols in a whispered message that can be seen even by "far" listeners
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -425,7 +425,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // The chat message wrapped in a "x says y" string
         var wrappedMessage = WrapPublicMessage(source, name, message);
         // The chat message obfuscated via language obfuscation
-        var obfuscated = _language.ObfuscateSpeech(message, language);
+        var obfuscated = SanitizeInGameICMessage(source, _language.ObfuscateSpeech(message, language), out var emoteStr, true, _configurationManager.GetCVar(CCVars.ChatPunctuation), (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en") || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en"));
         // The language-obfuscated message wrapped in a "x says y" string
         var wrappedObfuscated = WrapPublicMessage(source, name, obfuscated);
 
@@ -492,7 +492,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         name = FormattedMessage.EscapeText(name);
 
         var language = languageOverride ?? _language.GetLanguage(source);
-        var languageObfuscatedMessage = _language.ObfuscateSpeech(message, language);
+        var languageObfuscatedMessage = SanitizeInGameICMessage(source, _language.ObfuscateSpeech(message, language), out var emoteStr, true, _configurationManager.GetCVar(CCVars.ChatPunctuation), (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en") || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en"));
 
         foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
         {
