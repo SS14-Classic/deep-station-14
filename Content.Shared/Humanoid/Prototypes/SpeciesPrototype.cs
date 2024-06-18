@@ -126,6 +126,42 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public string GuideBookIcon = "SpeciesInfoDefault";
+
+    /// <summary>
+    ///     The minimum height for this species
+    /// </summary>
+    [DataField]
+    public float MinHeight = 0.75f;
+
+    /// <summary>
+    ///     The default height for this species
+    /// </summary>
+    [DataField]
+    public float DefaultHeight = 1f;
+
+    /// <summary>
+    ///     The maximum height for this species
+    /// </summary>
+    [DataField]
+    public float MaxHeight = 1.25f;
+
+    /// <summary>
+    ///     The minimum width for this species
+    /// </summary>
+    [DataField]
+    public float MinWidth = 0.7f;
+
+    /// <summary>
+    ///     The default width for this species
+    /// </summary>
+    [DataField]
+    public float DefaultWidth = 1f;
+
+    /// <summary>
+    ///     The maximum width for this species
+    /// </summary>
+    [DataField]
+    public float MaxWidth = 1.3f;
 }
 
 public enum SpeciesNaming : byte
