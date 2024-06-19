@@ -228,3 +228,6 @@
   sprites:
   - sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
     state: r_foot
+
+- type: Tag
+  id: IPCMaskWearable
