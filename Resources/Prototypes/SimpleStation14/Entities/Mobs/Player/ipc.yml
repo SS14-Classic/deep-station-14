@@ -97,6 +97,8 @@
 #   - type: Wires
 #     layoutId: IPC
   - type: EmitBuzzWhileDamaged
+  - type: CanHostGuardian
+
 
 - type: entity
   save: false
