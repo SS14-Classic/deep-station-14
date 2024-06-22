@@ -5,7 +5,7 @@
   cost: 1
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - SecurityCadet
@@ -19,7 +19,7 @@
   cost: 1
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - SecurityCadet
@@ -33,7 +33,7 @@
   cost: 1
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - SecurityCadet
@@ -47,7 +47,7 @@
   cost: 1
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - SecurityCadet
@@ -61,19 +61,19 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
-    - !type:LoadoutPlaytimeRequirement
+    - !type:CharacterPlaytimeRequirement
       tracker: JobWarden
       min: 21600 # 6 hours
-    - !type:LoadoutPlaytimeRequirement
+    - !type:CharacterPlaytimeRequirement
       tracker: JobDetective
       min: 7200 # 2 hours
-    - !type:LoadoutPlaytimeRequirement
+    - !type:CharacterPlaytimeRequirement
       tracker: JobSecurityOfficer
       min: 21600 # 6 hours
-    - !type:LoadoutDepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement
       department: Security
       min: 216000 # 60 hours
   items:
@@ -85,19 +85,19 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
-    - !type:LoadoutPlaytimeRequirement
+    - !type:CharacterPlaytimeRequirement
       tracker: JobWarden
       min: 21600 # 6 hours
-    - !type:LoadoutPlaytimeRequirement
+    - !type:CharacterPlaytimeRequirement
       tracker: JobDetective
       min: 7200 # 2 hours
-    - !type:LoadoutPlaytimeRequirement
+    - !type:CharacterPlaytimeRequirement
       tracker: JobSecurityOfficer
       min: 21600 # 6 hours
-    - !type:LoadoutDepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement
       department: Security
       min: 216000 # 60 hours
   items:
@@ -109,7 +109,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Warden
   items:
@@ -121,7 +121,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Warden
   items:
@@ -133,7 +133,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Warden
   items:
@@ -145,7 +145,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Warden
   items:
@@ -157,7 +157,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - HeadOfSecurity
   items:
@@ -169,7 +169,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - HeadOfSecurity
   items:
@@ -181,7 +181,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Detective
         - SecurityOfficer
@@ -196,7 +196,7 @@
   cost: 1
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Detective
         - SecurityOfficer
@@ -211,7 +211,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Warden
         - HeadOfSecurity
@@ -224,7 +224,7 @@
   category: Jobs
   cost: 1
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Detective
         - SecurityOfficer
@@ -234,41 +234,6 @@
   items:
     - ClothingShoesBootsJack
 
-## Items
-- type: loadout
-  id: LoadoutItemsSpareHandgunMagazine
-  category: Jobs
-  cost: 7
-  requirements:
-    - !type:LoadoutJobRequirement
-      jobs:
-        - SecurityOfficer
-        - Warden
-        - HeadOfSecurity
-        - Brigmedic
-    - !type:LoadoutPlaytimeRequirement
-      tracker: JobSecurityOfficer
-      min: 21600 # 6 hours
-  items:
-    - MagazinePistol
-
-- type: loadout
-  id: LoadoutItemsSpareHandgunMagazineRubber
-  category: Jobs
-  cost: 6
-  requirements:
-    - !type:LoadoutJobRequirement
-      jobs:
-        - SecurityOfficer
-        - Warden
-        - HeadOfSecurity
-        - Brigmedic
-    - !type:LoadoutPlaytimeRequirement
-      tracker: JobSecurityOfficer
-      min: 7200 # 2 hours
-  items:
-    - MagazinePistolRubber
-
 ## Eyes
 - type: loadout
   id: LoadoutSecurityEyesHudSecurity
@@ -276,7 +241,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - Warden
@@ -291,7 +256,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - Warden
@@ -306,14 +271,15 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - Warden
         - HeadOfSecurity
         - Brigmedic
-    - !type:LoadoutTraitRequirement
-      trait: Nearsighted
+    - !type:CharacterTraitRequirement
+      traits:
+        - Nearsighted
   items:
     - ClothingEyesPrescriptionHudSecurity
 
@@ -324,7 +290,7 @@
   cost: 1
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - Warden
@@ -338,7 +304,7 @@
   category: Jobs
   cost: 3
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - SecurityOfficer
         - Warden
@@ -354,7 +320,7 @@
   cost: 1
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Detective
         - SecurityOfficer
@@ -365,22 +331,21 @@
     - ClothingBeltSecurityWebbingFilled
 
 ## Species
-- type: loadout
-  id: LoadoutSecurityEquipmentTruncheon
-  category: Jobs
-  cost: 8 ## TODO: Make this replace the secoff handgun, and thus also make it cheaper
-  requirements:
-    - !type:LoadoutJobRequirement
-      jobs:
-        - SecurityOfficer
-        - Warden
-        - HeadOfSecurity
-        - Brigmedic
-    - !type:LoadoutPlaytimeRequirement
-      tracker: JobSecurityOfficer
-      min: 36000 # 10 hours
-    - !type:LoadoutSpeciesRequirement
-      species:
-        - Oni
-  items:
-    - Truncheon
+#- type: loadout ##Uncomment this and reassess points when we can make it replace the secoff duty pistol
+#  id: LoadoutSecurityEquipmentTruncheon
+#  category: Jobs
+#  cost: 8 ## TODO: Make this replace the secoff handgun, and thus also make it cheaper
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - SecurityOfficer
+#        - Warden
+#        - HeadOfSecurity
+#        - Brigmedic
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: JobSecurityOfficer
+#      min: 36000 # 10 hours
+#    - !type:CharacterSpeciesRequirement
+#      species: Oni
+#  items:
+#    - Truncheon

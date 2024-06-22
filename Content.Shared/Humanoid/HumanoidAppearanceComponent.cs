@@ -101,7 +101,6 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Width = 1f;
-    // Parkstation-HeightSlider End
 }
 
 [DataDefinition]

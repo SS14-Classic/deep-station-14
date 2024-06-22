@@ -1,6 +1,4 @@
-# Alphabetically ordered
-- type: loadoutCategory
-  id: Accessories
+# Alphabetically ordered, except for Uncategorized since it is always first
 
 - type: loadoutCategory
   id: Eyes
@@ -16,9 +14,6 @@
 
 - type: loadoutCategory
   id: Jobs
-
-- type: loadoutCategory
-  id: Mask
 
 - type: loadoutCategory
   id: Neck

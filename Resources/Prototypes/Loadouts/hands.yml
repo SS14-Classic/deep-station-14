@@ -84,11 +84,11 @@
   cost: 4
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - Passenger
   items:
-    - ClothingHandsGlovesColorYellow
+    - ClothingHandsGlovesColorYellowBudget
 
 - type: loadout
   id: LoadoutHandsGlovesLeather

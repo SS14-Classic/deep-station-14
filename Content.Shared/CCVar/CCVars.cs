@@ -341,14 +341,34 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> DebugCoordinatesAdminOnly =
             CVarDef.Create("game.debug_coordinates_admin_only", true, CVar.SERVER | CVar.REPLICATED);
 
+
         /// <summary>
-        /// Whether or not to allow characters to select loadout items.
+        ///     Whether to allow characters to select traits.
+        /// </summary>
+        public static readonly CVarDef<bool> GameTraitsEnabled =
+            CVarDef.Create("game.traits_enabled", true, CVar.REPLICATED);
+
+        /// <summary>
+        ///     How many traits a character can have at most.
+        /// </summary>
+        public static readonly CVarDef<int> GameTraitsMax =
+            CVarDef.Create("game.traits_max", 5, CVar.REPLICATED);
+
+        /// <summary>
+        ///     How many points a character should start with.
+        /// </summary>
+        public static readonly CVarDef<int> GameTraitsDefaultPoints =
+            CVarDef.Create("game.traits_default_points", 5, CVar.REPLICATED);
+
+
+        /// <summary>
+        ///     Whether to allow characters to select loadout items.
         /// </summary>
         public static readonly CVarDef<bool> GameLoadoutsEnabled =
             CVarDef.Create("game.loadouts_enabled", true, CVar.REPLICATED);
 
         /// <summary>
-        /// How many points to give to each player for loadouts.
+        ///     How many points to give to each player for loadouts.
         /// </summary>
         public static readonly CVarDef<int> GameLoadoutsPoints =
             CVarDef.Create("game.loadouts_points", 14, CVar.REPLICATED);
@@ -2134,6 +2154,17 @@ namespace Content.Shared.CCVar
             CVarDef.Create("psionics.rolls_enabled", true, CVar.SERVERONLY);
 
         /// <summary>
+        ///     Whether height & width sliders adjust a character's Fixture Component
+        /// </summary>
+        public static readonly CVarDef<bool> HeightAdjustModifiesHitbox =
+            CVarDef.Create("heightadjust.modifies_hitbox", true, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Whether height & width sliders adjust a player's view distance
+        /// </summary>
+        public static readonly CVarDef<bool> HeightAdjustModifiesZoom =
+            CVarDef.Create("heightadjust.modifies_zoom", true, CVar.SERVERONLY);
+
         ///     Enables station goals
         /// </summary>
         public static readonly CVarDef<bool> StationGoalsEnabled =
@@ -2144,5 +2175,18 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> StationGoalsChance =
             CVarDef.Create("game.station_goals_chance", 0.1f, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Toggles all MassContest functions. All mass contests output 1f when false
+        /// </summary>
+        public static readonly CVarDef<bool> DoMassContests =
+            CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
+
+        /// <summary>
+        ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
+        ///     Default of 0.25f outputs between * 0.75f and 1.25f
+        /// </summary>
+        public static readonly CVarDef<float> MassContestsMaxPercentage =
+            CVarDef.Create("contests.max_percentage", 0.25f, CVar.REPLICATED | CVar.SERVER);
     }
 }
