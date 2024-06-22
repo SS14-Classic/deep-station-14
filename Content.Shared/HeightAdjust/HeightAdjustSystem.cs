@@ -68,7 +68,6 @@ public sealed class HeightAdjustSystem : EntitySystem
             _eye.SetMaxZoom(uid, eye.MaxZoom * avg);
         else
             succeeded = false;
-
         if (_config.GetCVar(CCVars.HeightAdjustModifiesHitbox) && EntityManager.TryGetComponent<FixturesComponent>(uid, out var fixtures))
         {
             foreach (var fixture in fixtures.Fixtures)

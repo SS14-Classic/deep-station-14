@@ -85,6 +85,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Color? CachedFacialHairColor;
 
+    // Parkstation-HeightSlider Start
     /// <summary>
     /// DeltaV - let paradox anomaly be cloned
     /// </summary>

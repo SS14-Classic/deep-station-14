@@ -2165,7 +2165,6 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> HeightAdjustModifiesZoom =
             CVarDef.Create("heightadjust.modifies_zoom", true, CVar.SERVERONLY);
 
-        /// <summary>
         ///     Enables station goals
         /// </summary>
         public static readonly CVarDef<bool> StationGoalsEnabled =
