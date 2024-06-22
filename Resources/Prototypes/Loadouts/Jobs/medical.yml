@@ -92,7 +92,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -107,7 +107,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -122,7 +122,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -132,27 +132,12 @@
     - UniformScrubsColorPink
 
 - type: loadout
-  id: LoadoutMedicalUniformScrubsRainbow
-  category: Jobs
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:LoadoutJobRequirement
-      jobs:
-        - MedicalDoctor
-        - Chemist
-        - Paramedic
-        - MedicalIntern
-  items:
-    - UniformScrubsColorRainbow
-
-- type: loadout
   id: LoadoutMedicalUniformScrubsCybersun
   category: Jobs
   cost: 3
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -166,7 +151,7 @@
   cost: 5
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -311,7 +296,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -326,7 +311,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -341,7 +326,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -356,7 +341,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -371,7 +356,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -386,7 +371,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -396,27 +381,12 @@
     - ClothingHeadHatSurgcapPink
 
 - type: loadout
-  id: LoadoutMedicalHeadSurgcapRainbow
-  category: Jobs
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:LoadoutJobRequirement
-      jobs:
-        - MedicalDoctor
-        - Chemist
-        - Paramedic
-        - MedicalIntern
-  items:
-    - ClothingHeadHatSurgcapRainbow
-
-- type: loadout
   id: LoadoutMedicalHeadSurgcapWhite
   category: Jobs
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -431,7 +401,7 @@
   cost: 3
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Chemist
@@ -445,7 +415,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Paramedic
@@ -461,7 +431,7 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Paramedic
@@ -477,14 +447,15 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:LoadoutJobRequirement
+    - !type:CharacterJobRequirement
       jobs:
         - MedicalDoctor
         - Paramedic
         - ChiefMedicalOfficer
         - MedicalIntern
         - Brigmedic
-    - !type:LoadoutTraitRequirement
-      trait: Nearsighted
+    - !type:CharacterTraitRequirement
+      traits:
+        - Nearsighted
   items:
     - ClothingEyesPrescriptionMedHud
