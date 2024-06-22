@@ -141,12 +141,6 @@
     understands:
     - GalacticCommon
     - SolCommon
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - ShoesRequiredStepTriggerImmune
 
 - type: entity
   save: false
