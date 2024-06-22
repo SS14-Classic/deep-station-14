@@ -1,345 +1,323 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 using Content.Shared.Atmos;
-using Content.Shared.Supermatter.Systems;
 using Content.Shared.Whitelist;
+using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Supermatter.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SupermatterComponent : Component
 {
-    #region SM Base
+    #region Base
 
-    [DataField("whitelist")] public EntityWhitelist Whitelist = new();
+    /// <summary>
+    ///     The SM will only cycle if activated.
+    /// </summary>
+    [DataField("activated")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool Activated = false;
+
+    [DataField("supermatterSliverPrototype")]
+    public string SliverPrototypeId = "SupermatterSliver";
+
+    /// <summary>
+    ///     Affects delamination timer. If removed - delamination timer is divided by 2.
+    /// </summary>
+    [DataField("sliverRemoved")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool SliverRemoved = false;
+
+    [DataField("whitelist")]
+    public EntityWhitelist Whitelist = new();
     public string IdTag = "EmitterBolt";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("power")]
-    public float Power;
+    public string[] LightningPrototypes =
+    {
+        "Lightning",
+        "ChargedLightning",
+        "SuperchargedLightning",
+        "HyperchargedLightning"
+    };
+
+    [DataField("singularitySpawnPrototype")]
+    public string SingularityPrototypeId = "Singularity";
+
+    [DataField("teslaSpawnPrototype")]
+    public string TeslaPrototypeId = "TeslaEnergyBall";
+
+    [DataField("supermatterKudzuSpawnPrototype")]
+    public string SupermatterKudzuPrototypeId = "SupermatterKudzu";
 
     /// <summary>
-    /// The amount of damage we have currently
+    ///     What spawns in the place of an unfortunate entity that got removed by the SM.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("damage")]
-    public float Damage = 0f;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("matterPower")]
-    public float MatterPower;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("matterPowerConversion")]
-    public float MatterPowerConversion = 10f;
-
-    public SharedSupermatterSystem.DelamType DelamType;
+    [DataField("collisionResultPrototype")]
+    public string CollisionResultPrototypeId = "Ash";
 
     /// <summary>
-    /// The portion of the gasmix we're on
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("gasEfficiency")]
-    public float GasEfficiency = 0.15f;
-
-    /// <summary>
-    /// The amount of heat we apply scaled
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("heatThreshold")]
-    public float HeatThreshold = 2500f;
-
-    #endregion SM Base
-
-    #region SM Sound
-    /// <summary>
-    /// Current stream of SM audio.
+    ///     Current audiostream.
     /// </summary>
     public EntityUid? AudioStream;
-
-    public SharedSupermatterSystem.SuperMatterSound? SmSound;
+    public SupermatterSound? SmSound;
 
     [DataField("dustSound")]
-    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/Supermatter/dust.ogg");
+    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/Effects/Grenades/Supermatter/supermatter_start.ogg");
 
     [DataField("delamSound")]
     public SoundSpecifier DelamSound = new SoundPathSpecifier("/Audio/Supermatter/delamming.ogg");
 
-    [DataField("delamAlarm")]
-    public SoundSpecifier DelamAlarm = new SoundPathSpecifier("/Audio/Machines/alarm.ogg");
+    #endregion
 
-    #endregion SM Sound
+    #region Processing
 
-    #region SM Calculation
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float Power;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float MatterPower;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float MatterPowerConversion = 10f;
+    /// <summary>
+    ///     The portion of the gasmix we're on
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float GasEfficiency = 0.15f;
 
     /// <summary>
-    /// Based on co2 percentage, slowly moves between
-    /// 0 and 1. We use it to calc the powerloss_inhibitor
+    ///     Based on co2 percentage, slowly moves between 0 and 1. We use it to calc the powerloss_inhibitor
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("powerlossdynamicScaling")]
     public float PowerlossDynamicScaling;
 
     /// <summary>
-    /// Affects the amount of damage and minimum point
-    /// at which the sm takes heat damage
+    ///     Affects the amount of damage and minimum point at which the sm takes heat damage
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("dynamicheatResistance")]
     public float DynamicHeatResistance = 1;
 
     /// <summary>
-    /// Used to increase or lessen the amount of damage the sm takes
-    /// from heat based on molar counts.
+    ///     Multiplier on damage the core takes from absorbing hot gas.
+    ///     Default is ~1/350
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("moleheatPenalty")]
-    public float MoleHeatPenalty = 350f;
+    public float MoleHeatPenalty = 0.00286f;
 
     /// <summary>
-    /// Higher == more overall power
+    ///     Inverse of MoleHeatPenalty
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("reactionpowerModefier")]
-    public float ReactionPowerModefier = 0.55f;
+    public float MoleHeatThreshold = 350f;
 
     /// <summary>
-    /// Higher == less heat released during reaction
+    ///     Multiplier on power generated by nuclear reactions
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField("reactionpowerModifier")]
+    public float ReactionPowerModifier = 0.55f;
+
+    /// <summary>
+    ///     Acts as a multiplier on the amount that nuclear reactions increase the supermatter core temperature
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("thermalreleaseModifier")]
-    public float ThermalReleaseModifier = 5f;
+    public float ThermalReleaseModifier = 0.2f;
 
     /// <summary>
-    /// Higher == less plasma released by reaction
+    ///     Multiplier on how much plasma is released during supermatter reactions
+    ///     Default is ~1/750
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("plasmareleaseModifier")]
-    public float PlasmaReleaseModifier = 750f;
+    public float PlasmaReleaseModifier = 0.001333f;
 
     /// <summary>
-    /// Higher == less oxygen released at high temperature/power
+    ///     Multiplier on how much oxygen is released during supermatter reactions.
+    ///     Default is ~1/325
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("oxygenreleaseModifier")]
-    public float OxygenReleaseModifier = 325f;
+    public float OxygenReleaseEfficiencyModifier = 0.0031f;
 
-    #endregion SM Calculation
+    #endregion
 
-    #region SM Timer
-
-    /// <summary>
-    /// The point at which we should start sending messeges
-    /// about the damage to the engi channels.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("WarningPoint")]
-    public float WarningPoint = 50;
+    #region Timing
 
     /// <summary>
-    /// The point at which we start sending messages to the common channel
+    ///     We yell if over 50 damage every YellTimer Seconds
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("emergencyPoint")]
-    public float EmergencyPoint = 500;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float YellTimer = 60f;
 
     /// <summary>
-    /// we yell if over 50 damage every YellTimer Seconds
+    ///     Set to YellTimer at first so it doesnt yell a minute after being hit
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("yellTimer")]
-    public float YellTimer = 30f;
+    public float YellAccumulator = 60f;
 
     /// <summary>
-    /// set to YellTimer at first so it doesnt yell a minute after being hit
+    ///     Timer for delam
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("yellAccumulator")]
-    public float YellAccumulator = 30f;
-
-    /// <summary>
-    /// YellTimer before the SM is about the delam
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("yellDelam")]
-    public float YellDelam = 5f;
-
-    /// <summary>
-    ///  Timer for Damage
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("damageupdateAccumulator")]
-    public float DamageUpdateAccumulator;
-
-    /// <summary>
-    /// update environment damage every 1 second
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("damageupdateTimer")]
-    public float DamageUpdateTimer = 1f;
-
-    /// <summary>
-    /// Timer for delam
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("delamtimerAccumulator")]
     public float DelamTimerAccumulator;
 
     /// <summary>
-    /// updates delam
+    ///     Time until delam
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("delamtimerTimer")]
-    public int DelamTimerTimer = 30;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("delamTimer")]
+    public float DelamTimer = 120f;
 
     /// <summary>
-    ///  The message timer
+    ///     The message timer
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float SpeakAccumulator = 60f;
+
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("speakaccumulator")]
-    public float SpeakAccumulator = 5f;
+    public float UpdateAccumulator = 0f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float UpdateTimer = 1f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float ZapAccumulator = 0f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float ZapTimer = 10f;
+
+    #endregion
+
+    #region Thresholds
 
     /// <summary>
-    /// Atmos update timer
+    ///     The amount of heat we apply scaled
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("atmosupdateAccumulator")]
-    public float AtmosUpdateAccumulator;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float HeatThreshold = 2500f;
 
     /// <summary>
-    /// update atmos every 1 second
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("atmosupdateTimer")]
-    public float AtmosUpdateTimer = 1f;
-
-    #endregion SM Timer
-
-    #region SM Threshold
-
-    /// <summary>
-    /// Higher == Higher percentage of inhibitor gas needed
-    /// before the charge inertia chain reaction effect starts.
+    ///     Higher == Higher percentage of inhibitor gas needed
+    ///     before the charge inertia chain reaction effect starts.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("powerlossinhibitiongasThreshold")]
     public float PowerlossInhibitionGasThreshold = 0.20f;
 
     /// <summary>
-    /// Higher == More moles of the gas are needed before the charge
-    /// inertia chain reaction effect starts.
-    /// Scales powerloss inhibition down until this amount of moles is reached
+    ///     Higher == More moles of the gas are needed before the charge inertia chain reaction effect starts.
+    ///     Scales powerloss inhibition down until this amount of moles is reached
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("powerlossinhibitionmoleThreshold")]
     public float PowerlossInhibitionMoleThreshold = 20f;
 
     /// <summary>
-    /// bonus powerloss inhibition boost if this amount of moles is reached
+    ///     Bonus powerloss inhibition boost if this amount of moles is reached
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("powerlossinhibitionmoleboostThreshold")]
     public float PowerlossInhibitionMoleBoostThreshold = 500f;
 
     /// <summary>
-    /// Above this value we can get lord singulo and independent mol damage,
-    /// below it we can heal damage
+    ///     Above this value we can get lord singulo and independent mol damage, below it we can heal damage
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("molepenaltyThreshold")]
-    public float MolePenaltyThreshold = 1800f;
+    public float MolePenaltyThreshold = 900f;
 
     /// <summary>
-    /// more moles of gases are harder to heat than fewer,
-    /// so let's scale heat damage around them
+    ///     More moles of gases are harder to heat than fewer, so let's scale heat damage around them
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("moleheatpenaltyThreshold")]
     public float MoleHeatPenaltyThreshold;
 
     /// <summary>
-    /// The cutoff on power properly doing damage, pulling shit around,
-    /// and delamming into a tesla. Low chance of pyro anomalies, +2 bolts of electricity
+    ///     The cutoff on power properly doing damage, pulling shit around,
+    ///     and delamming into a tesla. Low chance of pyro anomalies, +2 bolts of electricity
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("powerPenaltyThreshold")]
-    public float PowerPenaltyThreshold = 5000f;
+    public float PowerPenaltyThreshold = 2500f;
 
     /// <summary>
-    /// Higher == Crystal safe operational temperature is higher.
+    ///     Maximum safe operational temperature in degrees Celsius. Supermatter begins taking damage above this temperature.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("heatpenaltyThreshold")]
     public float HeatPenaltyThreshold = 40f;
 
+    #endregion
+
+    #region Damage
+
     /// <summary>
-    /// The damage we had before this cycle. Used to limit the damage we can take each cycle, and for safe alert
+    ///     The amount of damage we have currently
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("damagearchived")]
+    public float Damage = 0f;
+
+    /// <summary>
+    ///     The damage we had before this cycle. Used to limit the damage we can take each cycle, and for safe alert
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     public float DamageArchived = 0f;
 
     /// <summary>
-    /// is multiplied by ExplosionPoint to cap
-    /// evironmental damage per cycle
+    ///     Is multiplied by ExplosionPoint to cap evironmental damage per cycle
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("damageHardcap")]
     public float DamageHardcap = 0.002f;
 
     /// <summary>
-    /// environmental damage is scaled by this
+    ///     Environmental damage is scaled by this
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("damageincreaseMultiplier")]
     public float DamageIncreaseMultiplier = 0.25f;
 
     /// <summary>
-    /// if spaced sm wont take more than 2 damage per cycle
+    ///     If spaced sm wont take more than 2 damage per cycle
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("maxspaceexposureDamage")]
     public float MaxSpaceExposureDamage = 2;
 
-    #endregion SM Threshold
-
-    #region SM Delamm
+    /// <summary>
+    ///     The point at which we should start sending messeges about the damage.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("WarningPoint")]
+    public float WarningPoint = 50;
 
     /// <summary>
-    /// The point at which we delamm
+    ///     The point at which we start sending announcements.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("emergencyPoint")]
+    public float EmergencyPoint = 500;
+
+    /// <summary>
+    ///     The point at which we begin delaminating.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("explosionPoint")]
-    public int ExplosionPoint = 900;
+    public int DelaminationPoint = 900;
 
-    //Are we delamming?
-    [ViewVariables(VVAccess.ReadOnly)] public bool Delamming = false;
+    public bool DelamAnnounced = false;
 
-    //it's the final countdown
-    [ViewVariables(VVAccess.ReadOnly)] public bool FinalCountdown = false;
-
-    //Explosion totalIntensity value
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("totalIntensity")]
-    public float TotalIntensity= 500000f;
+    public bool Delamming = false;
 
-    //Explosion radius value
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("radius")]
-    public float Radius = 500f;
+    #endregion
+
+    #region Gases
 
     /// <summary>
-    /// These would be what you would get at point blank, decreases with distance
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("detonationRads")]
-    public float DetonationRads = 200f;
-
-    #endregion SM Delamm
-
-    #region SM Gas
-    /// <summary>
-    /// Is used to store gas
+    ///     Is used to store gas
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("gasStorage")]
@@ -347,30 +325,71 @@ public sealed partial class SupermatterComponent : Component
     {
         {Gas.Oxygen, 0f},
         {Gas.Nitrogen, 0f},
-        {Gas.NitrousOxide, 0f},
         {Gas.CarbonDioxide, 0f},
         {Gas.Plasma, 0f},
         {Gas.Tritium, 0f},
         {Gas.WaterVapor, 0f},
         {Gas.Frezon, 0f},
-        {Gas.Ammonia, 0f}
+        {Gas.Ammonia, 0f},
+        {Gas.NitrousOxide, 0f},
     };
 
     /// <summary>
-    /// Stores each gases calculation
+    ///     Stores each gas facts
     /// </summary>
+    // todo: replace this with serializable GasFact array something
     public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio)> GasDataFields = new()
     {
         [Gas.Oxygen] = (TransmitModifier: 1.5f, HeatPenalty: 1f, PowerMixRatio: 1f),
         [Gas.Nitrogen] = (TransmitModifier: 0f, HeatPenalty: -1.5f, PowerMixRatio: -1f),
-        [Gas.NitrousOxide] = (TransmitModifier: 1f, HeatPenalty: -5f, PowerMixRatio: 1f),
         [Gas.CarbonDioxide] = (TransmitModifier: 0f, HeatPenalty: 0.1f, PowerMixRatio: 1f),
         [Gas.Plasma] = (TransmitModifier: 4f, HeatPenalty: 15f, PowerMixRatio: 1f),
         [Gas.Tritium] = (TransmitModifier: 30f, HeatPenalty: 10f, PowerMixRatio: 1f),
         [Gas.WaterVapor] = (TransmitModifier: 2f, HeatPenalty: 12f, PowerMixRatio: 1f),
-        [Gas.Frezon] = (TransmitModifier: 3f, HeatPenalty: -9f, PowerMixRatio: -1f),
-        [Gas.Ammonia] = (TransmitModifier: 1.5f, HeatPenalty: 1.5f, PowerMixRatio: 1.5f)
+        [Gas.Frezon] = (TransmitModifier: 3f, HeatPenalty: -10f, PowerMixRatio: -1f),
+        [Gas.Ammonia] = (TransmitModifier: 0f, HeatPenalty: .5f, PowerMixRatio: 1f),
+        [Gas.NitrousOxide] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f),
     };
 
-    #endregion SM Gas
+    #endregion
+}
+
+public enum SupermatterSound : sbyte
+{
+    Aggressive = 0,
+    Delam = 1
+}
+
+public enum DelamType : sbyte
+{
+    Explosion = 0,
+    Singulo = 1,
+    Tesla = 2,
+    Cascade = 3
+}
+
+[Serializable, DataDefinition]
+public sealed partial class GasFact
+{
+    [DataField("transmitModifier")]
+    public float TransmitModifier;
+
+    [DataField("heatPenalty")]
+    public float HeatPenalty;
+
+    [DataField("powerMixRatio")]
+    public float PowerMixRatio;
+
+    public GasFact(float transmitModifier, float heatPenalty, float powerMixRatio)
+    {
+        TransmitModifier = transmitModifier;
+        HeatPenalty = heatPenalty;
+        PowerMixRatio = powerMixRatio;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
+{
+
 }
