@@ -128,6 +128,12 @@
     templateId: digitigrade
   - type: HarpyVisuals
   - type: UltraVision
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - ShoesRequiredStepTriggerImmune
   - type: LanguageSpeaker
     speaks:
     - GalacticCommon
@@ -154,6 +160,7 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
+    templateId: digitigrade
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -174,7 +181,6 @@
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "id" ]
       - map: [ "gloves" ]
-      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
