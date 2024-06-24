@@ -48,3 +48,6 @@ trait-description-NaturalTelepath = As a naturally occuring Telepath, you are ca
                                     whether or not you possess any notable psychic powers. This offers all of the same benefits and
                                     drawbacks of Latent Psychic, except that you are guaranteed to start with full Telepathy. You may
                                     still gain powers as normal for a Latent Psychic.
+trait-name-CPRTraining = CPR Training
+trait-description-CPRTraining = At some point in your life, you have received training in how to perform CPR.
+                                This trait is automatically given for free to medical doctors, and is intended for non-medical characters
