@@ -4,11 +4,31 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
   - type: SiliconEmitSoundOnDrained
     sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg"
     interval: 15
     playChance: 1
     popUp: "silicon-power-low"
+  - type: Lock
+    locked: true
+    lockOnClick: false
+    unlockOnClick: false
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: NpcFactionMember
+    factions:
+      - NanoTrasen
   - type: MobState
     allowedStates:
       - Alive
@@ -39,15 +59,11 @@
     templateId: ipc
   - type: EyeProtection
     protectionTime: 12
-  - type: Battery
-    maxCharge: 150000
-  - type: RandomBatteryCharge
-    batteryMaxMinMax: 0.85, 1.15
-    batteryChargeMinMax: 0.40, 0.90
+  
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
-    drainPerSecond: 60
+    drainPerSecond: 1.5
     chargeThresholdMid: 0.80
     chargeThresholdLow: 0.35
     chargeThresholdCritical: 0.10
@@ -57,7 +73,6 @@
       2: 0.80
       1: 0.45
       0: 0.00
-  - type: Carriable
   - type: BatteryDrinker
   - type: EncryptionKeyHolder
     keySlots: 3
@@ -67,8 +82,7 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
   - type: Wires
-    BoardName: "IPC"
-    LayoutId: IPC
+    layoutId: IPC
 
 - type: entity
   save: false

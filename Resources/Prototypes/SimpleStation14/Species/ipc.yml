@@ -28,13 +28,10 @@
   id: MobIPCSprites
   sprites:
     Head: MobIPCHead
-    Snout: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Wings: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Hair: MobHumanoidMarkingMatchSkin
-    FacialHair: MobIPCScreen
     Chest: MobIPCTorso
     LArm: MobIPCLArm
     RArm: MobIPCRArm

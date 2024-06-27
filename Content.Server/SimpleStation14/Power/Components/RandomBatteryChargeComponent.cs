@@ -3,7 +3,7 @@ using System.Numerics;
 namespace Content.Server.SimpleStation14.Power.Components;
 
 [RegisterComponent]
-public sealed class RandomBatteryChargeComponent : Component
+public sealed partial class RandomBatteryChargeComponent : Component
 {
     /// <summary>
     ///     The minimum and maximum max charge the battery can have.

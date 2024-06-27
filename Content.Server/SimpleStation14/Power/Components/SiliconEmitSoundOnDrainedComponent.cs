@@ -8,7 +8,7 @@ namespace Content.Server.SimpleStation14.Silicon;
 ///     Applies a <see cref="SpamEmitSoundComponent"/> to a Silicon when its battery is drained, and removes it when it's not.
 /// </summary>
 [RegisterComponent]
-public sealed class SiliconEmitSoundOnDrainedComponent : Component
+public sealed partial class SiliconEmitSoundOnDrainedComponent : Component
 {
     [DataField("sound"), Required]
     public SoundSpecifier Sound = default!;

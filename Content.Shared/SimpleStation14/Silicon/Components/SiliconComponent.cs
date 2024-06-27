@@ -9,7 +9,7 @@ namespace Content.Shared.SimpleStation14.Silicon.Components;
 ///     Component for defining a mob as a robot.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed class SiliconComponent : Component
+public sealed partial class SiliconComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
     public ChargeState ChargeState = ChargeState.Full;
@@ -30,7 +30,6 @@ public sealed class SiliconComponent : Component
     /// <summary>
     ///     The Silicon's battery slot, if it has one.
     /// </summary>
-    public IContainer? BatteryContainer = null;
 
     /// <summary>
     ///     Is the Silicon currently dead?
@@ -63,13 +62,6 @@ public sealed class SiliconComponent : Component
     public bool BatteryPowered = false;
 
     /// <summary>
-    ///     Slot this entity's battery is contained in.
-    ///     Leave null if using a battery component.
-    /// </summary>
-    [DataField("batterySlot")]
-    public string? BatterySlot = null;
-
-    /// <summary>
     ///     How much power is drained by this Silicon every second by default.
     /// </summary>
     [DataField("drainPerSecond"), ViewVariables(VVAccess.ReadWrite)]
@@ -93,12 +85,12 @@ public sealed class SiliconComponent : Component
 
     /// <inheritdoc cref="ChargeThresholdMid"/>
     [DataField("chargeThresholdCritical"), ViewVariables(VVAccess.ReadWrite)]
-    public float? ChargeThresholdCritical = 0.0f;
+    public float? ChargeThresholdCritical = 0.1f;
 
 
     /// <summary>
     ///     The amount the Silicon will be slowed at each charge state.
     /// </summary>
     [DataField("speedModifierThresholds", required: true)]
-    public readonly Dictionary<ChargeState, float> SpeedModifierThresholds = default!;
+    public Dictionary<ChargeState, float> SpeedModifierThresholds = default!;
 }

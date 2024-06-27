@@ -1,7 +1,7 @@
 namespace Content.Server.SimpleStation14.Power;
 
 [RegisterComponent]
-public sealed class BatteryDrinkerComponent : Component
+public sealed partial class BatteryDrinkerComponent : Component
 {
     /// <summary>
     ///     Is this drinker allowed to drink batteries not tagged as <see cref="BatteryDrinkSource"/>?

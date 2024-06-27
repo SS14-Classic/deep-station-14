@@ -1,8 +1,11 @@
 - type: entity
   save: false
   abstract: true
-  id: PlayerSiliconBase # For player controlled silicons
+  id: PlayerSiliconBaseIndividual # For player controlled silicons
   components:
+    - type: ContentEye
+    - type: CameraRecoil
+    - type: LagCompensation
     - type: Reactive
       groups:
         Acidic: [Touch]
@@ -18,7 +21,7 @@
         path: /Audio/Effects/hit_kick.ogg
     - type: Clickable
     - type: Damageable
-      damageContainer: Inorganic
+      damageContainer: Silicon
     # - type: Bloodstream # This is left commented out because it's not necessary for a robot, but you may want it.
     #   bloodReagent: MotorOil
     #   bloodlossDamage:
@@ -44,6 +47,7 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 4
       baseSprintSpeed: 3
+    - type: Stamina
     - type: Sprite
       sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
       state: full
@@ -97,7 +101,7 @@
       thermalRegulationTemperatureThreshold: 125
 
 - type: entity
-  parent: PlayerSiliconBase
+  parent: PlayerSiliconBaseIndividual
   id: PlayerSiliconHumanoidBase
   abstract: true
   components:
@@ -169,17 +173,16 @@
         - map: ["pocket1"]
         - map: ["pocket2"]
         - map: ["enum.HumanoidVisualLayers.Tail"]
-        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["clownedon"] # Dynamically generated
           sprite: "Effects/creampie.rsi"
           state: "creampie_human"
           visible: false
     - type: Repairable
-      fuelcost: 60
-      doAfterDelay: 32
+      fuelcost: 10
+      doAfterDelay: 10
     - type: Bloodstream
       damageBleedModifiers: BloodlossIPC
-      bloodReagent: Water
+      bloodReagent: Oil
       bleedReductionAmount: 0
       bloodMaxVolume: 500
       chemicalMaxVolume: 0
@@ -193,6 +196,8 @@
       bloodlossHealDamage:
         types:
           Burn: 0
+    - type: UnblockableSpeech
+    - type: Flashable
     - type: Flammable
       fireSpread: true
       canResistFire: true

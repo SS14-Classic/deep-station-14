@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
 [RegisterComponent]
-public sealed class BatteryDrinkerSourceComponent : Component
+public sealed partial class BatteryDrinkerSourceComponent : Component
 {
     /// <summary>
     ///     The max amount of power this source can provide in one sip.
@@ -23,5 +23,5 @@ public sealed class BatteryDrinkerSourceComponent : Component
     ///     Can be null.
     /// </summary>
     [DataField("drinkSound")]
-    public SoundSpecifier? DrinkSound = null;
+    public SoundSpecifier? DrinkSound = new SoundCollectionSpecifier("sparks");
 }

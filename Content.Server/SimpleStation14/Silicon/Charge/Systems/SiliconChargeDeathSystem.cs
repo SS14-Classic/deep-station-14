@@ -5,6 +5,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Server.Sound.Components;
 using Content.Server.SimpleStation14.Silicon.Charge;
 using System.Threading;
+using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.SimpleStation14.Silicon.Death;
@@ -23,7 +24,12 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, SiliconChargeStateUpdateEvent args)
     {
-        _silicon.TryGetSiliconBattery(uid, out var batteryComp, out var batteryUid);
+        if (!_silicon.TryGetSiliconBattery(uid, out var batteryComp))
+        {
+            SiliconDead(uid, siliconDeadComp, batteryComp, uid);
+            return;
+        }
+
 
         if (args.ChargeState == ChargeState.Dead && siliconDeadComp.Dead)
         {
@@ -32,7 +38,7 @@ public sealed class SiliconDeathSystem : EntitySystem
         }
 
         if (args.ChargeState == ChargeState.Dead && !siliconDeadComp.Dead)
-            SiliconDead(uid, siliconDeadComp, batteryComp, batteryUid);
+            SiliconDead(uid, siliconDeadComp, batteryComp, uid);
         else if (args.ChargeState != ChargeState.Dead && siliconDeadComp.Dead)
         {
             if (siliconDeadComp.DeadBuffer > 0)
@@ -48,11 +54,11 @@ public sealed class SiliconDeathSystem : EntitySystem
                     if (wakeToken.IsCancellationRequested)
                         return;
 
-                    SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryUid);
+                    SiliconUnDead(uid, siliconDeadComp, batteryComp, uid);
                 }, wakeToken.Token);
             }
             else
-                SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryUid);
+                SiliconUnDead(uid, siliconDeadComp, batteryComp, uid);
         }
     }
 

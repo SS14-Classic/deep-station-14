@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Server.Power.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
@@ -9,6 +10,12 @@ using Robust.Shared.Utility;
 using Content.Server.SimpleStation14.Silicon.Charge;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Popups;
+using Content.Server.PowerCell;
+using Content.Shared.Popups;
+using Content.Shared.SimpleStation14.Silicon.Components;
+using FastAccessors;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 
 namespace Content.Server.SimpleStation14.Power;
 
@@ -20,6 +27,8 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -37,7 +46,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinkerComp) ||
             !TestDrinkableBattery(uid, drinkerComp) ||
-            !TryGetFillableBattery(args.User, out var drinkerBattery, out _))
+            !_silicon.TryGetSiliconBattery(args.User, out var drinkerBattery))
             return;
 
         AlternativeVerb verb = new()
@@ -58,26 +67,6 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         return true;
     }
 
-    private bool TryGetFillableBattery(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery, [NotNullWhen(true)] out EntityUid batteryUid)
-    {
-        if (_silicon.TryGetSiliconBattery(uid, out battery, out batteryUid))
-            return true;
-
-        if (TryComp(uid, out battery))
-            return true;
-
-        if (TryComp<PowerCellSlotComponent>(uid, out var powerCellSlot) &&
-            _slots.TryGetSlot(uid, powerCellSlot.CellSlotId, out var slot) &&
-            slot.Item != null &&
-            TryComp(slot.Item.Value, out battery))
-        {
-            batteryUid = slot.Item.Value;
-            return true;
-        }
-
-        return false;
-    }
-
     private void DrinkBattery(EntityUid target, EntityUid user, BatteryDrinkerComponent drinkerComp)
     {
         var doAfterTime = drinkerComp.DrinkSpeed;
@@ -87,7 +76,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         else
             doAfterTime *= drinkerComp.DrinkAllMultiplier;
 
-        var args = new DoAfterArgs(user, doAfterTime, new BatteryDrinkerDoAfterEvent(), user, target) // TODO: Make this doafter loop, once we merge Upstream.
+        var args = new DoAfterArgs(EntityManager, user, doAfterTime, new BatteryDrinkerDoAfterEvent(), user, target) // TODO: Make this doafter loop, once we merge Upstream.
         {
             BreakOnDamage = true,
             BreakOnTargetMove = true,
@@ -109,7 +98,13 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         var drinker = uid;
         var sourceBattery = Comp<BatteryComponent>(source);
 
-        TryGetFillableBattery(drinker, out var drinkerBattery, out var drinkerBatteryUid);
+        _silicon.TryGetSiliconBattery(drinker, out var drinkerBatteryComponent);
+
+        if (!TryComp(uid, out PowerCellSlotComponent? batterySlot))
+            return;
+
+        var container = _container.GetContainer(uid, batterySlot.CellSlotId);
+        var drinkerBattery = container.ContainedEntities.First();
 
         TryComp<BatteryDrinkerSourceComponent>(source, out var sourceComp);
 
@@ -121,7 +116,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         var amountToDrink = drinkerComp.DrinkMultiplier * 1000;
 
         amountToDrink = MathF.Min(amountToDrink, sourceBattery.CurrentCharge);
-        amountToDrink = MathF.Min(amountToDrink, drinkerBattery.MaxCharge - drinkerBattery.CurrentCharge);
+        amountToDrink = MathF.Min(amountToDrink, drinkerBatteryComponent!.MaxCharge - drinkerBatteryComponent.CurrentCharge);
 
         if (sourceComp != null && sourceComp.MaxAmount > 0)
             amountToDrink = MathF.Min(amountToDrink, (float) sourceComp.MaxAmount);
@@ -132,15 +127,18 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
         }
 
-        if (_battery.TryUseCharge(source, amountToDrink, sourceBattery))
-            _battery.SetCharge(drinkerBatteryUid, drinkerBattery.Charge + amountToDrink, drinkerBattery);
+        if (_battery.TryUseCharge(source, amountToDrink))
+            _battery.SetCharge(drinkerBattery, drinkerBatteryComponent.CurrentCharge + amountToDrink, drinkerBatteryComponent);
         else
         {
-            _battery.SetCharge(drinker, sourceBattery.Charge + drinkerBattery.Charge, drinkerBattery);
-            _battery.SetCharge(source, 0, sourceBattery);
+            _battery.SetCharge(drinkerBattery, sourceBattery.CurrentCharge + drinkerBatteryComponent.CurrentCharge, drinkerBatteryComponent);
+            _battery.SetCharge(source, 0);
         }
 
-        if (sourceComp != null && sourceComp.DrinkSound != null)
+        if (sourceComp != null && sourceComp.DrinkSound != null){
+            _popup.PopupEntity(Loc.GetString("ipc-recharge-tip"), drinker, drinker, PopupType.SmallCaution);
             _audio.PlayPvs(sourceComp.DrinkSound, source);
+            Spawn("EffectSparks", Transform(source).Coordinates);
+        }
     }
 }

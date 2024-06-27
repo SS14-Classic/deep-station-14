@@ -13,10 +13,13 @@ using Content.Server.Body.Components;
 using Content.Server.Power.EntitySystems;
 using Robust.Shared.Containers;
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.PowerCell;
 using Robust.Shared.Timing;
-using Content.Shared.SimpleStation14.CCVar;
 using Robust.Shared.Configuration;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
+using Content.Shared.CCVar;
+using Content.Shared.PowerCell.Components;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
@@ -27,11 +30,10 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -39,35 +41,33 @@ public sealed class SiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ComponentStartup>(OnSiliconStartup);
     }
 
-    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp, out EntityUid batteryUid)
+    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp)
     {
         batteryComp = null;
-        batteryUid = silicon;
-
-        if (!EntityManager.TryGetComponent(silicon, out SiliconComponent? siliconComp))
+        if (!TryComp(silicon, out SiliconComponent? siliconComp)){
+            //DebugTools.Assert("Entity does not contain SiliconComponent");
             return false;
-
-        if (siliconComp.BatteryContainer != null &&
-            siliconComp.BatteryContainer.ContainedEntities.Count > 0 &&
-            TryComp(siliconComp.BatteryContainer.ContainedEntities[0], out batteryComp))
-        {
-            batteryUid = siliconComp.BatteryContainer.ContainedEntities[0];
-            return true;
         }
 
+
+        // try get a battery directly on the inserted entity
         if (TryComp(silicon, out batteryComp))
             return true;
 
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
+            return true;
+
+
+        //DebugTools.Assert("SiliconComponent does not contain Battery");
         return false;
     }
 
     private void OnSiliconStartup(EntityUid uid, SiliconComponent component, ComponentStartup args)
     {
-        if (component.BatterySlot == null)
+        if (!TryComp(uid, out PowerCellSlotComponent? batterySlot))
             return;
 
-        var container = _container.GetContainer(uid, component.BatterySlot);
-        component.BatteryContainer = container;
+        var container = _container.GetContainer(uid, batterySlot.CellSlotId);
 
         if (component.EntityType.GetType() != typeof(SiliconType))
             DebugTools.Assert("SiliconComponent.EntityType is not a SiliconType enum.");
@@ -87,7 +87,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             // Check if the Silicon is an NPC, and if so, follow the delay as specified in the CVAR.
             if (siliconComp.EntityType.Equals(SiliconType.Npc))
             {
-                var updateTime = _config.GetCVar(SimpleStationCCVars.SiliconNpcUpdateTime);
+                var updateTime = _config.GetCVar(CCVars.SiliconNpcUpdateTime);
                 if (_timing.CurTime - siliconComp.LastDrainTime < TimeSpan.FromSeconds(updateTime))
                     continue;
 
@@ -95,9 +95,9 @@ public sealed class SiliconChargeSystem : EntitySystem
             }
 
             // If you can't find a battery, set the indicator and skip it.
-            if (!TryGetSiliconBattery(silicon, out var batteryComp, out var battery))
+            if (!TryGetSiliconBattery(silicon, out var batteryComp))
             {
-                UpdateChargeState(battery, ChargeState.Invalid, siliconComp);
+                UpdateChargeState(silicon, ChargeState.Invalid, siliconComp);
                 continue;
             }
 
@@ -122,17 +122,17 @@ public sealed class SiliconChargeSystem : EntitySystem
             drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.MaxCharge / 240);
 
             // Drain the battery.
-            _battery.UseCharge(battery, frameTime * drainRate, batteryComp);
+            _powerCell.TryUseCharge(silicon, frameTime * drainRate);
 
             // Figure out the current state of the Silicon.
             var chargePercent = batteryComp.CurrentCharge / batteryComp.MaxCharge;
 
             var currentState = chargePercent switch
             {
-                var x when x > siliconComp.ChargeThresholdMid => ChargeState.Full,
-                var x when x > siliconComp.ChargeThresholdLow => ChargeState.Mid,
-                var x when x > siliconComp.ChargeThresholdCritical => ChargeState.Low,
-                var x when x > 0 || siliconComp.ChargeThresholdCritical == 0 => ChargeState.Critical,
+                _ when chargePercent > siliconComp.ChargeThresholdMid => ChargeState.Full,
+                _ when chargePercent > siliconComp.ChargeThresholdLow => ChargeState.Mid,
+                _ when chargePercent > siliconComp.ChargeThresholdCritical => ChargeState.Low,
+                > 0.01f => ChargeState.Critical,
                 _ => ChargeState.Dead,
             };
 
@@ -187,7 +187,7 @@ public sealed class SiliconChargeSystem : EntitySystem
                     !flamComp.OnFire &&
                     _random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
                 {
-                    _flammable.Ignite(silicon, flamComp);
+                    _flammable.Ignite(silicon, silicon, flamComp);
                 }
                 else if ((flamComp == null || !flamComp.OnFire) &&
                         _random.Prob(Math.Clamp(temperComp.CurrentTemperature / upperThresh, 0.001f, 0.75f)))
