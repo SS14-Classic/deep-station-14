@@ -25,6 +25,7 @@ oracle-feedback = WHY DO YOU BOTHER ME SEEKER? HAVE I NOT MADE MY DESIRES CLEAR?
 orecrab-feedback = Heralds of the Lord of Earth, summoned to this realm from Grome's kingdom
 reagent-slime-feedback = Heralds of the Lord of Water, summoned to this realm from Straasha's kingdom.
 flesh-golem-feedback = Abominations pulled from dead realms, twisted amalgamations of those fallen to the influence of primordial Chaos
+glimmer-mite-feedback = A semi-corporeal parasite native to the dreamlight, its presence here brings forth the screams of dead stars.
 
 # Anomaly Feedback Messages
 anomaly-pyroclastic-feedback = A small mirror to the plane of Gehenna, truth lies within the Secret of Fire
@@ -42,6 +43,11 @@ anomaly-shadow-feedback = At the end of time, when all suns have set forever, th
 focused-metapsionic-pulse-begin = The air around {CAPITALIZE($entity)} begins to shimmer faintly
 psionic-regeneration-self-revive = {CAPITALIZE($entity)} begins to visibly regenerate
 mindbreaking-feedback = The light of life vanishes from {CAPITALIZE($entity)}'s eyes, leaving behind a husk pretending at sapience
+regenerative-stasis-begin = {CAPITALIZE($entity)} swoons for a moment, then begins visibly regenerating
+pyrokinesis-obvious = A mote of flame dances around {CAPITALIZE($entity)}'s fingers
+pyrokinesis-subtle = You draw upon the Secret of Fire.
+                     Use this action again to throw a fire bolt.
+pyrokinesis-refund-cooldown = You reclaim some of the energy spent drawing forth the Secret of Fire
 
 # Misc Psionic Messages
 telepathic-mute-message = You strain, but are unable to send your thoughts to the Noosphere

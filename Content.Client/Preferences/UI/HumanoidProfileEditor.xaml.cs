@@ -222,7 +222,6 @@ namespace Content.Client.Preferences.UI
 
             var prototype = _speciesList.Find(x => x.ID == Profile?.Species) ?? _speciesList.First();
 
-
             _heightSlider.MinValue = prototype.MinHeight;
             _heightSlider.MaxValue = prototype.MaxHeight;
             _heightSlider.Value = Profile?.Height ?? prototype.DefaultHeight;
@@ -289,10 +288,9 @@ namespace Content.Client.Preferences.UI
             }
             else
             {
-                //Whelp, the fixture doesn't exist, guesstimate it instead
+                // Whelp, the fixture doesn't exist, guesstimate it instead
                 CWeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) 71));
             }
-
 
             #endregion Height
 
@@ -960,8 +958,9 @@ namespace Content.Client.Preferences.UI
             OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
             CMarkings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
             UpdateSexControls(); // update sex for new species
-            UpdateHeightControls();// - Changing species provides inaccurate sliders
-            UpdateWidthControls();// - Changing species provides inaccurate sliders
+            // Changing species provides inaccurate sliders without these
+            UpdateHeightControls();
+            UpdateWidthControls();
             UpdateWeight();
             RebuildSpriteView(); // they might have different inv so we need a new dummy
             UpdateSpeciesGuidebookIcon();
@@ -1241,8 +1240,10 @@ namespace Content.Client.Preferences.UI
         {
             if (Profile == null)
                 return;
+
             var species = _speciesList.Find(x => x.ID == Profile.Species) ?? _speciesList.First();
             _prototypeManager.Index(species.Prototype).TryGetComponent<FixturesComponent>(out var fixture);
+
             if (fixture != null)
             {
                 var radius = fixture.Fixtures["fix1"].Shape.Radius;

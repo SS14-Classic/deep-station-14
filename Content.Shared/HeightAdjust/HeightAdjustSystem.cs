@@ -32,13 +32,8 @@ public sealed class HeightAdjustSystem : EntitySystem
             succeeded = false;
 
         if (_config.GetCVar(CCVars.HeightAdjustModifiesHitbox) && EntityManager.TryGetComponent<FixturesComponent>(uid, out var fixtures))
-        {
             foreach (var fixture in fixtures.Fixtures)
-            {
-                // _physics.SetDensity(uid, fixture.Key, fixture.Value, fixture.Value.Density * scale); // This does the same thing as below, just without modifying the fixture size
                 _physics.SetRadius(uid, fixture.Key, fixture.Value, fixture.Value.Shape, MathF.MinMagnitude(fixture.Value.Shape.Radius * scale, 0.49f));
-            }
-        }
         else
             succeeded = false;
 
@@ -68,14 +63,10 @@ public sealed class HeightAdjustSystem : EntitySystem
             _eye.SetMaxZoom(uid, eye.MaxZoom * avg);
         else
             succeeded = false;
+
         if (_config.GetCVar(CCVars.HeightAdjustModifiesHitbox) && EntityManager.TryGetComponent<FixturesComponent>(uid, out var fixtures))
-        {
             foreach (var fixture in fixtures.Fixtures)
-            {
-                // _physics.SetDensity(uid, fixture.Key, fixture.Value, fixture.Value.Density * avg); // This does the same thing as below, just without modifying the fixture size
                 _physics.SetRadius(uid, fixture.Key, fixture.Value, fixture.Value.Shape, MathF.MinMagnitude(fixture.Value.Shape.Radius * avg, 0.49f));
-            }
-        }
         else
             succeeded = false;
 
