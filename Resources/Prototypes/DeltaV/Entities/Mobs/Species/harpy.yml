@@ -123,6 +123,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 5.0
+    weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade
@@ -134,7 +135,7 @@
     - FootstepSound
     - DoorBumpOpener
     - ShoesRequiredStepTriggerImmune
-  - type: LanguageSpeaker
+  - type: LanguageKnowledge
     speaks:
     - GalacticCommon
     - SolCommon
