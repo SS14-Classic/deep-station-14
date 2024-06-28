@@ -1,11 +1,16 @@
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
 using Content.Shared.Psionics.Abilities;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Atmos.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
 using Content.Shared.Actions.Events;
 using Content.Server.Explosion.Components;
-using Robust.Shared.Map;
+using Robust.Server.Audio;
+using Robust.Shared.Timing;
+using Content.Shared.Popups;
+using Content.Shared.Psionics.Events;
 
 namespace Content.Server.Psionics.Abilities
 {
@@ -15,21 +20,27 @@ namespace Content.Server.Psionics.Abilities
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly GunSystem _gunSystem = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private readonly AudioSystem _audioSystem = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<PyrokinesisPowerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PyrokinesisPowerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<PyrokinesisPowerActionEvent>(OnPowerUsed);
+            SubscribeLocalEvent<PyrokinesisPrechargeActionEvent>(OnPrecharge);
+            SubscribeLocalEvent<PyrokinesisPowerComponent, PyrokinesisPrechargeDoAfterEvent>(OnDoAfter);
         }
 
         private void OnInit(EntityUid uid, PyrokinesisPowerComponent component, ComponentInit args)
         {
-            _actions.AddAction(uid, ref component.PyrokinesisActionEntity, component.PyrokinesisActionId);
-            _actions.TryGetActionData( component.PyrokinesisActionEntity, out var actionData);
+            _actions.AddAction(uid, ref component.PyrokinesisPrechargeActionEntity, component.PyrokinesisPrechargeActionId);
+            _actions.TryGetActionData( component.PyrokinesisPrechargeActionEntity, out var actionData);
             if (actionData is { UseDelay: not null })
-                _actions.StartUseDelay(component.PyrokinesisActionEntity);
+                _actions.StartUseDelay(component.PyrokinesisPrechargeActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
                 psionic.ActivePowers.Add(component);
@@ -38,9 +49,46 @@ namespace Content.Server.Psionics.Abilities
             }
         }
 
+        private void OnPrecharge(PyrokinesisPrechargeActionEvent args)
+        {
+            if (!HasComp<PsionicInsulationComponent>(args.Performer)
+                && TryComp<PsionicComponent>(args.Performer, out var psionic)
+                && TryComp<PyrokinesisPowerComponent>(args.Performer, out var pyroComp))
+            {
+                _actions.AddAction(args.Performer, ref pyroComp.PyrokinesisActionEntity, pyroComp.PyrokinesisActionId);
+                _actions.TryGetActionData(pyroComp.PyrokinesisActionEntity, out var actionData);
+                if (actionData is { UseDelay: not null })
+                    _actions.StartUseDelay(pyroComp.PyrokinesisActionEntity);
+                _actions.TryGetActionData(pyroComp.PyrokinesisPrechargeActionEntity, out var prechargeData);
+                if (prechargeData is { UseDelay: not null })
+                    _actions.StartUseDelay(pyroComp.PyrokinesisPrechargeActionEntity);
+
+                if (_glimmerSystem.GlimmerOutput >= 100 * psionic.Dampening)
+                {
+                    _popup.PopupEntity(Loc.GetString(pyroComp.PyrokinesisObviousPopup, ("entity", args.Performer)), args.Performer, PopupType.Medium);
+                    _audioSystem.PlayPvs(pyroComp.SoundUse, args.Performer);
+                }
+                else
+                    _popup.PopupEntity(Loc.GetString(pyroComp.PyrokinesisSubtlePopup), args.Performer, args.Performer, PopupType.Medium);
+
+                pyroComp.FireballThrown = false;
+
+                var ev = new PyrokinesisPrechargeDoAfterEvent(_gameTiming.CurTime);
+                var duration = TimeSpan.FromSeconds(pyroComp.ResetDuration.Seconds + psionic.Dampening);
+
+                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.Performer, duration, ev, args.Performer, args.Performer, args.Performer)
+                {
+                    BlockDuplicate = true,
+                    Hidden = true,
+                }, out var doAfterId);
+
+                pyroComp.ResetDoAfter = doAfterId;
+            }
+        }
+
         private void OnShutdown(EntityUid uid, PyrokinesisPowerComponent component, ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, component.PyrokinesisActionEntity);
+            _actions.RemoveAction(uid, component.PyrokinesisPrechargeActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
                 psionic.ActivePowers.Remove(component);
@@ -51,39 +99,53 @@ namespace Content.Server.Psionics.Abilities
 
         private void OnPowerUsed(PyrokinesisPowerActionEvent args)
         {
-            if (!TryComp<PsionicComponent>(args.Performer, out var psionic))
-                return;
-
-            if (!HasComp<PsionicInsulationComponent>(args.Performer))
+            if (!HasComp<PsionicInsulationComponent>(args.Performer)
+                && TryComp<PsionicComponent>(args.Performer, out var psionic)
+                && TryComp<PyrokinesisPowerComponent>(args.Performer, out var pyroComp))
             {
-                var xformQuery = GetEntityQuery<TransformComponent>();
-                var xform = xformQuery.GetComponent(args.Performer);
-
-                var mapPos = xform.Coordinates.ToMap(EntityManager, _xform);
-                var spawnCoords = _mapManager.TryFindGridAt(mapPos, out var gridUid, out _)
-                    ? xform.Coordinates.WithEntityId(gridUid, EntityManager)
-                    : new(_mapManager.GetMapEntityId(mapPos.MapId), mapPos.Position);
+                var spawnCoords = Transform(args.Performer).Coordinates;
 
                 var ent = Spawn("ProjectileAnomalyFireball", spawnCoords);
 
                 if (TryComp<ExplosiveComponent>(ent, out var fireball))
                 {
-                    fireball.MaxIntensity = (int) MathF.Round(20 * psionic.Amplification - 10 * psionic.Dampening);
+                    fireball.MaxIntensity = (int) MathF.Round(2 * psionic.Amplification);
+                    fireball.IntensitySlope = (int) MathF.Round(1 * psionic.Amplification);
+                    fireball.TotalIntensity = (int) MathF.Round(25 * psionic.Amplification);
 
-                    if (psionic.Amplification > 5 && EnsureComp<IgniteOnCollideComponent>(ent, out var ignite))
-                    {
-                        ignite.FireStacks = 0.2f * psionic.Amplification - 0.1f * psionic.Dampening;
-                    }
+                    if (_glimmerSystem.GlimmerOutput >= 500)
+                        fireball.CanCreateVacuum = true;
+                    else fireball.CanCreateVacuum = false;
+
+                    if (psionic.Amplification > 5)
+                        if (EnsureComp<IgniteOnCollideComponent>(ent, out var ignite))
+                            ignite.FireStacks = 0.2f * psionic.Amplification;
                 }
 
-                var direction = args.Target.Position;
+                var direction = args.Target.ToMapPos(EntityManager, _xform) - spawnCoords.ToMapPos(EntityManager, _xform);
 
                 _gunSystem.ShootProjectile(ent, direction, new System.Numerics.Vector2(0, 0), args.Performer, args.Performer, 20f);
-
-                _psionics.LogPowerUsed(args.Performer, "pyrokinesis",
-                    (int) MathF.Round(6f * psionic.Amplification - psionic.Dampening),
-                    (int) MathF.Round(8f * psionic.Amplification - psionic.Dampening));
+                _actions.RemoveAction(args.Performer, pyroComp.PyrokinesisActionEntity);
+                _doAfterSystem.Cancel(pyroComp.ResetDoAfter);
+                _psionics.LogPowerUsed(args.Performer, "pyrokinesis", psionic, 6, 8);
+                pyroComp.FireballThrown = true;
                 args.Handled = true;
+            }
+        }
+
+        private void OnDoAfter(EntityUid uid, PyrokinesisPowerComponent component, PyrokinesisPrechargeDoAfterEvent args)
+        {
+            if (!args.Cancelled && TryComp<PsionicComponent>(uid, out var psionic))
+            {
+                if (!component.FireballThrown)
+                {
+                    _actions.TryGetActionData(component.PyrokinesisPrechargeActionEntity, out var actionData);
+                    if (actionData is { UseDelay: not null })
+                        _actions.SetCooldown(component.PyrokinesisPrechargeActionEntity, TimeSpan.FromSeconds(15 - psionic.Dampening));
+
+                    _popup.PopupEntity(Loc.GetString(component.PyrokinesisRefundCooldown), uid, uid, PopupType.Medium);
+                }
+                _actions.RemoveAction(uid, component.PyrokinesisActionEntity);
             }
         }
     }

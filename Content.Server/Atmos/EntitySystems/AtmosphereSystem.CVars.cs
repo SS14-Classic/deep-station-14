@@ -18,6 +18,8 @@ namespace Content.Server.Atmos.EntitySystems
         public bool MonstermosEqualization { get; private set; }
         public bool MonstermosDepressurization { get; private set; }
         public bool MonstermosRipTiles { get; private set; }
+        public float MonstermosRipTilesMinimumPressure { get; private set; }
+        public float MonstermosRipTilesPressureOffset { get; private set; }
         public bool GridImpulse { get; private set; }
         public float SpacingEscapeRatio { get; private set; }
         public float SpacingMinGas { get; private set; }
@@ -29,6 +31,7 @@ namespace Content.Server.Atmos.EntitySystems
         public float AtmosTickRate { get; private set; }
         public float Speedup { get; private set; }
         public float HeatScale { get; private set; }
+        public float HumanoidThrowMultiplier { get; private set; }
 
         /// <summary>
         /// Time between each atmos sub-update.  If you are writing an atmos device, use AtmosDeviceUpdateEvent.dt
@@ -50,6 +53,8 @@ namespace Content.Server.Atmos.EntitySystems
             Subs.CVar(_cfg, CCVars.MonstermosEqualization, value => MonstermosEqualization = value, true);
             Subs.CVar(_cfg, CCVars.MonstermosDepressurization, value => MonstermosDepressurization = value, true);
             Subs.CVar(_cfg, CCVars.MonstermosRipTiles, value => MonstermosRipTiles = value, true);
+            Subs.CVar(_cfg, CCVars.MonstermosRipTilesMinimumPressure, value => MonstermosRipTilesMinimumPressure = value, true);
+            Subs.CVar(_cfg, CCVars.MonstermosRipTilesPressureOffset, value => MonstermosRipTilesPressureOffset = value, true);
             Subs.CVar(_cfg, CCVars.AtmosGridImpulse, value => GridImpulse = value, true);
             Subs.CVar(_cfg, CCVars.AtmosSpacingEscapeRatio, value => SpacingEscapeRatio = value, true);
             Subs.CVar(_cfg, CCVars.AtmosSpacingMinGas, value => SpacingMinGas = value, true);
@@ -61,6 +66,7 @@ namespace Content.Server.Atmos.EntitySystems
             Subs.CVar(_cfg, CCVars.AtmosHeatScale, value => { HeatScale = value; InitializeGases(); }, true);
             Subs.CVar(_cfg, CCVars.ExcitedGroups, value => ExcitedGroups = value, true);
             Subs.CVar(_cfg, CCVars.ExcitedGroupsSpaceIsAllConsuming, value => ExcitedGroupsSpaceIsAllConsuming = value, true);
+            Subs.CVar(_cfg, CCVars.AtmosHumanoidThrowMultiplier, value => HumanoidThrowMultiplier = value, true);
         }
     }
 }

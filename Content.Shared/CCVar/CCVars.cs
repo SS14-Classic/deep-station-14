@@ -112,14 +112,14 @@ namespace Content.Shared.CCVar
         ///     Close to how long you expect a round to last, so you'll probably have to tweak this on downstreams.
         /// </summary>
         public static readonly CVarDef<float>
-            EventsRampingAverageEndTime = CVarDef.Create("events.ramping_average_end_time", 40f, CVar.ARCHIVE | CVar.SERVERONLY);
+            EventsRampingAverageEndTime = CVarDef.Create("events.ramping_average_end_time", 120f, CVar.ARCHIVE | CVar.SERVERONLY);
 
         /// <summary>
         ///     Average ending chaos modifier for the ramping event scheduler.
         ///     Max chaos chosen for a round will deviate from this
         /// </summary>
         public static readonly CVarDef<float>
-            EventsRampingAverageChaos = CVarDef.Create("events.ramping_average_chaos", 6f, CVar.ARCHIVE | CVar.SERVERONLY);
+            EventsRampingAverageChaos = CVarDef.Create("events.ramping_average_chaos", 4f, CVar.ARCHIVE | CVar.SERVERONLY);
 
         /*
          * Game
@@ -172,6 +172,33 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool>
             GameLobbyEnableWin = CVarDef.Create("game.enablewin", true, CVar.ARCHIVE);
+
+        /// <summary>
+        ///     Minimum time between Basic station events in seconds
+        /// </summary>
+        public static readonly CVarDef<int> // 15 Minutes
+            GameEventsBasicMinimumTime = CVarDef.Create("game.events_basic_minimum_time", 900, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Maximum time between Basic station events in seconds
+        /// </summary>
+        public static readonly CVarDef<int> // 35 Minutes
+            GameEventsBasicMaximumTime = CVarDef.Create("game.events_basic_maximum_time", 2100, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Minimum time between Ramping station events in seconds
+        /// </summary>
+        public static readonly CVarDef<int> // 20 Minutes
+            GameEventsRampingMinimumTime = CVarDef.Create("game.events_ramping_minimum_time", 1200, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Maximum time between Ramping station events in seconds
+        /// </summary>
+        public static readonly CVarDef<int> // 45 Minutes
+            GameEventsRampingMaximumTime = CVarDef.Create("game.events_ramping_maximum_time", 2700, CVar.SERVERONLY);
+
+        /// <summary>
+        ///
 
         /// <summary>
         ///     Controls the maximum number of character slots a player is allowed to have.
@@ -1109,7 +1136,7 @@ namespace Content.Shared.CCVar
         ///     Useful to prevent clipping through objects.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindMaxVelocity =
-            CVarDef.Create("atmos.space_wind_max_velocity", 25f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind_max_velocity", 15f, CVar.SERVERONLY);
 
         /// <summary>
         ///     The maximum force that may be applied to an object by pushing (i.e. not throwing) atmospheric pressure differences.
@@ -1130,9 +1157,8 @@ namespace Content.Shared.CCVar
             CVarDef.Create("atmos.space_wind_minimum_calculated_mass", 10f, CVar.SERVERONLY);
 
         /// <summary>
-        /// Calculated as 1/Mass, where Mass is the physics.Mass of the desired threshold.
-        /// If an object's inverse mass is lower than this, it is capped at this. Basically, an upper limit to how heavy an object can be
-        /// before it stops resisting space wind more.
+        /// 	Calculated as 1/Mass, where Mass is the physics.Mass of the desired threshold.
+        /// 	If an object's inverse mass is lower than this, it is capped at this. Basically, an upper limit to how heavy an object can be before it stops resisting space wind more.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindMaximumCalculatedInverseMass =
             CVarDef.Create("atmos.space_wind_maximum_calculated_inverse_mass", 0.04f, CVar.SERVERONLY);
@@ -1159,6 +1185,20 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> MonstermosRipTiles =
             CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Taken as the cube of a tile's mass, this acts as a minimum threshold of mass for which air pressure calculates whether or not to rip a tile from the floor
+        ///     This should be set by default to the cube of the game's lowest mass tile as defined in their prototypes, but can be increased for server performance reasons
+        /// </summary>
+        public static readonly CVarDef<float> MonstermosRipTilesMinimumPressure =
+            CVarDef.Create("atmos.monstermos_rip_tiles_min_pressure", 7500f, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Taken after the minimum pressure is checked, the effective pressure is multiplied by this amount.
+        ///		This allows server hosts to finely tune how likely floor tiles are to be ripped apart by air pressure
+        /// </summary>
+        public static readonly CVarDef<float> MonstermosRipTilesPressureOffset =
+            CVarDef.Create("atmos.monstermos_rip_tiles_pressure_offset", 0.44f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.
@@ -1251,6 +1291,13 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> AtmosHeatScale =
             CVarDef.Create("atmos.heat_scale", 8f, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     A multiplier on the amount of force applied to Humanoid entities, as tracked by HumanoidAppearanceComponent
+        ///     This multiplier is added after all other checks are made, and applies to both throwing force, and how easy it is for an entity to be thrown.
+        /// </summary>
+        public static readonly CVarDef<float> AtmosHumanoidThrowMultiplier =
+            CVarDef.Create("atmos.humanoid_throw_multiplier", 2f, CVar.SERVERONLY);
 
         /*
          * MIDI instruments
@@ -2148,11 +2195,11 @@ namespace Content.Shared.CCVar
             CVarDef.Create("glimmer.enabled", true, CVar.REPLICATED);
 
         /// <summary>
-        ///     Passive glimmer drain per second.
-        ///     Note that this is randomized and this is an average value.
+        ///     The rate at which glimmer linearly decays. Since glimmer increases (usually) follow a logistic curve, this means glimmer
+        ///     becomes increasingly harder to raise after ~502 points.
         /// </summary>
-        public static readonly CVarDef<float> GlimmerLostPerSecond =
-            CVarDef.Create("glimmer.passive_drain_per_second", 0.1f, CVar.SERVERONLY);
+        public static readonly CVarDef<float> GlimmerLinearDecayPerMinute =
+            CVarDef.Create("glimmer.linear_decay_per_minute", 6f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether random rolls for psionics are allowed.
@@ -2168,11 +2215,12 @@ namespace Content.Shared.CCVar
             CVarDef.Create("heightadjust.modifies_hitbox", true, CVar.SERVERONLY);
 
         /// <summary>
-        ///     Whether height & width sliders adjust a player's view distance
+        ///     Whether height & width sliders adjust a player's max view distance
         /// </summary>
         public static readonly CVarDef<bool> HeightAdjustModifiesZoom =
             CVarDef.Create("heightadjust.modifies_zoom", true, CVar.SERVERONLY);
 
+        /// <summary>
         ///     Enables station goals
         /// </summary>
         public static readonly CVarDef<bool> StationGoalsEnabled =
@@ -2196,5 +2244,50 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> MassContestsMaxPercentage =
             CVarDef.Create("contests.max_percentage", 0.25f, CVar.REPLICATED | CVar.SERVER);
+        // REGION: CPR System
+        /// <summary>
+        ///     Controls whether the entire CPR system runs. When false, nobody can perform CPR. You should probably remove the trait too
+        ///     if you are wishing to permanently disable the system on your server.
+        /// </summary>
+        public static readonly CVarDef<bool> EnableCPR =
+            CVarDef.Create("cpr.enable", true, CVar.REPLICATED | CVar.SERVER);
+
+        /// <summary>
+        ///     Toggles whether or not CPR reduces rot timers(As an abstraction of delaying brain death, the IRL actual purpose of CPR)
+        /// </summary>
+        public static readonly CVarDef<bool> CPRReducesRot =
+            CVarDef.Create("cpr.reduces_rot", true, CVar.REPLICATED | CVar.SERVER);
+
+        /// <summary>
+        ///     Toggles whether or not CPR heals airloss, included for completeness sake. I'm not going to stop you if your intention is to make CPR do nothing.
+        ///     I guess it might be funny to troll your players with? I won't judge.
+        /// </summary>
+        public static readonly CVarDef<bool> CPRHealsAirloss =
+            CVarDef.Create("cpr.heals_airloss", true, CVar.REPLICATED | CVar.SERVER);
+
+        /// <summary>
+        ///     The chance for a patient to be resuscitated when CPR is successfully performed.
+        ///     Setting this above 0 isn't very realistic, but people who see CPR in movies and TV will expect CPR to work this way.
+        /// </summary>
+        public static readonly CVarDef<float> CPRResuscitationChance =
+            CVarDef.Create("cpr.resuscitation_chance", 0.01f, CVar.REPLICATED | CVar.SERVER);
+
+        /// <summary>
+        ///     By default, CPR reduces rot timers by an amount of seconds equal to the time spent performing CPR. This is an optional multiplier that can increase or decrease the amount
+        ///     of rot reduction. Set it to 2 for if you want 3 seconds of CPR to reduce 6 seconds of rot.
+        /// </summary>
+        /// <remarks>
+        ///     If you're wondering why there isn't a CVar for setting the duration of the doafter, that's because it's not actually possible to have a timespan in cvar form
+        ///     Curiously, it's also not possible for **shared** systems to set variable timespans. Which is where this system lives.
+        /// </remarks>
+        public static readonly CVarDef<float> CPRRotReductionMultiplier =
+            CVarDef.Create("cpr.rot_reduction_multiplier", 1f, CVar.REPLICATED | CVar.SERVER);
+
+        /// <summary>
+        ///     By default, CPR heals airloss by 1 point for every second spent performing CPR. Just like above, this directly multiplies the healing amount.
+        ///     Set it to 2 to get 6 points of airloss healing for every 3 seconds of CPR.
+        /// </summary>
+        public static readonly CVarDef<float> CPRAirlossReductionMultiplier =
+            CVarDef.Create("cpr.airloss_reduction_multiplier", 1f, CVar.REPLICATED | CVar.SERVER);
     }
 }

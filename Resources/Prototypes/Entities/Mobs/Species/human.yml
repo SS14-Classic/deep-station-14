@@ -16,7 +16,7 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
-  - type: LanguageSpeaker
+  - type: LanguageKnowledge
     speaks:
     - GalacticCommon
     - SolCommon
