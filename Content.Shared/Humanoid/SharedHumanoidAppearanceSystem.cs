@@ -251,66 +251,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
     }
 
-    // Parkstation-HeightSlider Start
-    /// <summary>
-    ///     Set the height of a humanoid mob
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID</param>
-    /// <param name="height">The height to set the mob to</param>
-    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetHeight(EntityUid uid, float height, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid) || MathHelper.CloseTo(humanoid.Height, height, 0.001f))
-            return;
-
-        var species = _prototypeManager.Index(humanoid.Species);
-        humanoid.Height = Math.Clamp(height, species.MinHeight, species.MaxHeight);
-
-        if (sync)
-            Dirty(humanoid);
-    }
-
-    /// <summary>
-    ///     Set the width of a humanoid mob
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID</param>
-    /// <param name="width">The width to set the mob to</param>
-    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetWidth(EntityUid uid, float width, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid) || MathHelper.CloseTo(humanoid.Width, width, 0.001f))
-            return;
-
-        var species = _prototypeManager.Index(humanoid.Species);
-        humanoid.Width = Math.Clamp(width, species.MinWidth, species.MaxWidth);
-
-        if (sync)
-            Dirty(humanoid);
-    }
-
-    /// <summary>
-    ///     Set the scale of a humanoid mob
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID</param>
-    /// <param name="scale">The scale to set the mob to</param>
-    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetScale(EntityUid uid, Vector2 scale, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid))
-            return;
-
-        var species = _prototypeManager.Index(humanoid.Species);
-        humanoid.Height = Math.Clamp(scale.Y, species.MinHeight, species.MaxHeight);
-        humanoid.Width = Math.Clamp(scale.X, species.MinWidth, species.MaxWidth);
-
-        if (sync)
-            Dirty(humanoid);
-    }
-    // Parkstation-HeightSlider End
-
     /// <summary>
     ///     Set the height of a humanoid mob
     /// </summary>
