@@ -235,6 +235,12 @@
   - deathgasp
 
 - type: emote
+  id: SiliconDeathgasp
+  chatMessages: ["silicon-emote-deathgasp"]
+  chatTriggers:
+  - sdeathgasp
+
+- type: emote
   id: Buzz
   category: Vocal
   chatMessages: [buzz!]
