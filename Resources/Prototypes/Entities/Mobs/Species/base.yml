@@ -310,10 +310,6 @@
   - type: FireVisuals
     alternateState: Standing
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
 
 - type: entity
   save: false
