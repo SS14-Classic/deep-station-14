@@ -1101,10 +1101,10 @@
   id: SmallMech
 
 - type: Tag
-  id: SMImmune
+  id: Smokable
 
 - type: Tag
-  id: Smokable
+  id: SnapPop
 
 - type: Tag
   id: SnapPop
