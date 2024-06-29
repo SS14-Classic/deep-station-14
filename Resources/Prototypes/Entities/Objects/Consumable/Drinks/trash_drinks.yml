@@ -352,10 +352,6 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/milk.rsi
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
 
 - type: entity
   name: soy milk carton

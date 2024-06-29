@@ -56,7 +56,7 @@ namespace Content.Server.Psionics.Abilities
             if (!TryComp<PsionicComponent>(args.Performer, out var psionic))
                 return;
 
-            if (!HasComp<PsionicInsulationComponent>(args.Target) && !HasComp<PsionicInsulationComponent>(args.Performer))
+            if (!HasComp<PsionicInsulationComponent>(args.Performer))
             {
                 _beam.TryCreateBeam(args.Performer, args.Target, "LightningNoospheric");
                 _stunSystem.TryParalyze(args.Target, TimeSpan.FromSeconds(1 * psionic.Amplification), false);
@@ -69,9 +69,7 @@ namespace Content.Server.Psionics.Abilities
 
                 _statusEffectsSystem.TryAddStatusEffect(args.Target, "Stutter", TimeSpan.FromSeconds(2 * psionic.Amplification), false, "StutteringAccent");
 
-                _psionics.LogPowerUsed(args.Performer, "noopsheric zap",
-                    (int) MathF.Round(6 * psionic.Amplification - psionic.Dampening),
-                    (int) MathF.Round(8 * psionic.Amplification - psionic.Dampening));
+                _psionics.LogPowerUsed(args.Performer, "noopsheric zap", psionic, 6, 8);
                 args.Handled = true;
             }
         }

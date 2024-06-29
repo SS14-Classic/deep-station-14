@@ -2,6 +2,7 @@ using Content.Server.Anomaly.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Anomaly.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server.Psionics.Glimmer
@@ -22,6 +23,7 @@ namespace Content.Server.Psionics.Glimmer
 
             SubscribeLocalEvent<GlimmerSourceComponent, AnomalyPulseEvent>(OnAnomalyPulse);
             SubscribeLocalEvent<GlimmerSourceComponent, AnomalySupercriticalEvent>(OnAnomalySupercritical);
+            SubscribeLocalEvent<GlimmerSourceComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnAnomalyVesselPowerChanged(EntityUid uid, AnomalyVesselComponent component, ref PowerChangedEvent args)
@@ -45,12 +47,18 @@ namespace Content.Server.Psionics.Glimmer
             // component.
 
             if (TryComp<AnomalyComponent>(uid, out var anomaly))
-                _glimmerSystem.Glimmer += (int) (5f * anomaly.Severity);
+                _glimmerSystem.DeltaGlimmerInput(5f * anomaly.Severity);
         }
 
         private void OnAnomalySupercritical(EntityUid uid, GlimmerSourceComponent component, ref AnomalySupercriticalEvent args)
         {
-            _glimmerSystem.Glimmer += 100;
+            _glimmerSystem.DeltaGlimmerOutput(100);
+        }
+
+        private void OnMobStateChanged(EntityUid uid, GlimmerSourceComponent component, ref MobStateChangedEvent args)
+        {
+            if (args.NewMobState != MobState.Alive)
+                component.Active = false;
         }
 
         public override void Update(float frameTime)
@@ -71,11 +79,13 @@ namespace Content.Server.Psionics.Glimmer
                     source.Accumulator -= source.SecondsPerGlimmer;
                     if (source.AddToGlimmer)
                     {
-                        _glimmerSystem.Glimmer++;
+                        //If we're above the equilibrium point of 500, increase the output of passive glimmer sources to help fight against linear decay
+                        //Even with this, don't expect probers to ever get to mind swap levels of power without any help
+                        _glimmerSystem.DeltaGlimmerInput(_glimmerSystem.GlimmerOutput > 500 ? MathF.Round(_glimmerSystem.GlimmerOutput / 100) : 1f);
                     }
                     else
                     {
-                        _glimmerSystem.Glimmer--;
+                        _glimmerSystem.DeltaGlimmerInput(-1);
                     }
                 }
             }

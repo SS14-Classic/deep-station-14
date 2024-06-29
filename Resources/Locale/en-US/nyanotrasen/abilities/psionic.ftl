@@ -63,14 +63,13 @@ action-name-noospheric-zap = Noospheric Zap
 action-description-noospheric-zap = Shocks the conciousness of the target and leaves them stunned and stuttering.
 
 action-name-pyrokinesis = Pyrokinesis
-action-description-pyrokinesis = Hurl a small gateway to the plane of Gehenna at your target.
+action-description-pyrokinesis = Hurl a fire bolt at your target
+
+action-name-precharge-pyrokinesis = Precharge Pyrokinesis
+action-description-precharge-pyrokinesis = Draw forth the Secret of Fire, and prepare to launch a fire bolt
 
 action-name-psychokinesis = Psychokinesis
 action-description-psychokinesis = Bend the fabric of space to instantly move across it.
 
 action-name-rf-sensitivity = Toggle RF Sensitivity
 action-desc-rf-sensitivity = Toggle your ability to interpret radio waves on and off.
-
-trait-latent-psychic-desc = Your mind and soul are open to the noosphere, allowing for a limited use of Telepathy.
-                            Thus, you are eligible for potentially receiving psychic powers.
-                            It is possible that you may be hunted by otherworldly forces, so consider keeping your powers a secret.
