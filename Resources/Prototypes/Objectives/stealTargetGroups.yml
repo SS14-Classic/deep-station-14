@@ -400,4 +400,4 @@
   name: Supermatter sliver
   sprite:
     sprite: Supermatter/supermatter_sliver.rsi
-    state: supermatter
+    state: icon
