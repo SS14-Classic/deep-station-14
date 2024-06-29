@@ -40884,6 +40884,25 @@ entities:
     - type: Transform
       pos: -40.5,49.5
       parent: 2
+- proto: CrateEngineeringTeslaCoil
+  entities:
+  - uid: 17940
+    components:
+    - type: Transform
+      pos: -25.5,-30.5
+      parent: 2
+  - uid: 17941
+    components:
+    - type: Transform
+      pos: -26.5,-30.5
+      parent: 2
+- proto: CrateEngineeringTeslaGroundingRod
+  entities:
+  - uid: 17942
+    components:
+    - type: Transform
+      pos: -24.5,-31.5
+      parent: 2
 - proto: CrateEngineeringToolbox
   entities:
   - uid: 6253
@@ -47501,15 +47520,6 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-35.5
-      parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 17680
-  - uid: 17875
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -28.5,-38.5
       parent: 2
     - type: DeviceLinkSink
       links:
@@ -81693,8 +81703,6 @@ entities:
         - Pressed: Toggle
         3902:
         - Pressed: Toggle
-        17875:
-        - Pressed: Toggle
 - proto: LockerAtmosphericsFilled
   entities:
   - uid: 11778
@@ -99920,6 +99928,13 @@ entities:
     components:
     - type: Transform
       pos: -24.5,-80.5
+      parent: 2
+- proto: TeslaGroundingRod
+  entities:
+  - uid: 17875
+    components:
+    - type: Transform
+      pos: -30.5,-38.5
       parent: 2
 - proto: ThermomachineFreezerMachineCircuitBoard
   entities:
