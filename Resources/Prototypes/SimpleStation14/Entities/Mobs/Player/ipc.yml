@@ -93,11 +93,16 @@
   - type: DeadStartupButton
     sound:
       path: /Audio/EstacaoPirata/Effects/Silicon/startup.ogg
-# Erro de linter
-#   - type: Wires
-#     layoutId: IPC
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
+  - type: WeldingHealable
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - RobotTalk
+    understands:
+    - GalacticCommon
+    - RobotTalk
 
 
 - type: entity
