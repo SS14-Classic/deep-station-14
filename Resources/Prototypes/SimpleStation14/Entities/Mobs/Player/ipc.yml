@@ -96,6 +96,13 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - RobotTalk
+    understands:
+    - GalacticCommon
+    - RobotTalk
 
 
 - type: entity
