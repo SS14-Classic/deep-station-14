@@ -58,7 +58,7 @@
       required: true
       defaultMarkings: [ HarpyChestDefault ]
     Legs:
-      points: 6
+      points: 2
       required: false
     Arms:
       points: 1
