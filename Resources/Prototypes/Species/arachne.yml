@@ -27,7 +27,7 @@
       points: 1
       required: false
     Arms:
-      points: 2
+      points: 6
       required: false
 
 
