@@ -7279,9 +7279,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 3906
-      - 2674
-      - 2584
       - 2675
       - 3901
       - 2676
@@ -50486,6 +50483,27 @@ entities:
       color: '#ADD8E6FF'
 - proto: GasPassiveVent
   entities:
+  - uid: 2584
+    components:
+    - type: Transform
+      pos: -30.5,-39.5
+      parent: 2
+    - type: AtmosDevice
+      joinedGrid: 2
+  - uid: 2674
+    components:
+    - type: Transform
+      pos: -31.5,-39.5
+      parent: 2
+    - type: AtmosDevice
+      joinedGrid: 2
+  - uid: 3906
+    components:
+    - type: Transform
+      pos: -32.5,-39.5
+      parent: 2
+    - type: AtmosDevice
+      joinedGrid: 2
   - uid: 3909
     components:
     - type: Transform
@@ -71107,42 +71125,6 @@ entities:
       color: '#FF0000FF'
 - proto: GasVentPump
   entities:
-  - uid: 2584
-    components:
-    - type: Transform
-      pos: -32.5,-39.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 17544
-    - type: AtmosDevice
-      joinedGrid: 2
-    - type: AtmosPipeColor
-      color: '#07FFFFFF'
-  - uid: 2674
-    components:
-    - type: Transform
-      pos: -31.5,-39.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 17544
-    - type: AtmosDevice
-      joinedGrid: 2
-    - type: AtmosPipeColor
-      color: '#07FFFFFF'
-  - uid: 3906
-    components:
-    - type: Transform
-      pos: -30.5,-39.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 17544
-    - type: AtmosDevice
-      joinedGrid: 2
-    - type: AtmosPipeColor
-      color: '#07FFFFFF'
   - uid: 10223
     components:
     - type: Transform
