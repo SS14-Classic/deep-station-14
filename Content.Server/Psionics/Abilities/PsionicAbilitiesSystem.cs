@@ -37,10 +37,8 @@ namespace Content.Server.Psionics.Abilities
             if (Deleted(uid))
                 return;
 
-            if (HasComp<PsionicComponent>(uid))
-                return;
-
             AddRandomPsionicPower(uid);
+
         }
         public void AddRandomPsionicPower(EntityUid uid)
         {
@@ -52,13 +50,22 @@ namespace Content.Server.Psionics.Abilities
                 return;
             }
 
-            // uh oh, stinky!
-            var newComponent = (Component) _componentFactory.GetComponent(pool.Pick());
-            newComponent.Owner = uid;
+            var newPool = pool;
+            foreach (var component in pool.Weights.Keys)
+            {
+                var checkedComponent = _componentFactory.GetComponent(component);
+                if (EntityManager.HasComponent(uid, checkedComponent.GetType()))
+                    newPool.Weights.Remove(component);
+            }
 
-            EntityManager.AddComponent(uid, newComponent);
+            if (newPool.Weights.Keys != null)
+            {
+                var newComponent = _componentFactory.GetComponent(newPool.Pick());
 
-            _glimmerSystem.DeltaGlimmerInput(_random.NextFloat(psionic.Amplification * psionic.Dampening, psionic.Amplification * psionic.Dampening * 5));
+                EntityManager.AddComponent(uid, newComponent);
+                _glimmerSystem.DeltaGlimmerInput(_random.NextFloat(psionic.Amplification * psionic.Dampening, psionic.Amplification * psionic.Dampening * 5));
+            }
+            return;
         }
 
         public void RemovePsionics(EntityUid uid)
@@ -96,7 +103,7 @@ namespace Content.Server.Psionics.Abilities
 
             _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(5), false, "StutteringAccent");
 
-            _glimmerSystem.DeltaGlimmerOutput(-_random.NextFloat((int) MathF.Round(psionic.Amplification * psionic.Dampening * 5), (int) MathF.Round(psionic.Amplification * psionic.Dampening * 10)));
+            _glimmerSystem.DeltaGlimmerOutput(-_random.NextFloat(psionic.Amplification * psionic.Dampening * 5, psionic.Amplification * psionic.Dampening * 10));
             RemComp<PsionicComponent>(uid);
             RemComp<PotentialPsionicComponent>(uid);
         }
