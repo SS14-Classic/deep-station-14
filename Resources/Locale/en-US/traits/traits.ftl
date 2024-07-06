@@ -48,6 +48,18 @@ trait-description-NaturalTelepath = As a naturally occuring Telepath, you are ca
                                     whether or not you possess any notable psychic powers. This offers all of the same benefits and
                                     drawbacks of Latent Psychic, except that you are guaranteed to start with full Telepathy. You may
                                     still gain powers as normal for a Latent Psychic.
+
 trait-name-CPRTraining = CPR Training
 trait-description-CPRTraining = At some point in your life, you have received training in how to perform CPR.
                                 This trait is automatically given for free to medical doctors, and is intended for non-medical characters
+
+trait-name-NormalVisionHarpy = Trichromat Modification
+trait-description-NormalVisionHarpy = Your eyes have been modified by means of advanced medicine to see in the standard colors of Red, Green, and Blue.
+
+trait-name-NormalVisionVulpkanin = Trichromat Modification
+trait-description-NormalVisionVulpkanin = Your eyes have been modified by means of advanced medicine to see in the standard colors of Red, Green, and Blue.
+
+trait-name-Thieving = Thieving
+trait-description-Thieving =
+    You are deft with your hands, and talented at convincing people of their belongings.
+    You can identify pocketed items, steal them quieter, and steal ~33% faster.
