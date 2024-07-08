@@ -31,6 +31,7 @@
         type: HumanoidMarkingModifierBoundUserInterface
       - key: enum.StrippingUiKey.Key
         type: StrippableBoundUserInterface
+  - type: Absorbable
   - type: Sprite
     scale: 0.9, 0.9
     layers:
