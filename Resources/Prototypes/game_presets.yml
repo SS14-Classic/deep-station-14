@@ -42,6 +42,7 @@
     - Revolutionary
     - Zombie
     - RampingStationEventScheduler
+    - Changeling
 
 - type: gamePreset
   id: Extended
