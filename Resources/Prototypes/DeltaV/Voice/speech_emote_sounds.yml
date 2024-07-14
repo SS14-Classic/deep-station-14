@@ -62,6 +62,12 @@
       collection: BikeHorn
     Weh:
       collection: Weh
+    IPCWhirr:
+      collection: IPCWhirrs
+    IPCBoop:
+      collection: IPCBoops
+    IPCBeep:
+        collection: IPCBeeps
 
 - type: emoteSounds
   id: MaleVulpkanin

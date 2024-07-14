@@ -296,17 +296,21 @@
     - whirrs.
     - whirrs!
 
-# HarpyBeep
-# - type: emote
-  # id: IPCBeep
-  # category: Vocal
-  # chatMessages: [beeps]
-  # chatTriggers:
-    # - beep
-    # - beeps
-    # - beeps.
-    # - beeps!
-    
+
+# IPCs uses this one and HarpyBeep, they are the same. but trigger differently
+# This exists mostly so Harpies can also play the same sound as IPCs, solving the "beep" trigger conflict
+- type: emote
+  id: IPCBeep
+  category: Vocal
+  chatMessages: [beeps robotically]
+  chatTriggers:
+  - rbeep
+  - rbeep.
+  - rbeeps
+  - rbeeps.
+  - beeps robotically
+  - beeps robotically.
+
 - type: emote
   id: IPCBoop
   category: Vocal
