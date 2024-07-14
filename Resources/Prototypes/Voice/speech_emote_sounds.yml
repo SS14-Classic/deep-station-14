@@ -372,8 +372,6 @@
   sounds:
     Buzz:
       path: /Audio/Effects/Cargo/buzz_sigh.ogg
-      params:
-        variation: 0.125
     Scream:
       path: /Audio/EstacaoPirata/Voice/IPC/robot-scream.ogg
       params:
@@ -396,6 +394,8 @@
       path: /Audio/Voice/Talk/pai.ogg
     Crying:
       path: /Audio/EstacaoPirata/Voice/IPC/cry_robot_1.ogg
+      params:
+        variation: 0.125
     Whistle:
       path: /Audio/Voice/Talk/pai.ogg
     IPCWhirr:
@@ -404,14 +404,10 @@
       collection: IPCBoops
     IPCBeep:
       collection: IPCBeeps
-      params:
-        variation: 0
     #Not the most organized way to reproduce this emote.
     #But it does work because harpyBeep uses the same triggers as IPCBeep did.
     HarpyBeep:
       collection: IPCBeeps
-      params:
-        variation: 0
     IPCPing:
       collection: IPCPing
       params:

@@ -1,73 +1,140 @@
 # species
 - type: emoteSounds
   id: SoundsHarpy
-  params:
-    variation: 0.125
   sounds:
     Scream:
       collection: HarpyScreams
+      params:
+        variation: 0.125
     Laugh:
       collection: HarpyLaugh
+      params:
+        variation: 0.125
     Sneeze:
       collection: MaleSneezes
+      params:
+        variation: 0.125
     Cough:
       collection: MaleCoughs
+      params:
+        variation: 0.125
     Sigh:
       collection: MaleSigh
+      params:
+        variation: 0.125
     Crying:
       collection: HarpyCry
+      params:
+        variation: 0.125
     Whistle:
       collection: Whistles
+      params:
+        variation: 0.125
     Hiss:
       collection: HarpyHisses
+      params:
+        variation: 0.125
     Meow:
       collection: HarpyMeows
+      params:
+        variation: 0.125
     Mew:
       collection: HarpyMews
+      params:
+        variation: 0.125
     Growl:
       collection: HarpyGrowls
+      params:
+        variation: 0.125
     Purr:
       collection: HarpyPurrs
+      params:
+        variation: 0.125
     HarpyRing:
       collection: HarpyRings
+      params:
+        variation: 0.125
     HarpyHonk:
       collection: HarpyHonks
+      params:
+        variation: 0.125
     HarpyPew:
       collection: HarpyPews
+      params:
+        variation: 0.125
     HarpyBang:
       collection: HarpyBangs
+      params:
+        variation: 0.125
     HarpyBeep:
       collection: HarpyBeeps
+      params:
+        variation: 0.125
     HarpyRev:
       collection: HarpyRevs
+      params:
+        variation: 0.125
     Click:
       collection: HarpyClicks
+      params:
+        variation: 0.125
     Chitter:
       collection: HarpyChitter
+      params:
+        variation: 0.125
     Squeak:
       collection: HarpySqueak
+      params:
+        variation: 0.125
     HarpyCaw:
       collection: HarpyCaws
+      params:
+        variation: 0.125
     Chirp:
       collection: HarpyChirps
+      params:
+        variation: 0.125
     Snarl:
       collection: VulpkaninSnarls
+      params:
+        variation: 0.125
     Bark:
       collection: VulpkaninBarks
+      params:
+        variation: 0.125
     Whine:
       collection: VulpkaninWhines
+      params:
+        variation: 0.125
     Howl:
       collection: VulpkaninHowls
+      params:
+        variation: 0.125
     Honk:
       collection: BikeHorn
+      params:
+        variation: 0.125
     Weh:
       collection: Weh
+      params:
+        variation: 0.125
     IPCWhirr:
       collection: IPCWhirrs
+      params:
+        variation: 0
     IPCBoop:
       collection: IPCBoops
+      params:
+        variation: 0
     IPCBeep:
         collection: IPCBeeps
+        params:
+          variation: 0
+    IPCPing:
+      collection: IPCPing
+      params:
+        variation: 0.125
+
 
 - type: emoteSounds
   id: MaleVulpkanin
