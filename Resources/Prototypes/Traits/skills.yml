@@ -21,6 +21,7 @@
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
+      jobs:
         - Borg
         - MedicalBorg
     - !type:CharacterTraitRequirement
