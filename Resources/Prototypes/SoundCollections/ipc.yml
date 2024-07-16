@@ -14,7 +14,7 @@
   id: IPCBoops
   files:
   - /Audio/Voice/IPC/beep_500.ogg
-  -
+
 - type: soundCollection
   id: IPCPing
   files:
