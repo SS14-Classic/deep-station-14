@@ -566,7 +566,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             return true;
         }
-        
+
         // Naughty input
         if (entities.Count > MaxTargets)
         {
