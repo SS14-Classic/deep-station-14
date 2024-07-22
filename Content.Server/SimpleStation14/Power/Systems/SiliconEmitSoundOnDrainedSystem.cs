@@ -1,5 +1,5 @@
 using Content.Server.SimpleStation14.Silicon.Death;
-using Content.Server.Sound.Components;
+using Content.Shared.Sound.Components;
 using Content.Shared.Mobs;
 using Content.Shared.SimpleStation14.Silicon.Systems;
 
@@ -18,11 +18,7 @@ public sealed class EmitSoundOnCritSystem : EntitySystem
     {
         var spamComp = EnsureComp<SpamEmitSoundComponent>(uid);
 
-        spamComp.Accumulator = 0f;
-        spamComp.RollInterval = component.Interval;
-        spamComp.PlayChance = component.PlayChance;
         spamComp.PopUp = component.PopUp;
-        spamComp.Enabled = true;
         spamComp.Sound = component.Sound;
     }
 

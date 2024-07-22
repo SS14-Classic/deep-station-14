@@ -40,7 +40,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
 
-    public const float DamagePitchVariation = SharedMeleeWeaponSystem.DamagePitchVariation;
+    private const float DamagePitchVariation = 0.05f;
     public const float GunClumsyChance = 0.5f;
 
     public override void Initialize()
@@ -203,7 +203,13 @@ public sealed partial class GunSystem : SharedGunSystem
                             if (!rayCastResults.Any())
                                 break;
 
-                            var result = rayCastResults[0];
+                            var raycastEvent = new HitScanAfterRayCastEvent(rayCastResults);
+                            RaiseLocalEvent(lastUser, ref raycastEvent);
+
+                            if (raycastEvent.RayCastResults == null)
+                                break;
+
+                            var result = raycastEvent.RayCastResults[0];
                             var hit = result.HitEntity;
                             lastHit = hit;
 

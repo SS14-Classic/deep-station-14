@@ -18,6 +18,9 @@
   id: HeavyweightDrunk
   category: Physical
   points: -2
+  components:
+    - type: LightweightDrunk
+      boozeStrengthMultiplier: 0.5
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -28,9 +31,6 @@
       inverted: true
       traits:
         - LightweightDrunk
-  components:
-    - type: LightweightDrunk
-      boozeStrengthMultiplier: 0.5
 
 - type: trait
   id: Thieving
