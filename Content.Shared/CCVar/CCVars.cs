@@ -2306,6 +2306,7 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> MassContestsMaxPercentage =
             CVarDef.Create("contests.max_percentage", 0.25f, CVar.REPLICATED | CVar.SERVER);
+
         // REGION: CPR System
         /// <summary>
         ///     Controls whether the entire CPR system runs. When false, nobody can perform CPR. You should probably remove the trait too
