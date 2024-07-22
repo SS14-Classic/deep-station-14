@@ -11,6 +11,9 @@ trait-description-Pacifist = You cannot attack or hurt any living beings.
 trait-name-LightweightDrunk = Lightweight Drunk
 trait-description-LightweightDrunk = Alcohol has a stronger effect on you
 
+trait-name-HeavyweightDrunk = Heavyweight Drunk
+trait-description-HeavyweightDrunk = Alcohols are afraid of you
+
 trait-name-Muted = Muted
 trait-description-Muted = You can't speak
 
@@ -55,6 +58,9 @@ trait-description-CPRTraining = At some point in your life, you have received tr
 
 trait-name-NormalVisionHarpy = Trichromat Modification
 trait-description-NormalVisionHarpy = Your eyes have been modified by means of advanced medicine to see in the standard colors of Red, Green, and Blue.
+
+trait-name-Southern = Southern Drawl
+trait-description-Southern = You have a different way of speakin'.
 
 trait-name-NormalVisionVulpkanin = Trichromat Modification
 trait-description-NormalVisionVulpkanin = Your eyes have been modified by means of advanced medicine to see in the standard colors of Red, Green, and Blue.

@@ -90,7 +90,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         if (station != null && profile != null)
         {
-            /// Try to call the character's preferred spawner first.
+            // Try to call the character's preferred spawner first.
             if (_spawnerCallbacks.TryGetValue(profile.SpawnPriority, out var preferredSpawner))
             {
                 preferredSpawner(ev);
@@ -105,7 +105,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             }
             else
             {
-                /// Call all of them in the typical order.
+                // Call all of them in the typical order.
                 foreach (var typicalSpawner in _spawnerCallbacks.Values)
                     typicalSpawner(ev);
             }
@@ -138,7 +138,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         EntityUid? station,
         EntityUid? entity = null)
     {
-        _prototypeManager.TryIndex(job?.Prototype ?? string.Empty, out JobPrototype? prototype);
+        _prototypeManager.TryIndex(job?.Prototype ?? string.Empty, out var prototype);
 
         // If we're not spawning a humanoid, we're gonna exit early without doing all the humanoid stuff.
         if (prototype?.JobEntity != null)
@@ -159,13 +159,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             speciesId = weights.Pick(_random);
         }
         else if (profile != null)
-        {
             speciesId = profile.Species;
-        }
         else
-        {
             speciesId = SharedHumanoidAppearanceSystem.DefaultSpecies;
-        }
 
         if (!_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
             throw new ArgumentException($"Invalid species prototype was used: {speciesId}");
@@ -173,9 +169,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         entity ??= Spawn(species.Prototype, coordinates);
 
         if (_randomizeCharacters)
-        {
             profile = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
-        }
 
         if (prototype?.StartingGear != null)
         {

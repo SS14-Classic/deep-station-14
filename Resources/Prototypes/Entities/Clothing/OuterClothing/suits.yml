@@ -8,6 +8,9 @@
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -23,9 +26,10 @@
     - Hardsuit
     - WhitelistChameleon
     - FullBodyOuter
+    - HidesHarpyWings
 
 - type: entity
-  parent: ClothingOuterBaseLarge
+  parent: ClothingOuterSuitBomb
   id: ClothingOuterSuitJanitorBomb
   name: janitorial bomb suit
   description: A heavy helmet designed to withstand explosions formed from reactions between chemicals.
@@ -35,17 +39,6 @@
     sprite: Clothing/OuterClothing/Suits/janitor_bombsuit.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/janitor_bombsuit.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
-  - type: ExplosionResistance
-    damageCoefficient: 0.15
-  - type: GroupExamine
-  - type: Tag
-    tags:
-    - Hardsuit
-    - WhitelistChameleon
-    - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -72,6 +65,10 @@
     sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: GroupExamine
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - HidesHarpyWings
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -102,6 +99,8 @@
     - type: Tag
       tags:
         - FullBodyOuter
+        - WhitelistChameleon
+        - HidesHarpyWings
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing]
@@ -128,6 +127,8 @@
   - type: Tag
     tags:
       - FullBodyOuter
+      - WhitelistChameleon
+      - HidesHarpyWings
 
 - type: entity
   parent: ClothingOuterBaseLarge
