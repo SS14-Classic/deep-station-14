@@ -1,15 +1,21 @@
 - type: loadout
   id: LoadoutItemMk58
-  category: PersonalDefense
+  category: Items
   cost: 8
   items:
     - WeaponPistolMk58
     - MagazinePistol # Gun comes with a mag loaded.
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 3600 # 1 hour
 
 - type: loadout
   id: LoadoutItemMk58NonLethal
-  category: PersonalDefense
+  category: Items
   cost: 6
   items:
     - WeaponPistolMk58Nonlethal
     - MagazinePistolRubber # Gun comes with a mag loaded.
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 3600 # 1 hour
