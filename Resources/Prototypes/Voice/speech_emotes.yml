@@ -167,16 +167,6 @@
     - boops.
     - boops!
 
-- type: emote
-  id: IPCPing
-  category: Vocal
-  chatMessages: [pings]
-  chatTriggers:
-    - ping
-    - pings
-    - pings.
-    - pings!
-
 # Machine Emotes
 - type: emote
   id: Beep
