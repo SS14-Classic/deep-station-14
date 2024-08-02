@@ -2,6 +2,9 @@
   id: CPRTraining
   category: Uncategorized
   points: -2
+  components:
+    - type: LightweightDrunk
+      boozeStrengthMultiplier: 0.5
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
