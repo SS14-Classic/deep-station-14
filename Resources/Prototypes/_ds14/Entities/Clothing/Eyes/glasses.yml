@@ -1,0 +1,24 @@
+- type: entity
+  parent: ClothingEyesGlassesSunglasses
+  id: ClothingEyesGogglesScientist
+  name: science goggles
+  description: Sturdy-looking goggles fit for any mad scientist, with a Primerdyne Labs logo printed on the strap.
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-flip-verb
+    foldVerbText: fold-flip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: flipped
+    foldedHeldPrefix: flipped
+  - type: Sprite
+    sprite: _ds14/Clothing/Eyes/sciencegoggles.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-flipped
+      map: ["foldedLayer"]
+      visible: false
+  - type: Clothing
+    sprite: _ds14/Clothing/Eyes/sciencegoggles.rsi
