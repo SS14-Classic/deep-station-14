@@ -3,15 +3,9 @@
   name: job-name-zookeeper
   description: job-description-zookeeper
   playTimeTracker: JobZookeeper
-<<<<<<< HEAD
   # requirements:
     # - !type:OverallPlaytimeRequirement
       # time: 7200 #DeltaV 2 hours
-=======
-  requirements:
-    - !type:CharacterOverallTimeRequirement
-      min: 7200 #DeltaV 2 hours
->>>>>>> EE-Personal/master
   startingGear: ZookeeperGear
   icon: "JobIconZookeeper"
   supervisors: job-supervisors-hop

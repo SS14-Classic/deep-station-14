@@ -3,13 +3,6 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
-<<<<<<< HEAD
-=======
-  requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      min: 14400 #4 hrs
->>>>>>> EE-Personal/master
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd

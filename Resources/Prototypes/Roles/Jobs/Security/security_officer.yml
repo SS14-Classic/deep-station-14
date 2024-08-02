@@ -3,17 +3,10 @@
   name: job-name-security
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
-<<<<<<< HEAD
   # requirements:
     # - !type:DepartmentTimeRequirement
       # department: Security
       # time: 14400 # DeltaV - 4 hours
-=======
-  requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 14400 # DeltaV - 4 hours
->>>>>>> EE-Personal/master
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

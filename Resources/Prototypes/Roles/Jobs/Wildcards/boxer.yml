@@ -3,16 +3,10 @@
   name: job-name-boxer
   description: job-description-boxer
   playTimeTracker: JobBoxer
-<<<<<<< HEAD
   setPreference: true
   # requirements:
     # - !type:OverallPlaytimeRequirement
       # time: 7200 #DeltaV 2 hours
-=======
-  requirements:
-    - !type:CharacterOverallTimeRequirement
-      min: 7200 #DeltaV 2 hours
->>>>>>> EE-Personal/master
   startingGear: BoxerGear
   icon: "JobIconBoxer"
   supervisors: job-supervisors-hop

@@ -3,17 +3,10 @@
   name: job-name-detective
   description: job-description-detective
   playTimeTracker: JobDetective
-<<<<<<< HEAD
   # requirements:
   # - !type:DepartmentTimeRequirement
     # department: Security
     # time: 36000 # DeltaV - 10 hours
-=======
-  requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Security
-    min: 36000 # DeltaV - 10 hours
->>>>>>> EE-Personal/master
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos

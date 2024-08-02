@@ -322,7 +322,7 @@
   suffix: RD's Room
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-mystagogue  #Delta V - Renamed
+    defaultText: station-beacon-mystagogue
 
 - type: entity
   parent: DefaultStationBeaconScience
