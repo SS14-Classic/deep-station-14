@@ -4,7 +4,7 @@
   description: job-description-captain
   playTimeTracker: JobCaptain
   requirements:
-    - !type:OverallPlaytimeRequirement
+    - !type:CharacterOverallTimeRequirement
       time: 3600 # 1 Hour
   weight: 20
   startingGear: CaptainGear
