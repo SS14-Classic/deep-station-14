@@ -3,5 +3,6 @@
   id: LoadoutShoesDS14Sneakers
   category: Shoes
   cost: 1
+  exclusive: true
   items:
     - DS14ClothingShoesSneakers
