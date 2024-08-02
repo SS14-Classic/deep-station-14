@@ -297,7 +297,7 @@
   suffix: Science
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-epistemics
+    defaultText: station-beacon-epistemics #Delta V - Renamed
     color: "#D381C9"
 
 - type: entity
@@ -322,7 +322,7 @@
   suffix: RD's Room
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-mystagogue
+    defaultText: station-beacon-mystagogue  #Delta V - Renamed
 
 - type: entity
   parent: DefaultStationBeaconScience

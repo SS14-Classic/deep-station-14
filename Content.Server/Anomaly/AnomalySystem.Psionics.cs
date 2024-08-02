@@ -15,6 +15,8 @@ public sealed partial class AnomalySystem
     {
         SubscribeLocalEvent<AnomalyComponent, DispelledEvent>(OnDispelled);
     }
+
+    //Nyano - Summary: gives dispellable behavior to Anomalies.
     private void OnDispelled(EntityUid uid, AnomalyComponent component, DispelledEvent args)
     {
         _dispel.DealDispelDamage(uid);

@@ -1,0 +1,2 @@
+loadout-description-LoadoutItemMk58 = personal defense handgun, loaded with live rounds. May be confiscated by Security.
+loadout-description-LoadoutItemMk58NonLethal = personal defense handgun, loaded with rubber rounds. May be confiscated by Security.

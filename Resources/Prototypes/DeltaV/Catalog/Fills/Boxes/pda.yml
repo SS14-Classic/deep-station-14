@@ -36,10 +36,10 @@
       - id: ParamedicPDA
 
 - type: entity
-  name: science PDA box
+  name: epistemics PDA box
   parent: BoxPDA
   id: BoxPDAScience
-  description: A box of spare PDA microcomputers for the science department.
+  description: A box of spare PDA microcomputers for the epistemics department.
   components:
   - type: StorageFill
     contents:

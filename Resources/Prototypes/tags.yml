@@ -11,6 +11,9 @@
   id: AirSensor
 
 - type: Tag
+  id: AllowLamiaHardsuit
+
+- type: Tag
   id: Ambrosia
 
 - type: Tag

@@ -2,6 +2,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.Contests
@@ -9,6 +10,7 @@ namespace Content.Shared.Contests
     public sealed partial class ContestsSystem : EntitySystem
     {
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         /// <summary>
         ///     The presumed average mass of a player entity
