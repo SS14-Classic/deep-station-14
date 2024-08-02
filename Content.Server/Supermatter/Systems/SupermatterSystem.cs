@@ -1,4 +1,5 @@
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
@@ -18,12 +19,15 @@ using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
 using System.Text;
 using Content.Server.Kitchen.Components;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using System.Linq;
 using Content.Shared.Audio;
+using System.Configuration;
+using Content.Shared.CCVar;
 
 namespace Content.Server.Supermatter.Systems;
 
@@ -42,6 +46,7 @@ public sealed class SupermatterSystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
 
     public override void Initialize()
     {
@@ -190,7 +195,7 @@ public sealed class SupermatterSystem : EntitySystem
 
         //Radiate stuff
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
-            rad.Intensity = sm.Power * Math.Max(0, 1f + transmissionBonus / 10f) * 0.003f;
+            rad.Intensity = sm.Power * Math.Max(0, 1f + transmissionBonus / 10f) * 0.003f * _config.GetCVar(CCVars.SupermatterRadsModifier);
 
         //Power * 0.55 * a value between 1 and 0.8
         var energy = sm.Power * sm.ReactionPowerModifier;
@@ -404,6 +409,9 @@ public sealed class SupermatterSystem : EntitySystem
     /// </summary>
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
+        if (_config.GetCVar(CCVars.DoForceDelam))
+            return _config.GetCVar(CCVars.ForcedDelamType);
+
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
 
         if (mix is { })
@@ -411,10 +419,12 @@ public sealed class SupermatterSystem : EntitySystem
             var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
             var moles = absorbedGas.TotalMoles;
 
-            if (moles >= sm.MolePenaltyThreshold)
+            if (_config.GetCVar(CCVars.DoSingulooseDelam)
+                && moles >= sm.MolePenaltyThreshold * _config.GetCVar(CCVars.SingulooseMolesModifier))
                 return DelamType.Singulo;
         }
-        if (sm.Power >= sm.PowerPenaltyThreshold)
+        if (_config.GetCVar(CCVars.DoTeslooseDelam)
+            && sm.Power >= sm.PowerPenaltyThreshold * _config.GetCVar(CCVars.TesloosePowerModifier))
             return DelamType.Tesla;
 
         // TODO: add resonance cascade when there's crazy conditions or a destabilizing crystal
@@ -455,15 +465,15 @@ public sealed class SupermatterSystem : EntitySystem
                 break;
 
             case DelamType.Singulo:
-                Spawn(sm.SingularityPrototypeId, xform.Coordinates);
+                Spawn(sm.SingularitySpawnPrototype, xform.Coordinates);
                 break;
 
             case DelamType.Tesla:
-                Spawn(sm.TeslaPrototypeId, xform.Coordinates);
+                Spawn(sm.TeslaSpawnPrototype, xform.Coordinates);
                 break;
 
             case DelamType.Cascade:
-                Spawn(sm.SupermatterKudzuPrototypeId, xform.Coordinates);
+                Spawn(sm.SupermatterKudzuSpawnPrototype, xform.Coordinates);
                 break;
         }
     }
@@ -516,7 +526,7 @@ public sealed class SupermatterSystem : EntitySystem
 
         if (!HasComp<ProjectileComponent>(target))
         {
-            EntityManager.SpawnEntity(sm.CollisionResultPrototypeId, Transform(target).Coordinates);
+            EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
 
@@ -544,7 +554,7 @@ public sealed class SupermatterSystem : EntitySystem
 
         sm.MatterPower += 200;
 
-        EntityManager.SpawnEntity(sm.CollisionResultPrototypeId, Transform(target).Coordinates);
+        EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
         _audio.PlayPvs(sm.DustSound, uid);
         EntityManager.QueueDeleteEntity(target);
     }
@@ -586,7 +596,7 @@ public sealed class SupermatterSystem : EntitySystem
         var integrity = GetIntegrity(sm).ToString("0.00");
         SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 
-        Spawn(sm.SliverPrototypeId, _transform.GetMapCoordinates(args.User));
+        Spawn(sm.SupermatterSliverPrototype, _transform.GetMapCoordinates(args.User));
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
 
         sm.DelamTimer /= 2;

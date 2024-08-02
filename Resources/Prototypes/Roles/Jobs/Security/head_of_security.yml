@@ -4,8 +4,8 @@
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 3600 # 1 Hour
+    - !type:CharacterOverallTimeRequirement
+      min: 3600 # 1 Hour
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

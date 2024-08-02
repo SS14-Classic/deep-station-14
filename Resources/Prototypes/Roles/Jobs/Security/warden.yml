@@ -4,8 +4,8 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 3600 # 1 Hour
+    - !type:CharacterOverallTimeRequirement
+      min: 3600 # 1 Hour
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
