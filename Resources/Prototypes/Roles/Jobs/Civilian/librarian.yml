@@ -3,9 +3,15 @@
   name: job-name-librarian
   description: job-description-librarian
   playTimeTracker: JobLibrarian
+<<<<<<< HEAD
   # requirements:
     # - !type:OverallPlaytimeRequirement #DeltaV
       # time: 3600 # 1 hr
+=======
+  requirements:
+    - !type:CharacterOverallTimeRequirement #DeltaV
+      min: 3600 # 1 hr
+>>>>>>> EE-Personal/master
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
   supervisors: job-supervisors-hop

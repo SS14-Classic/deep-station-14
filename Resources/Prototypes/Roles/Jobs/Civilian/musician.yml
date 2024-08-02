@@ -3,9 +3,15 @@
   name: job-name-musician
   description: job-description-musician
   playTimeTracker: JobMusician
+<<<<<<< HEAD
   # requirements:
     # - !type:OverallPlaytimeRequirement
       # time: 7200 # DeltaV - 2 hours
+=======
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 7200 # DeltaV - 2 hours
+>>>>>>> EE-Personal/master
   startingGear: MusicianGear
   icon: "JobIconMusician"
   supervisors: job-supervisors-hire

@@ -4,6 +4,7 @@
   description: job-description-senior-physician
   playTimeTracker: JobSeniorPhysician
   setPreference: false # DeltaV - Disable Senior Roles round start selection
+<<<<<<< HEAD
   # requirements:
     # - !type:RoleTimeRequirement
       # role: JobChemist
@@ -14,6 +15,18 @@
     # - !type:DepartmentTimeRequirement
       # department: Medical
       # time: 216000 # 60 hrs
+=======
+  requirements:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobChemist
+      min: 21600 #6 hrs
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobMedicalDoctor
+      min: 21600 #6 hrs
+    - !type:CharacterDepartmentTimeRequirement
+      department: Medical
+      min: 216000 # 60 hrs
+>>>>>>> EE-Personal/master
   startingGear: SeniorPhysicianGear
   icon: "JobIconSeniorPhysician"
   supervisors: job-supervisors-cmo

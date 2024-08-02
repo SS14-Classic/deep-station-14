@@ -4,6 +4,15 @@
   description: job-description-rd
   playTimeTracker: JobResearchDirector
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
+<<<<<<< HEAD
+=======
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      min: 54000 # DeltaV - 15 hours
+    - !type:CharacterOverallTimeRequirement
+      min: 72000 # DeltaV - 20 hours
+>>>>>>> EE-Personal/master
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"

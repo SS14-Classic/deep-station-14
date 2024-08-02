@@ -3,9 +3,15 @@
   name: job-name-reporter
   description: job-description-reporter
   playTimeTracker: JobReporter
+<<<<<<< HEAD
   # requirements:
     # - !type:OverallPlaytimeRequirement
       # time: 7200 #DeltaV 2 hours
+=======
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 7200 #DeltaV 2 hours
+>>>>>>> EE-Personal/master
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop

@@ -5,6 +5,7 @@
   parent: BaseItem
   abstract: true
   description: An empty bottle.
+  suffix: Empty
   components:
   - type: Sprite
     state: icon
@@ -93,6 +94,7 @@
   parent: BaseItem
   abstract: true
   description: An empty carton.
+  suffix: Empty
   components:
   - type: Sprite
     state: icon
@@ -352,6 +354,10 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/milk.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
 
 - type: entity
   name: soy milk carton

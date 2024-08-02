@@ -408,6 +408,9 @@
   id: Coldsauce
 
 - type: Tag
+  id: CoordinatesDisk
+
+- type: Tag
   id: Corn
 
 - type: Tag
@@ -514,6 +517,9 @@
 
 - type: Tag
   id: DoorElectronics
+
+- type: Tag
+  id: DoorElectronicsConfigurator
 
 - type: Tag
   id: DonkPocket
@@ -911,9 +917,6 @@
   id: NoBlockAnchoring
 
 - type: Tag
-  id: NoPaint
-
-- type: Tag
   id: NozzleBackTank
 
 - type: Tag
@@ -1038,9 +1041,6 @@
 
 - type: Tag
   id: RawMaterial
-
-- type: Tag
-  id: RCDDeconstructWhitelist
 
 # Give this to something that doesn't need any special recycler behavior and just needs deleting.
 - type: Tag

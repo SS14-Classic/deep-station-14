@@ -3,9 +3,15 @@
   name: job-name-borg
   description: job-description-borg
   playTimeTracker: JobBorg
+<<<<<<< HEAD
   # requirements:
     # - !type:OverallPlaytimeRequirement
       # time: 216000 #60 hrs
+=======
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 216000 #60 hrs
+>>>>>>> EE-Personal/master
   canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-rd

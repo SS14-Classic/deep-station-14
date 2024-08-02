@@ -3,10 +3,17 @@
   name: job-name-chef
   description: job-description-chef
   playTimeTracker: JobChef
+<<<<<<< HEAD
   # requirements:
     # - !type:DepartmentTimeRequirement
       # department: Civilian
       # time: 3600 #DeltaV 1 hour
+=======
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Civilian
+      min: 3600 #DeltaV 1 hour
+>>>>>>> EE-Personal/master
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop
@@ -17,10 +24,10 @@
   extendedAccess:
   - Hydroponics
   - Bar #Nyano - Summary: After this line, Professional Che is a component to be added. Very important.
-  special: 
+  special:
   - !type:AddComponentSpecial
     components:
-    - type: ProfessionalChef #Nyano - End Summary. 
+    - type: ProfessionalChef #Nyano - End Summary.
 
 - type: startingGear
   id: ChefGear

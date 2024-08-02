@@ -3,9 +3,15 @@
   name: job-name-serviceworker
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
+<<<<<<< HEAD
   # requirements:
     # - !type:OverallPlaytimeRequirement
       # time: 7200 # DeltaV - 2 hours
+=======
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 7200 # DeltaV - 2 hours
+>>>>>>> EE-Personal/master
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service

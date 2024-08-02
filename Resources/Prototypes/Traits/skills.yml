@@ -2,8 +2,6 @@
   id: CPRTraining
   category: Uncategorized
   points: -2
-  components:
-    - type: CPRTraining
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -13,6 +11,23 @@
         - MedicalIntern
         - Paramedic
         - ChiefMedicalOfficer
+        - Borg
+        - MedicalBorg
+  components:
+    - type: CPRTraining
+
+- type: trait
+  id: HeavyweightDrunk
+  category: Physical
+  points: -2
+  requirements:
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - LightweightDrunk
+  components:
+    - type: LightweightDrunk
+      boozeStrengthMultiplier: 0.5
 
 - type: trait
   id: Thieving
@@ -27,4 +42,5 @@
   requirements:
     - !type:CharacterSpeciesRequirement
       inverted: true
-      species: Felinid
+      species:
+        - Felinid
