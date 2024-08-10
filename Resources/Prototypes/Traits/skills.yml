@@ -1,7 +1,9 @@
 - type: trait
   id: CPRTraining
-  category: Uncategorized
+  category: Mental
   points: -2
+  components:
+    - type: CPRTraining
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -11,10 +13,7 @@
         - MedicalIntern
         - Paramedic
         - ChiefMedicalOfficer
-        - Borg
-        - MedicalBorg
-  components:
-    - type: CPRTraining
+        - Brigmedic
 
 - type: trait
   id: HeavyweightDrunk
