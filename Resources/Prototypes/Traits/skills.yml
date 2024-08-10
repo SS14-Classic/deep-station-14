@@ -16,6 +16,24 @@
         - Brigmedic
 
 - type: trait
+  id: SelfAware
+  category: Mental
+  points: -2
+  components:
+    - type: SelfAware
+      analyzableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+      - Cold
+      - Caustic
+      detectableGroups:
+      - Airloss
+      - Toxin
+
+- type: trait
   id: HeavyweightDrunk
   category: Physical
   points: -2
@@ -63,6 +81,27 @@
     - type: ConsumeDelayModifier
       foodDelayMultiplier: 0.5
       drinkDelayMultiplier: 0.5
+
+- type: trait
+  id: ParkourTraining
+  category: Physical
+  points: -3
+  requirements:
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Sluggish
+        - SnailPaced
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Diona
+  components:
+    - type: ClimbDelayModifier
+      climbDelayMultiplier: 0.70
+    - type: LayingDownModifier
+      layingDownCooldownMultiplier: 0.8
+      downedSpeedMultiplierMultiplier: 1.25
 
 - type: trait
   id: LightStep

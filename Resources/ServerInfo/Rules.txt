@@ -65,7 +65,7 @@ This is the "short" form of the rules, which has all the information any regular
     - Detainees that die in your custody must be cloned unless they have been (legally) executed or have committed suicide.
     - Executions must be for a capital crime, used only as a last resort, and MUST be authorized by the highest ranking member of Security, who will answer to the use of execution.
     - Detainees in the brig have the right to know what they are being charged with.
-	
+
 [color=#a4885c]4.2.[/color] Security (and Command where applicable) should try to remain non-lethal and effect arrests. Security/Command will be expected to answer for use of lethal force. Security/Command will be expected to effect arrests on criminals and prevent them from dying while in custody, even if lethal force is used.
 
 In the following special circumstances, lethal force may be used by Security:
@@ -79,25 +79,25 @@ In the following special circumstances, lethal force may be used by Security:
     - Do not escalate situations needlessly. Very few things are deserving of a fight to the death.
     - Antagonistic ghost roles, and pest ghost roles like mice are always fair game for attacking. Don't grief crew-aligned ghost roles like familiars, drones, or pets without provocation.
     - If a fight results in someone being critically injured, seek medical help for them. If they die, do not destroy or otherwise hide their body.
-	
+
 [color=#a4885c]4.4[/color] All constructed/summoned beings that have laws are bound by those laws and must abide by them.
     - If a being has a master, they MUST follow their master's orders.
     - Your master is held accountable if they order you to do something malicious.
         *This does not apply to breaking server rules. If you are ordered to do something that would break a server rule, disregard it and inform an admin.
     - Not having orders, or being given free will by your master does NOT give you permission to self-antag or grief the crew.
-	
+
 [color=#a4885c]4.5[/color] Follow Antagonist Guidelines
     - The damage antagonists cause should be roughly proportional to their objectives, and contribute towards achieving them in some way. However antagonists have leniency in regards to what they can and can’t do.  If you are concerned as to whether or not what you're about to do is allowed, feel free to ahelp and ask an admin.
     - Other antagonists are not necessarily your friends. Traitors, rat kings, and possibly even space dragons are free agents, but no one should be working together with xenomorphs or zombies.
     - Exploits, arrivals camping, unnecessary round extensions, and other extremely lame behavior are forbidden.
     - Ghost roles have their own independent rules that must be followed. [color=#ff0000]Breaking these rules can result in a ban, whitelist removal, or both.[/color]
-	
+
 [color=#a4885c]4.6[/color] Don't rush for or prepare equipment unrelated to your job for no purpose other than to have it "just in case" (referred to as "Powergaming").
     - A medical doctor does not need insulated gloves, and the Head of Personnel does not need to give themselves armory access so they can go grab a gun. Have an actual reason for needing these things.
     - Don't manufacture weapons, bombs, or deadly poisons before you know of any reason you would need them.
     - Don't preemptively hide antagonist objectives or preemptively secure them with higher security than normally required.
     - Don't manufacture or prepare things for the "end of the round" when the shuttle docks with Central Command.
-	
+
 [color=#a4885c]4.7[/color] Psionics
     - Players that have psionic powers are allowed to use them at-will to accomplish their roleplay goals. It should be noted that in-character consequences can happen as a result of their use, including being stripped of psionic powers or even death.
     - As a psionic mantis, it is not your goal to hunt down psionics. Do not mindbreak others against their will solely because they have psionic powers.
