@@ -8,14 +8,37 @@ trait-description-Narcolepsy = You fall asleep randomly
 trait-name-Pacifist = Pacifist
 trait-description-Pacifist = You cannot attack or hurt any living beings.
 
+trait-name-SelfAware = Self-Aware
+trait-description-SelfAware =
+    You possess a keen intuition of your body and senses.
+    You can accurately examine the severity of your wounds and burns like a health analyzer,
+    and can gauge if you have toxin or airloss damage.
+
 trait-name-LightweightDrunk = Lightweight Drunk
 trait-description-LightweightDrunk = Alcohol has a stronger effect on you
 
-trait-name-HeavyweightDrunk = Heavyweight Drunk
-trait-description-HeavyweightDrunk = Alcohols are afraid of you
+trait-name-HeavyweightDrunk = Alcohol Tolerance
+trait-description-HeavyweightDrunk =
+    Alcohol is afraid of you.
+
+trait-name-LiquorLifeline = Liquor Lifeline
+trait-description-LiquorLifeline =
+    Forget the doctor — just hit the bar for your "ethanol prescription"!
+    While drunk, you slowly heal [color=red]Brute[/color], [color=orange]Heat[/color], [color=orange]Shock[/color], and [color=orange]Cold[/color] damage, scaling with how drunk you are.
+    You also gain the benefits of [color=lightblue]Alcohol Tolerance[/color].
 
 trait-name-Muted = Muted
 trait-description-Muted = You can't speak
+
+trait-name-BloodDeficiency = Blood Deficiency
+trait-description-BloodDeficiency =
+    Your body loses more blood than it can replenish.
+    You lose blood over time, and when left untreated you will eventually die from blood loss.
+
+trait-name-Hemophilia = Hemophilia
+trait-description-Hemophilia =
+    Your body's ability to form blood clots is impaired.
+    You bleed twice as long, and you have easy bruising, taking 10% more Blunt damage.
 
 trait-name-Paracusia = Paracusia
 trait-description-Paracusia = You hear sounds that aren't really there
@@ -127,3 +150,58 @@ trait-description-MartialArtist =
     You have received formal training in unarmed combat, whether with Fists, Feet, or Claws.
     Your unarmed melee attacks have a small range increase, and deal 50% more damage.
     This does not apply to any form of armed melee, only the weapons you were naturally born with.
+
+trait-name-Vigor = Vigor
+trait-description-Vigor =
+    Whether by pure determination, fitness, or bionic augmentations, your endurance is enhanced.
+    Your stamina is increased by 10 points.
+
+trait-name-Lethargy = Lethargy
+trait-description-Lethargy =
+    You become tired faster than others, making you more vulnerable to exhaustion and fatigue.
+    Your stamina is decreased by 15 points.
+
+trait-name-SignLanguage = Sign Language
+trait-description-SignLanguage =
+    You can understand and use Galactic Sign Language (GSL).
+    If you are mute for any reason, you can still communicate with sign language.
+
+trait-name-Voracious = Voracious
+trait-description-Voracious =
+    Nothing gets between you and your food.
+    Your endless consumption of food and drinks is twice as fast.
+
+trait-name-ParkourTraining = Parkour Training
+trait-description-ParkourTraining =
+    Whether as a hobby, lifestyle, or professional training, you are trained in the discipline of parkour.
+    You're faster with climbing, crawling, lying down, and getting up.
+
+trait-name-Sluggish = Sluggish
+trait-description-Sluggish =
+    You navigate the world slower than others, perhaps due to a medical condition, inactivity, or age.
+    You move slower, and it takes longer for you to climb, lie down and get up.
+
+trait-name-SnailPaced = Snail-Paced
+trait-description-SnailPaced =
+    You walk at a snail's pace, perhaps due to a medical condition, mobility impairment, or age.
+    You move substantially slower, and it takes far longer for you to climb, lie down and get up.
+
+trait-name-LightStep = Light Step
+trait-description-LightStep =
+    You move with a gentle step, making your footsteps quieter.
+
+trait-name-Swashbuckler = Swashbuckler
+trait-description-Swashbuckler =
+    You are an expert in swordsmanship, wielding swords, knives, and other blades with unrivaled finesse.
+    Your melee Slash bonus is increased to 35%, but your melee Blunt bonus is reduced to 20%.
+
+trait-name-Spearmaster = Spearmaster
+trait-description-Spearmaster =
+    You have an outstanding proficiency with spears, wielding them as an extension of your body.
+    Your melee Piercing bonus is increased to 35%, but your melee Blunt bonus is reduced to 20%.
+
+trait-name-WeaponsGeneralist = Weapons Generalist
+trait-description-WeaponsGeneralist =
+    You are a jack of all trades with melee weapons, enabling you to be versatile with your weapon arsenal.
+    Your melee damage bonus for all Brute damage types (Blunt, Slash, Piercing) becomes 25%.
+

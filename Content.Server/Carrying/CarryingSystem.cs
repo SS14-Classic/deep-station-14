@@ -131,7 +131,7 @@ namespace Content.Server.Carrying
         /// Basically using virtual item passthrough to throw the carried person. A new age!
         /// Maybe other things besides throwing should use virt items like this...
         /// </summary>
-        private void OnThrow(EntityUid uid, CarryingComponent component, BeforeThrowEvent args)
+        private void OnThrow(EntityUid uid, CarryingComponent component, ref BeforeThrowEvent args)
         {
             if (!TryComp<VirtualItemComponent>(args.ItemUid, out var virtItem)
                 || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
@@ -139,9 +139,8 @@ namespace Content.Server.Carrying
 
             args.ItemUid = virtItem.BlockingEntity;
 
-            var multiplier = _contests.MassContest(uid, virtItem.BlockingEntity, false, 2f)
+            args.ThrowStrength *= _contests.MassContest(uid, virtItem.BlockingEntity, false, 2f)
                             * _contests.StaminaContest(uid, virtItem.BlockingEntity);
-            args.ThrowStrength = 5f * multiplier;
         }
 
         private void OnParentChanged(EntityUid uid, CarryingComponent component, ref EntParentChangedMessage args)
@@ -181,11 +180,10 @@ namespace Content.Server.Carrying
                 || !args.HasDirectionalMovement)
                 return;
 
+            // Check if the victim is in any way incapacitated, and if not make an escape attempt.
+            // Escape time scales with the inverse of a mass contest. Being lighter makes escape harder.
             if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
-            {
-                // Note: the mass contest is inverted because weaker entities are supposed to take longer to escape
-                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, _contests.MassContest(component.Carrier, uid, false, 2f));
-            }
+                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, _contests.MassContest(uid, component.Carrier, false, 2f));
         }
 
         private void OnMoveAttempt(EntityUid uid, BeingCarriedComponent component, UpdateCanMoveEvent args)
@@ -313,7 +311,11 @@ namespace Content.Server.Carrying
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
         {
-            var modifier = _contests.MassContest(carrier, carried, true);
+            var massRatio = _contests.MassContest(carrier, carried, true);
+            var massRatioSq = MathF.Pow(massRatio, 2);
+            var modifier = 1 - 0.15f / massRatioSq;
+            modifier = Math.Max(0.1f, modifier);
+
             var slowdownComp = EnsureComp<CarryingSlowdownComponent>(carrier);
             _slowdown.SetModifier(carrier, modifier, modifier, slowdownComp);
         }
@@ -328,10 +330,6 @@ namespace Content.Server.Carrying
                 || !TryComp<HandsComponent>(carrier, out var hands)
                 || hands.CountFreeHands() < carriedComp.FreeHandsRequired)
                 return false;
-
-            //  if (_respirator.IsReceivingCPR(carried))
-            //  return false;
-
             return true;
         }
 
