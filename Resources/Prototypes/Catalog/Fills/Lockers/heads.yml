@@ -22,6 +22,7 @@
       - id: QuartermasterIDCard # Delta-V
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -51,6 +52,7 @@
       - id: MedalCase
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerCaptainFilled
@@ -80,6 +82,7 @@
       - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerCaptainFilledNoLaser
@@ -108,6 +111,7 @@
       - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -139,6 +143,7 @@
       - id: ClothingHandsGlovesInspection # DeltaV - Add inspection gloves for HoP.
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -167,6 +172,7 @@
       - id: CEIDCard # Delta-V
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -191,6 +197,7 @@
       - id: RCDAmmo
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -219,6 +226,7 @@
       - id: CMOIDCard # Delta-V
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -243,6 +251,7 @@
       - id: CMOIDCard # Delta-V
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -266,6 +275,7 @@
       - id: EncryptionKeyBinary
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -288,6 +298,7 @@
       - id: EncryptionKeyBinary
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -319,6 +330,7 @@
       - id: HoSIDCard # Delta-V
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -348,6 +360,7 @@
       - id: HoSIDCard # Delta-V
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: WeaponPTSDLaser
 
 - type: entity
   id: LockerFreezerVaultFilled
