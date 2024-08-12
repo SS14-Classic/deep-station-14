@@ -595,24 +595,24 @@
   description: "The PTSD gun has a built-in flashlight and the ability to recharge itself in two minutes. PTSD is standard issue for leadership within Nanotrasen. It has two settings: disable and kill."
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/ptsd.rsi
+    sprite: Objects/Weapons/Guns/Battery/personal.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-1
-      map: ["enum.GunVisualLayers.MagUnshaded"]
+    - state: mag-unshaded-2
+      map: ["enum.GunVisualLayers.MagUnshaded"] #TODO: figure out a way to use `disable-mag-unshaded-#` to replace red colouring when using BulletDisabler
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/ptsd.rsi
+    sprite: Objects/Weapons/Guns/Battery/personal.rsi
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunLaser
     fireCost: 100
   - type: BatteryWeaponFireModes
     fireModes:
-    - proto: RedMediumLaser #6
+    - proto: BulletEnergyGunLaser #6
       fireCost: 100
     - proto: BulletDisabler #12
       fireCost: 50
@@ -624,7 +624,7 @@
     autoRechargeRate: 10 # slow as heck, its only to defend and run away mostly
   - type: MagazineVisuals
     magState: mag
-    steps: 5
+    steps: 3
     zeroVisible: true
   - type: Appearance
   - type: Tag
