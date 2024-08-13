@@ -599,6 +599,9 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      map: [ "Firemode" ]
+      shader: unshaded
     - state: mag-unshaded-2
       map: ["enum.GunVisualLayers.MagUnshaded"] #TODO: figure out a way to use `disable-mag-unshaded-#` to replace red colouring when using BulletDisabler
       shader: unshaded
@@ -607,15 +610,21 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
-  - type: BatteryWeaponFireModes
+  - type: EnergyGun
     fireModes:
     - proto: BulletEnergyGunLaser #6
       fireCost: 100
+      name: lethal
+      state: lethal
     - proto: BulletDisabler #12
       fireCost: 50
+      name: disable
+      state: disabler
   - type: Battery
     maxCharge: 600
     startingCharge: 600
@@ -627,6 +636,13 @@
     steps: 3
     zeroVisible: true
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-stun } # Unused (HARDCODED BULLSHIT)
   - type: Tag
     tags:
     - Sidearm
