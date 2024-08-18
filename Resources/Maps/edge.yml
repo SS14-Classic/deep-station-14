@@ -96720,7 +96720,7 @@ entities:
     - type: Transform
       pos: -40.5,-2.5
       parent: 2
-- proto: supermatter
+- proto: Supermatter
   entities:
   - uid: 12741
     components:

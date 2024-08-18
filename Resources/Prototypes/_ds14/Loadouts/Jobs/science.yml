@@ -1,0 +1,13 @@
+- type: loadout
+  id: LoadoutScienceEyesGogglesScientist
+  category: Jobs
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - Scientist
+        - ResearchAssistant
+        - ResearchDirector
+  items:
+    - ClothingEyesGogglesScientist
