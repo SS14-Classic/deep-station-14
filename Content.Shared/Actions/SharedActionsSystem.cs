@@ -145,6 +145,9 @@ public abstract class SharedActionsSystem : EntitySystem
 
     public void SetCooldown(EntityUid? actionId, TimeSpan start, TimeSpan end)
     {
+        if (actionId == null)
+            return;
+
         if (!TryGetActionData(actionId, out var action))
             return;
 
@@ -160,6 +163,9 @@ public abstract class SharedActionsSystem : EntitySystem
 
     public void ClearCooldown(EntityUid? actionId)
     {
+        if (actionId == null)
+            return;
+
         if (!TryGetActionData(actionId, out var action))
             return;
 
@@ -167,27 +173,6 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         action.Cooldown = (cooldown.Start, GameTiming.CurTime);
-        Dirty(actionId.Value, action);
-    }
-
-    /// <summary>
-    ///     Sets the cooldown for this action only if it is bigger than the one it already has.
-    /// </summary>
-    public void SetIfBiggerCooldown(EntityUid? actionId, TimeSpan? cooldown)
-    {
-        if (cooldown == null ||
-            cooldown.Value <= TimeSpan.Zero ||
-            !TryGetActionData(actionId, out var action))
-        {
-            return;
-        }
-
-        var start = GameTiming.CurTime;
-        var end = start + cooldown;
-        if (action.Cooldown?.End > end)
-            return;
-
-        action.Cooldown = (start, end.Value);
         Dirty(actionId.Value, action);
     }
 
@@ -454,10 +439,7 @@ public abstract class SharedActionsSystem : EntitySystem
         }
 
         if (performEvent != null)
-        {
             performEvent.Performer = user;
-            performEvent.Action = actionEnt;
-        }
 
         // All checks passed. Perform the action!
         PerformAction(user, component, actionEnt, action, performEvent, curTime);
@@ -579,9 +561,6 @@ public abstract class SharedActionsSystem : EntitySystem
 
         if (dirty && component != null)
             Dirty(performer, component);
-
-        var ev = new ActionPerformedEvent(performer);
-        RaiseLocalEvent(actionId, ref ev);
     }
     #endregion
 
