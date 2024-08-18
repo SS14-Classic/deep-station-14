@@ -56,8 +56,6 @@ namespace Content.Shared.Alert
         BorgDead,
         Charge,
         Offer,
-        ChangelingChemicals,
-        ChangelingBiomass,
     }
 
 }

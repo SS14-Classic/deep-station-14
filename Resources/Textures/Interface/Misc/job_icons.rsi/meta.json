@@ -185,9 +185,6 @@
         },
         {
             "name": "InitialInfected"
-        },
-        {
-            "name": "Changeling"
         }
     ]
 }

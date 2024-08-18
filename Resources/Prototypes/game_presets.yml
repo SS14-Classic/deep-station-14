@@ -31,7 +31,6 @@
     - Revolutionary
     - Zombie
     - RampingStationEventScheduler
-    - Changeling
 
 - type: gamePreset
   id: Extended
@@ -165,3 +164,15 @@
   - Zombie
   - BasicStationEventScheduler
   - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Pirates
+  alias:
+    - pirates
+  name: pirates-title
+  description: pirates-description
+  showInVote: false
+  rules:
+    - Pirates
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
