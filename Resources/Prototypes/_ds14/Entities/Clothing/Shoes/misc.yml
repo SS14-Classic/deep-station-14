@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: DS14ClothingShoesSneakers
+  name: Bobby's jays
+  description: A pair of sporty sneakers with the name "Bobby" written in the tongue.
+  components:
+  - type: Sprite
+    sprite: _ds14/Clothing/Shoes/sneakers.rsi
+  - type: Clothing
+    sprite: _ds14/Clothing/Shoes/sneakers.rsi
