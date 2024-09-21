@@ -294,6 +294,12 @@
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
+      - AdvancedCapacitorStockPart
+      - AdvancedMatterBinStockPart
+      - NanoManipulatorStockPart
+      - SuperCapacitorStockPart
+      - SuperMatterBinStockPart
+      - PicoManipulatorStockPart
       - AdvMopItem
       - WeaponSprayNozzle
       - ClothingBackpackWaterTank
@@ -355,6 +361,8 @@
       - AnimalTranslator
       - MofficTranslatorImplanter
       - MofficTranslator
+      - RCDAmmo #DeltaV
+      - RCD #EE
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ExplosivePayload
@@ -626,8 +634,6 @@
     - HamtrRLeg
     - VimHarness
   # Begin Nyano additions
-    - ClothingOuterHardsuitJuggernautReverseEngineered
-    - ClothingOuterHardsuitSyndieReverseEngineered
     - JetpackBlue
     - JetpackMini
   # End Nyano additions
@@ -1409,6 +1415,7 @@
       - SingularityToy
       - TeslaToy
       - ToySword
+      - BwoinkHammer
       - ThronglerToy
   - type: MaterialStorage
     whitelist:
