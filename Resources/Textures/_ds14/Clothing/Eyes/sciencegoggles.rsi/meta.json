@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Icon from paradise station, other states by Peptide90 for DS14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "inhand-right",
+	  "directions": 4
+    },
+    {
+      "name": "equipped-EYES",
+	  "directions": 4
+    },
+    {
+      "name": "flipped-equipped-EYES",
+	  "directions": 4
+    },
+    {
+      "name": "flipped-inhand-left",
+	  "directions": 4
+    },
+    {
+      "name": "flipped-inhand-right",
+	  "directions": 4
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-flipped"
+    },
+    {
+      "name": "inhand-left",
+	  "directions": 4
+    }
+  ]
+}

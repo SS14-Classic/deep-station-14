@@ -1,0 +1,9 @@
+- type: loadout
+  id: LoadoutItemGogglesScientist
+  category: Eyes
+  cost: 3
+  items:
+    - ClothingEyesGogglesScientist
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutEyes
