@@ -21,7 +21,7 @@ If you have any questions about these rules, please use the admin help (ahelp) m
     - Do not make yourself a major problem/annoyance/disruption for the crew while not being an antagonist (i.e. self-antagging).
     - Do not make yourself a major problem/annoyance/disruption for one specific crew member in a way that would actively detract from the other player's enjoyment of the shift.
     - Do not, as a crewmate, hide objectives such as  the nuclear fission explosive (i.e. "the nuke") in an impossible to see location.
-    - Do not ignore the admin help relay or abuse it by flooding it with garbage, checking for admins before stating a problem (ex: "hello?", "any admins?"), using it as a chatroom, or sending messages of no substance. Hostility to administrators in the relay will result in your removal. All ahelp messages are sent to the Delta-V Discord.
+    - Do not ignore the admin help relay or abuse it by flooding it with garbage, checking for admins before stating a problem (ex: "hello?", "any admins?"), using it as a chatroom, or sending messages of no substance. Hostility to administrators in the relay will result in your removal. All ahelp messages are sent to Discord.
     - Department strikes (ex: cargonia and any variation thereof), riots, cults, and any other type of similar largely disruptive behavior are by centcom approval only. Seek permission through ahelp if you're unsure.
     - AFK (aka SSD) and catatonic players are considered to have the same rights as a conscious crewmate.
     - End-of-round grief (EORG) is not allowed. This includes attacking, destroying, polluting, and injuring without reason both *at* and *on the way to* Central Command.
@@ -47,7 +47,7 @@ If you have any questions about these rules, please use the admin help (ahelp) m
     - You are allowed to have knowledge of past experiences with someone else in prior shifts. This does not give you permission to hold a grudge against someone that results in you treating them differently in an unfair way (i.e. Meta-Grudging).
     - Specific players who were antagonists in previous rounds must not be treated differently because of it.
     - Do not "Antag Roll." This is the act of joining rounds for the purpose of seeing if you joined as an antagonist, and leaving soon after if not. Players who have a history of this behavior will have their whitelist revoked and/or face a ban.
-    - [color=#ff0000]Do not stream the current round to the Delta-V Discord.[/color]
+    - [color=#ff0000]Avoid streaming the current round and do not stream it to discord.[/color]
     - Do not place players into cryosleep unless they have given consent to do so, they are fully catatonic, or they have been sentenced to preservative stasis. Always examine a character to double check if they are SSD or catatonic prior to placing them into cryosleep.
 
 [color=#a4885c]5.[/color] If a player dies and is brought back by way of cloning or borgification, they forget the last five minutes leading up to their death and cannot describe who or what killed them.
