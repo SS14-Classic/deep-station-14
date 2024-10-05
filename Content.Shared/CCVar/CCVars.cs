@@ -2461,6 +2461,9 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> MoodDecreasesSpeed =
             CVarDef.Create("mood.decreases_speed", true, CVar.SERVER);
 
+        public static readonly CVarDef<bool> MoodModifiesThresholds =
+            CVarDef.Create("mood.modify_thresholds", false, CVar.SERVER);
+
         #endregion
 
         #region Lying Down System
@@ -2506,14 +2509,17 @@ namespace Content.Shared.CCVar
 
         #endregion
 
-    #region GhostRespawn
+        #region GhostRespawn
 
-    public static readonly CVarDef<double> GhostRespawnTime =
-        CVarDef.Create("ghost.respawn_time", 15d, CVar.SERVERONLY);
+        public static readonly CVarDef<double> GhostRespawnTime =
+            CVarDef.Create("ghost.respawn_time", 15d, CVar.SERVERONLY);
 
-    public static readonly CVarDef<int> GhostRespawnMaxPlayers =
-        CVarDef.Create("ghost.respawn_max_players", 40, CVar.SERVERONLY);
+        public static readonly CVarDef<int> GhostRespawnMaxPlayers =
+            CVarDef.Create("ghost.respawn_max_players", 40, CVar.SERVERONLY);
 
-    #endregion
+        public static readonly CVarDef<bool> GhostAllowSameCharacter =
+            CVarDef.Create("ghost.allow_same_character", true, CVar.SERVERONLY);
+
+        #endregion
     }
 }
