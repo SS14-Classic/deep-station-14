@@ -5,10 +5,7 @@
   playTimeTracker: JobPsychologist
   requirements:
     - !type:CharacterOverallTimeRequirement
-      min: 36000 #DeltaV 10 hours
-    - !type:CharacterDepartmentTimeRequirement
-      department: Medical
-      min: 14400 #DeltaV 4 hrs
+      min: 60
   startingGear: PsychologistGear
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo

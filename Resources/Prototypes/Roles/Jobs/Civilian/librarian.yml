@@ -4,9 +4,8 @@
   description: job-description-librarian
   playTimeTracker: JobLibrarian
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Epistemics
-      min: 14400
+    - !type:CharacterOverallTimeRequirement
+      min: 60
     - !type:CharacterLogicOrRequirement
       requirements:
         - !type:CharacterSpeciesRequirement
