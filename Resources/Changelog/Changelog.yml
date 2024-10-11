@@ -7095,3 +7095,61 @@ Entries:
   id: 6433
   time: '2024-10-09T16:12:20.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/994
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Logistics can now directly order a variety of hardsuits. "NT In-Network"
+        hardsuits being substantially cheaper thanks to backroom deals.
+  id: 6434
+  time: '2024-10-09T23:01:29.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1024
+- author: DangerRevolution
+  changes:
+    - type: Add
+      message: Resprited basic Service Staff uniforms
+    - type: Add
+      message: Add rolled sleeve variants for Service Staff uniforms.
+  id: 6435
+  time: '2024-10-10T16:21:24.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1021
+- author: VMSolidus
+  changes:
+    - type: Remove
+      message: The X-01 multiphase energy gun has been removed from the HoS locker.
+    - type: Add
+      message: >-
+        A new Loadout Item Group, "Head of Security's Antique Weapon Collection"
+        has been added. Rather than being given a unique weapon by whatever map
+        creators put in the HoS Office, each Head of Security is entitled to a
+        single item selected from this new loadout category, free of charge. But
+        beware, whatever item chosen from this list may potentially be used as a
+        Steal Objective for traitors. You may have a fancy new submachine gun,
+        but it also makes you a target.
+    - type: Add
+      message: >-
+        antique Bulldog, antique C-20r submachine gun, x-01 multiphase energy
+        gun, antique energy sword, antique pulse pistol, antique Wt550, and a
+        pair of Katana Sheaths have all been added as loadout options for the
+        Head of Security.
+  id: 6436
+  time: '2024-10-11T01:43:36.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1031
+- author: Ichaie
+  changes:
+    - type: Add
+      message: A map called "RadStation" has been added to rotation.
+    - type: Add
+      message: A new Evac shuttle called "emergency_neol" has been added to RadStation
+  id: 6437
+  time: '2024-10-11T16:05:53.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1034
+- author: Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        Sleeping and muzzled entities can no longer use vocal emotes (scream,
+        meow, etc).
+  id: 6438
+  time: '2024-10-11T16:08:48.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1037
