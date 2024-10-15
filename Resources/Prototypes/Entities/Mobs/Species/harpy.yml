@@ -127,6 +127,11 @@
       - Shard
       - Landmine
       - Mousetrap
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
 
 - type: entity
   save: false
