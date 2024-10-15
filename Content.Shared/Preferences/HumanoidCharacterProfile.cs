@@ -66,10 +66,10 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public string Customspeciename { get; set; } = "";
 
     [DataField]
-    public float Height { get; private set; }
+    public float Height { get; private set; } = 1f;
 
     [DataField]
-    public float Width { get; private set; }
+    public float Width { get; private set; } = 1f;
 
     [DataField]
     public int Age { get; set; } = 18;
