@@ -13,6 +13,12 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          inverted: true
+          species:
+            - Shadowkin
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-rd
@@ -35,7 +41,7 @@
   id: ChaplainGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitChaplain
-    back: ClothingBackpackChaplainFilled
+    back: ClothingBackpack
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
     ears: ClothingHeadsetScience

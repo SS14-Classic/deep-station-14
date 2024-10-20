@@ -8,7 +8,16 @@
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:CharacterOverallTimeRequirement
-      min: 60 # DeltaV - 20 hours
+      min: 60
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          inverted: true
+          species:
+            - Shadowkin
+        - !type:CharacterTraitRequirement
+          traits:
+            - ShadowkinBlackeye
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
