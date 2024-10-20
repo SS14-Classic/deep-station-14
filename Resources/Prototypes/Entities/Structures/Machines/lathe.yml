@@ -294,6 +294,9 @@
       - SuperCapacitorStockPart
       - SuperMatterBinStockPart
       - PicoManipulatorStockPart
+      - BluespaceCapacitorStockPart
+      - BluespaceManipulatorStockPart
+      - BluespaceMatterBinStockPart
       - AdvMopItem
       - WeaponSprayNozzle
       - ClothingBackpackWaterTank
@@ -803,6 +806,8 @@
       - WeaponLaserCarbinePractice
       - Zipties
       - ShockCollar
+      - ShadowkinRestraints
+      # DeltaV - .38 special ammo - Add various .38 special ammo to security techfab
       - MagazineBoxSpecial
       - MagazineBoxSpecialPractice
       - SpeedLoaderSpecial
@@ -1307,6 +1312,8 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
+      - BluespaceCrystal
+      - NormalityCrystal
       - SheetSteel30
       - SheetGlass30
       - SheetRGlass30
@@ -1393,6 +1400,7 @@
     staticRecipes:
       - PrizeBall
       - PlushieMothRandom
+      - PlushieShadowkin
       - PlushieMothMusician
       - PlushieMothBartender
       - PlushieBee
