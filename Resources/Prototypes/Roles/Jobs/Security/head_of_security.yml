@@ -5,7 +5,12 @@
   playTimeTracker: JobHeadOfSecurity
   requirements:
     - !type:CharacterOverallTimeRequirement
-      min: 60
+      min: 3600
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Human
+        - Reptilian
+        - Harpy
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
