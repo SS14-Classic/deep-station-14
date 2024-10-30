@@ -5,7 +5,11 @@
   playTimeTracker: JobChiefEngineer
   requirements:
     - !type:CharacterOverallTimeRequirement
-      min: 60 # DeltaV - 25 hours
+      min: 3600
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Human
+        - Harpy
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"

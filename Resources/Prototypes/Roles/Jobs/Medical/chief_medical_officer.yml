@@ -8,16 +8,11 @@
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:CharacterOverallTimeRequirement
-      min: 60
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - Shadowkin
-        - !type:CharacterTraitRequirement
-          traits:
-            - ShadowkinBlackeye
+      min: 3600
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Human
+        - Harpy
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"

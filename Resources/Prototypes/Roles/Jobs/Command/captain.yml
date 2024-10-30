@@ -5,7 +5,11 @@
   playTimeTracker: JobCaptain
   requirements:
     - !type:CharacterOverallTimeRequirement
-      min: 60
+      min: 3600
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Human
+        - Harpy
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
