@@ -5,11 +5,16 @@
   playTimeTracker: JobQuartermaster
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - Human
-        - Harpy
-        - Dwarf
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Human
+            - Harpy
+            - Dwarf
+        - !type:CharacterTraitRequirement
+          traits:
+            - Mk3LoyaltyImplant
     - !type:CharacterOverallTimeRequirement
       min: 3600 #1 hrs
   weight: 10

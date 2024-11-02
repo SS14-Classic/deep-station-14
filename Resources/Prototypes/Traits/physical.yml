@@ -601,3 +601,15 @@
       - Biological
       - Inorganic
       - Silicon
+
+- type: trait
+  id: Mk3LoyaltyImplant
+  category: Physical
+  points: -3
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Human
+        - Harpy
+        - Dwarf

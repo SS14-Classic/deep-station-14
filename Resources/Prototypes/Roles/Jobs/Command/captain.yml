@@ -6,11 +6,20 @@
   requirements:
     - !type:CharacterOverallTimeRequirement
       min: 3600
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Human
+            - Harpy
+            - Dwarf
+        - !type:CharacterTraitRequirement
+          traits:
+            - Mk3LoyaltyImplant
     - !type:CharacterSpeciesRequirement
+      inverted: true
       species:
-        - Human
-        - Harpy
-        - Dwarf
+        - Shadowkin
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
