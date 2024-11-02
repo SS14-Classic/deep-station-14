@@ -11,6 +11,8 @@
         - Human
         - Reptilian
         - Harpy
+        - Dwarf
+        - Oni
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

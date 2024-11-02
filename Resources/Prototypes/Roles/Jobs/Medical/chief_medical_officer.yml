@@ -13,6 +13,7 @@
       species:
         - Human
         - Harpy
+        - Dwarf
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"

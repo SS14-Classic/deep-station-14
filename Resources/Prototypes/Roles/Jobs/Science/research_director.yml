@@ -20,6 +20,7 @@
       species:
         - Human
         - Harpy
+        - Dwarf
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"

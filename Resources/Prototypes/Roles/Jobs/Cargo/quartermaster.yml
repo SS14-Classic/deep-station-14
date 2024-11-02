@@ -9,6 +9,7 @@
       species:
         - Human
         - Harpy
+        - Dwarf
     - !type:CharacterOverallTimeRequirement
       min: 3600 #1 hrs
   weight: 10

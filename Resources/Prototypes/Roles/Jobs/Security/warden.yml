@@ -4,6 +4,10 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
     - !type:CharacterOverallTimeRequirement
       min: 60
   startingGear: WardenGear

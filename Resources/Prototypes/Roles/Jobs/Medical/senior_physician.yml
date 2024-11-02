@@ -14,6 +14,10 @@
     - !type:CharacterDepartmentTimeRequirement
       department: Medical
       min: 216000 # 60 hrs
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
   startingGear: SeniorPhysicianGear
   icon: "JobIconSeniorPhysician"
   supervisors: job-supervisors-cmo

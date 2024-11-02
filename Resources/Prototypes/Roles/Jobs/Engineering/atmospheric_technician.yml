@@ -5,6 +5,10 @@
   playTimeTracker: JobAtmosphericTechnician
   antagAdvantage: 10 # DeltaV - Reduced TC: External Access + Fireaxe + Free Hardsuit
   requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
     - !type:CharacterOverallTimeRequirement
       min: 60
   startingGear: AtmosphericTechnicianGear

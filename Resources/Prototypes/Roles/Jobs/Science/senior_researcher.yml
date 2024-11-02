@@ -5,6 +5,10 @@
   playTimeTracker: JobSeniorResearcher
   setPreference: true
   requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
     - !type:CharacterDepartmentTimeRequirement
       department: Epistemics # DeltaV - Epistemics Department replacing Science
       min: 216000 #60 hrs

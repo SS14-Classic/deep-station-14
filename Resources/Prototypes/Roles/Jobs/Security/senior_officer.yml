@@ -5,6 +5,10 @@
   playTimeTracker: JobSeniorOfficer
   setPreference: false # DeltaV - Disable Senior Roles round start selection
   requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
     - !type:CharacterPlaytimeRequirement
       tracker: JobWarden
       min: 21600 #6 hrs

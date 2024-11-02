@@ -10,6 +10,7 @@
       species:
         - Human
         - Harpy
+        - Dwarf
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"

@@ -7,7 +7,12 @@
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  canBeAntag: true # DeltaV - Can be antagonist
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
+  canBeAntag: true
   access:
   - Maintenance
   - Engineering

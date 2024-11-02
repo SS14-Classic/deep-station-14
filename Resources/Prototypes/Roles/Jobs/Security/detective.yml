@@ -4,6 +4,10 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
   - !type:CharacterOverallTimeRequirement
     min: 60
   startingGear: DetectiveGear
