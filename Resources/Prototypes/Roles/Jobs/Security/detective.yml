@@ -8,8 +8,8 @@
       inverted: true
       species:
         - Shadowkin
-  - !type:CharacterOverallTimeRequirement
-    min: 60
+    - !type:CharacterOverallTimeRequirement
+      min: 60
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
