@@ -6,11 +6,22 @@
   requirements:
     - !type:CharacterOverallTimeRequirement
       min: 3600
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Human
+            - Harpy
+            - Dwarf
+            - Reptilian
+            - Oni
+        - !type:CharacterTraitRequirement
+          traits:
+            - Mk3LoyaltyImplant
     - !type:CharacterSpeciesRequirement
+      inverted: true
       species:
-        - Human
-        - Reptilian
-        - Harpy
+        - Shadowkin
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

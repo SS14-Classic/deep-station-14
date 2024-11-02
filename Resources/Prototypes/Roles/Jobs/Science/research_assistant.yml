@@ -7,6 +7,11 @@
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
   canBeAntag: true # DeltaV - Can be antagonist
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
   access:
   - Research
   - Maintenance

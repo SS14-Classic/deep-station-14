@@ -14,6 +14,10 @@
     - !type:CharacterDepartmentTimeRequirement
       department: Engineering
       min: 216000 # 60 hrs
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
   startingGear: SeniorEngineerGear
   icon: "JobIconSeniorEngineer"
   supervisors: job-supervisors-ce

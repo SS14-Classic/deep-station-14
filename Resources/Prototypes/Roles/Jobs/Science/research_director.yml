@@ -16,10 +16,20 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Human
+            - Harpy
+            - Dwarf
+        - !type:CharacterTraitRequirement
+          traits:
+            - Mk3LoyaltyImplant
     - !type:CharacterSpeciesRequirement
+      inverted: true
       species:
-        - Human
-        - Harpy
+        - Shadowkin
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
