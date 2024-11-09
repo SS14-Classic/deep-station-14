@@ -7766,3 +7766,70 @@ Entries:
   id: 6504
   time: '2024-11-02T16:24:46.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1176
+- author: VMSolidus
+  changes:
+    - type: Tweak
+      message: >-
+        Cargo Technicians and Salvage Techs can now process cargo orders. You
+        don't need to smash the fucking LO Locker with a pickaxe anymore.
+  id: 6505
+  time: '2024-11-02T19:58:26.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1177
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        Communications Consoles that are marked as "Can't Recall The Shuttle"
+        now can't recall the shuttle. Previously they were still able to recall
+        it. 
+  id: 6506
+  time: '2024-11-05T04:12:36.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1180
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Ported over Wizden's updated Health Analyzer UI.
+  id: 6507
+  time: '2024-11-07T04:50:46.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1183
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Familiars can now be Dispelled.
+    - type: Tweak
+      message: Nerfed Remilia to have 30 HP.
+    - type: Tweak
+      message: Nerfed Base Familiar to have 50 HP.
+  id: 6508
+  time: '2024-11-08T15:17:12.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1184
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: 'Languages are now shown in chat alongside character names. '
+  id: 6509
+  time: '2024-11-08T16:14:09.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1165
+- author: Ichaie
+  changes:
+    - type: Fix
+      message: minor fixes on the maps Rad and Gax, fix te uranium crarte to filled
+  id: 6510
+  time: '2024-11-08T18:54:13.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1178
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: 'Traits can now add Implants directly. '
+  id: 6511
+  time: '2024-11-08T18:58:04.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1182
+- author: VMSolidus
+  changes:
+    - type: Remove
+      message: >-
+        Shadowkin have been temporarily disabled pending significant reworks and
+        balance updates. 
+  id: 6512
+  time: '2024-11-08T19:33:53.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1187
