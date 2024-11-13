@@ -1,0 +1,14 @@
+- type: gameMap
+  id: Deep-Space-Central-Command
+  mapName: 'Deep Space Central Command'
+  mapPath: /Maps/Deep-Space-Central-Command.yml
+  minPlayers: 10
+  stations:
+    centcomm:
+      stationProto: NanotrasenCentralCommand
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Central Command {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'TG'
