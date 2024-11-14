@@ -53,6 +53,7 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
+    - type: StationCentcomm
   - uid: 2
     components:
     - type: MetaData
