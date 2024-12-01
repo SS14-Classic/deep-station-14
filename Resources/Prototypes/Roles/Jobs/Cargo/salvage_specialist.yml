@@ -10,7 +10,7 @@
         - Shadowkin
     - !type:CharacterDepartmentTimeRequirement
       department: Logistics
-      min: 21600
+      min: 360
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
