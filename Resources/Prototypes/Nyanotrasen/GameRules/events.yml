@@ -28,9 +28,9 @@
   categories: [ HideSpawnMenu ]
   parent: BaseMidRoundAntag
   id: RatKingSpawn
-  components:
-  - type: MidRoundAntagRule
-    spawner: SpawnPointGhostRatKing
+  #components:
+  #- type: MidRoundAntagRule
+  #  spawner: SpawnPointGhostRatKing
 
 - type: entity
   categories: [ HideSpawnMenu ]
