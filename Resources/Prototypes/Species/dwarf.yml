@@ -10,6 +10,6 @@
   minHeight: 0.6
   defaultHeight: 0.8
   maxHeight: 0.8
-  minWidth: 0.55
-  defaultWidth: 0.8
-  maxWidth: 0.85
+  minWidth: 0.9
+  defaultWidth: 1
+  maxWidth: 1.1
