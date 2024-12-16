@@ -23,4 +23,5 @@
   - type: Clothing
     sprite: _ds14/Clothing/Eyes/sciencegoggles.rsi
   - type: EyeProtection
+    protectionTime: 10
   - type: FlashImmunity
