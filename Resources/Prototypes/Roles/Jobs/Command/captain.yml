@@ -20,6 +20,7 @@
       inverted: true
       species:
         - Shadowkin
+        - IPC
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

@@ -23,6 +23,7 @@
       inverted: true
       species:
         - Shadowkin
+        - IPC
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"

@@ -9,6 +9,7 @@
       inverted: true
       species:
         - Shadowkin
+        - IPC
     - !type:CharacterPlaytimeRequirement
       tracker: JobWarden
       min: 21600 #6 hrs

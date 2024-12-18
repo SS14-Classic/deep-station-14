@@ -22,6 +22,7 @@
       inverted: true
       species:
         - Shadowkin
+        - IPC
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
