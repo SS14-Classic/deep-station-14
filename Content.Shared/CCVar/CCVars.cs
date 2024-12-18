@@ -2803,7 +2803,7 @@ namespace Content.Shared.CCVar
         ///     For people who complained that it wasn't obvious enough from the text that Mindbreaking is a form of Murder.
         /// </summary>
         public static readonly CVarDef<bool> ScarierMindbreaking =
-            CVarDef.Create("psionics.scarier_mindbreaking", false, CVar.SERVERONLY);
+            CVarDef.Create("psionics.scarier_mindbreaking", true, CVar.SERVERONLY);
         #endregion
 
         /// <summary>
