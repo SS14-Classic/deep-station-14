@@ -8,6 +8,7 @@
       inverted: true
       species:
         - Shadowkin
+        - IPC
     - !type:CharacterOverallTimeRequirement
       min: 60
   startingGear: SecurityCadetGear
