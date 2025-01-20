@@ -4194,8 +4194,6 @@ entities:
       pos: -27.5,0.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 291
   - uid: 6068
@@ -4204,8 +4202,6 @@ entities:
       pos: -25.5,0.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 291
   - uid: 6070
@@ -26189,8 +26185,6 @@ entities:
       pos: -26.5,-0.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 291
   - uid: 6066
@@ -26199,8 +26193,6 @@ entities:
       pos: -26.5,1.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 291
   - uid: 6072
@@ -38621,9 +38613,6 @@ entities:
     - type: Transform
       pos: 1.5,45.5
       parent: 2
-    - type: DisposalUnit
-      recentlyEjected:
-      - invalid
   - uid: 2834
     components:
     - type: Transform
@@ -39760,16 +39749,16 @@ entities:
       parent: 2
     - type: Paper
       content: >
-        [color=#228B22]◥[bold]N[/bold]◣ [bold]Central Command[/bold][/color]  
+        [color=#228B22]◥[bold]N[/bold]◣ [bold]Central Command[/bold][/color]
 
-        [color=#228B22]‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾[/color]  
+        [color=#228B22]‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾[/color]
 
-        [head=2]Incident Report[/head]  
+        [head=2]Incident Report[/head]
 
 
         (* = A Required Field)
 
-        [head=3]Incident Details[/head]  
+        [head=3]Incident Details[/head]
 
         *[bold]Report ID:[/bold]
 
@@ -39782,17 +39771,17 @@ entities:
         *[bold]Vessel/Station Involved:[/bold]
 
 
-        *[head=3]Summary[/head]  
+        *[head=3]Summary[/head]
 
         [color=#AAAAAA][Insert detailed description of the incident, including key events, observations, and outcomes.][/color]
 
 
-        *[head=3]Actions Taken[/head]  
+        *[head=3]Actions Taken[/head]
 
         [color=#AAAAAA][Describe any actions taken to address the incident, including commands issued, personnel dispatched, or equipment used.][/color]
 
 
-        [head=3]Recommendations[/head]  
+        [head=3]Recommendations[/head]
 
         [color=#AAAAAA][Provide recommendations or requests for further action or investigation.][/color]
 
