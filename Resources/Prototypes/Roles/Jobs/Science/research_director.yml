@@ -24,15 +24,6 @@
         - !type:CharacterTraitRequirement
           traits:
             - Mk3LoyaltyImplant
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Shadowkin
-        - IPC
-        - !type:CharacterTraitRequirement
-          inverted: true
-          traits:
-            - ShadowkinBlackeye
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
