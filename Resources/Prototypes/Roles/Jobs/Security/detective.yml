@@ -4,13 +4,23 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Shadowkin
-        - IPC
-    - !type:CharacterOverallTimeRequirement
-      min: 60
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 36000 # DeltaV - 10 hours
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+      - Foreigner
+      - ForeignerLight
+      - Muted
+      - Blindness
+      - Pacifist
+      - BrittleBoneDisease
+  - !type:CharacterSpeciesRequirement
+    inverted: true
+    species:
+      - Shadowkin
+      - IPC
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
@@ -26,9 +36,17 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  afterLoadoutSpecial:
+  - !type:ModifyEnvirosuitSpecial
+    charges: 6
+  - !type:ModifyEnvirohelmSpecial
+    powerCell: PowerCellHigh
 
 - type: startingGear
   id: DetectiveGear
+  subGear:
+  - DetectivePlasmamanGear
+
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetective
     back: ClothingBackpackSecurity
@@ -42,3 +60,11 @@
   innerClothingSkirt: ClothingUniformJumpskirtDetective
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity
+
+- type: startingGear
+  id: DetectivePlasmamanGear
+  parent: BasePlasmamanSecurityGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitDetective
+    head: ClothingHeadEnvirohelmDetective
+    gloves: ClothingHandsGlovesEnviroglovesWhite
