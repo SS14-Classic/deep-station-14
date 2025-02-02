@@ -33,6 +33,8 @@
 
 - type: startingGear
   id: SeniorPhysicianGear
+  subGear:
+  - DoctorPlasmamanGear
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician

@@ -17,6 +17,11 @@
             - Mk3LoyaltyImplant
     - !type:CharacterOverallTimeRequirement
       min: 3600 #1 hrs
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Foreigner
+        - ForeignerLight
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
@@ -38,9 +43,14 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  afterLoadoutSpecial:
+  - !type:ModifyEnvirosuitSpecial
+    charges: 8
 
 - type: startingGear
   id: QuartermasterGear
+  subGear:
+  - QuartermasterPlasmamanGear
   equipment:
     head: ClothingHeadHatBeretLogi
     jumpsuit: ClothingUniformJumpsuitQM
@@ -53,3 +63,11 @@
   innerClothingSkirt: ClothingUniformJumpskirtQM
   satchel: ClothingBackpackSatchelQuartermasterFilled
   duffelbag: ClothingBackpackDuffelQuartermasterFilled
+
+- type: startingGear
+  id: QuartermasterPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitQM
+    head: ClothingHeadEnvirohelmQM
+    gloves: ClothingHandsGlovesEnviroglovesCargo

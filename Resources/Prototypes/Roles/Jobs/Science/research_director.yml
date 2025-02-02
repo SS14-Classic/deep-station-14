@@ -5,8 +5,6 @@
   playTimeTracker: JobResearchDirector
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
-    - !type:CharacterOverallTimeRequirement
-      min: 60 # Not DeltaV - One minute
     - !type:CharacterLogicOrRequirement
       requirements: # Idk I just left this in
         - !type:CharacterSpeciesRequirement
@@ -26,11 +24,11 @@
         - !type:CharacterTraitRequirement
           traits:
             - Mk3LoyaltyImplant
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterTraitRequirement
       inverted: true
-      species:
-        - Shadowkin
-        - IPC
+      traits:
+        - Foreigner
+        - ForeignerLight
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -61,9 +59,16 @@
           - DispelPower
           - MetapsionicPower
           - TelepathyPower
+  afterLoadoutSpecial:
+  - !type:ModifyEnvirosuitSpecial
+    charges: 8
+  - !type:ModifyEnvirohelmSpecial
+    powerCell: PowerCellHigh
 
 - type: startingGear
   id: ResearchDirectorGear
+  subGear:
+  - ResearchDirectorPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitResearchDirector
     back: ClothingBackpackResearchDirectorFilled
@@ -75,3 +80,11 @@
   innerClothingSkirt: ClothingUniformJumpskirtResearchDirector
   satchel: ClothingBackpackSatchelResearchDirectorFilled
   duffelbag: ClothingBackpackDuffelResearchDirectorFilled
+
+- type: startingGear
+  id: ResearchDirectorPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitResearchDirector
+    head: ClothingHeadEnvirohelmResearchDirector
+    gloves: ClothingHandsGlovesEnviroglovesResearchDirector
