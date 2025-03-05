@@ -1,0 +1,32 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_produce.yml
+
+- type: entity
+  name: inoxqaBerries
+  parent: FoodProduceBase
+  id: FoodInoxquaBerries
+  description: An incredibly sweet berry from the former moth homeworld. It tastes almost like pure sugar, and it's juice can be made into a very strong alcohol.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _ds14/Objects/Specific/Hydroponics/inoxqa_berries.rsi
+  - type: Produce
+    seedId: inoxqaBerries
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceInoxqa
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit

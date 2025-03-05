@@ -1,0 +1,8 @@
+- type: reagent
+  id: JuiceInoxqa
+  name: reagent-name-juice-inoxqua
+  parent: BaseJuice
+  desc: reagent-desc-juice-inoxqua
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: sweet
+  color: "#D50075"
