@@ -4,7 +4,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: _ds14\Decals\zetatextdecals.rsi
+    sprite: _ds14/Decals/zetatextdecals.rsi
     state: Medical
     
 - type: decal
@@ -13,7 +13,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: _ds14\Decals\zetatextdecals.rsi
+    sprite: _ds14/Decals/zetatextdecals.rsi
     state: Bridge
 
 - type: decal
@@ -22,7 +22,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: _ds14\Decals\zetatextdecals.rsi
+    sprite: _ds14/Decals/zetatextdecals.rsi
     state: RnD
 
 - type: decal
@@ -31,7 +31,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: _ds14\Decals\zetatextdecals.rsi
+    sprite: _ds14/Decals/zetatextdecals.rsi
     state: Sec
 
 - type: decal
@@ -40,5 +40,5 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: _ds14\Decals\zetatextdecals.rsi
+    sprite: _ds14/Decals/zetatextdecals.rsi
     state: Supply
