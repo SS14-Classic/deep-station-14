@@ -6,7 +6,7 @@
   plantRsi: _ds14/Objects/Specific/Hydroponics/inoxqa_berries.rsi
   packetPrototype: InoxquaBerrySeeds
   productPrototypes:
-    - FoodInoxquaBerries
+    - FoodInoxqaBerries
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 3
@@ -29,7 +29,7 @@
 #  name: seeds-olswiit-fruit-name
 #  noun: seeds-noun-seeds
 #  displayName: seeds-olswiit-fruit-display-name
-#  plantRsi: _ds14/Objects/Specific/Hydroponics/olswiit_fruit.rsi.rsi
+#  plantRsi: _ds14/Objects/Specific/Hydroponics/olswiit_fruit.rsi
 #  packetPrototype: OlswiitFruitSeeds
 #  productPrototypes:
 #    - FoodOlswiitFruit

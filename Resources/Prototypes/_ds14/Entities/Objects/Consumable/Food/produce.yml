@@ -3,7 +3,7 @@
 - type: entity
   name: inoxqaBerries
   parent: FoodProduceBase
-  id: FoodInoxquaBerries
+  id: FoodInoxqaBerries
   description: An incredibly sweet berry from the former moth homeworld. It tastes almost like pure sugar, and it's juice can be made into a very strong alcohol.
   components:
   - type: FlavorProfile
