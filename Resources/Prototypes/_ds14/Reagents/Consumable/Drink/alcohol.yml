@@ -20,7 +20,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 1.02
+        amount: 0.9
         
 - type: reagent
   id: LightFirestarter
@@ -44,4 +44,4 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.4
+        amount: 0.3

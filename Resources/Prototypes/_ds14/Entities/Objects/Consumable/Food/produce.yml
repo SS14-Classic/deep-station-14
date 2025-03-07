@@ -1,10 +1,10 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_produce.yml
 
 - type: entity
-  name: inoxqaBerries
+  name: inoxqa berries
   parent: FoodProduceBase
   id: FoodInoxqaBerries
-  description: An incredibly sweet berry from the former moth homeworld. It tastes almost like pure sugar, and it's juice can be made into a very strong alcohol.
+  description: An incredibly sweet berry from the former moth homeworld. It tastes almost like sugar, and its juice can be made into a very strong alcohol.
   components:
   - type: FlavorProfile
     flavors:
@@ -32,10 +32,10 @@
     - Fruit
     
 - type: entity
-  name: olswiitFruit
+  name: olswiit fruit
   parent: FoodProduceBase
   id: FoodOlswiitFruit
-  description: A juicy and almost unbearably sweet fruit from the former moth homeworld.
+  description: A juicy and almost unbearably sweet fruit from the former moth homeworld. Moths seem to be fine eating this, despite it practically just tasting like sugar.
   components:
   - type: FlavorProfile
     flavors:

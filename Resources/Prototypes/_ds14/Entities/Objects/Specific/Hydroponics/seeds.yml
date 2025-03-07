@@ -12,7 +12,7 @@
 - type: entity
   parent: SeedBase
   name: packet of olswiit fruit seeds
-  description: "These seeds grow into a borderline inedibly sweet fruit."
+  description: "These seeds grow into a borderline inedibly sweet fruit from the former moth homeworld."
   id: OlswiitFruitSeeds
   components:
     - type: Seed
