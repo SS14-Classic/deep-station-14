@@ -9,10 +9,11 @@
     - FoodInoxqaBerries
   harvestRepeat: Repeat
   lifespan: 50
-  maturation: 3
+  maturation: 8
   production: 3
   yield: 4
-  idealLight: 6
+  idealLight: 5
+  growthStages: 3
   nutrientConsumption: 0.6
   chemicals:
     Nutriment:
@@ -35,11 +36,12 @@
 #    - FoodOlswiitFruit
 #  harvestRepeat: Repeat
 #  lifespan: 55
-#  maturation: 4
+#  maturation: 10
 #  production: 4
 #  yield: 3
 #  potency: 10
-#  idealLight: 7
+#  idealLight: 6
+#  growthStages: 3
 #  chemicals:
 #    Nutriment:
 #      Min: 1
