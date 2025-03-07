@@ -30,3 +30,34 @@
   - type: Tag
     tags:
     - Fruit
+    
+- type: entity
+  name: olswiitFruit
+  parent: FoodProduceBase
+  id: FoodOlswiitFruit
+  description: A juicy and almost unbearably sweet fruit from the former moth homeworld.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _ds14/Objects/Specific/Hydroponics/olswiit_fruit.rsi
+  - type: Produce
+    seedId: olswiitFruit
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceOlswiit
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit

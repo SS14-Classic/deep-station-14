@@ -8,3 +8,14 @@
       seedId: inoxqaBerries
     - type: Sprite
       sprite: _ds14/Objects/Specific/Hydroponics/inoxqa_berries.rsi
+      
+- type: entity
+  parent: SeedBase
+  name: packet of olswiit fruit seeds
+  description: "These seeds grow into a borderline inedibly sweet fruit."
+  id: OlswiitFruitSeeds
+  components:
+    - type: Seed
+      seedId: olswiitFruit
+    - type: Sprite
+      sprite: _ds14/Objects/Specific/Hydroponics/olswiit_fruit.rsi

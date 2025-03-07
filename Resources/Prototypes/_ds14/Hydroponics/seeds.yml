@@ -25,29 +25,29 @@
       Max: 4
       PotencyDivisor: 40
       
-#- type: seed
-#  id: olswiitFruit
-#  name: seeds-olswiit-fruit-name
-#  noun: seeds-noun-seeds
-#  displayName: seeds-olswiit-fruit-display-name
-#  plantRsi: _ds14/Objects/Specific/Hydroponics/olswiit_fruit.rsi
-#  packetPrototype: OlswiitFruitSeeds
-#  productPrototypes:
-#    - FoodOlswiitFruit
-#  harvestRepeat: Repeat
-#  lifespan: 55
-#  maturation: 10
-#  production: 4
-#  yield: 3
-#  potency: 10
-#  idealLight: 6
-#  growthStages: 3
-#  chemicals:
-#    Nutriment:
-#      Min: 1
-#      Max: 5
-#      PotencyDivisor: 20
-#    Vitamin:
-#      Min: 1
-#      Max: 4
-#      PotencyDivisor: 25
+- type: seed
+  id: olswiitFruit
+  name: seeds-olswiit-fruit-name
+  noun: seeds-noun-seeds
+  displayName: seeds-olswiit-fruit-display-name
+  plantRsi: _ds14/Objects/Specific/Hydroponics/olswiit_fruit.rsi
+  packetPrototype: OlswiitFruitSeeds
+  productPrototypes:
+    - FoodOlswiitFruit
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 10
+  production: 4
+  yield: 3
+  potency: 10
+  idealLight: 6
+  growthStages: 4
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
