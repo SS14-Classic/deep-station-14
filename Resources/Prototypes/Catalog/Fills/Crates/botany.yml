@@ -24,6 +24,10 @@
         amount: 2
       - id: BungoSeeds
         amount: 2
+      - id: InoxqaBerrySeeds
+        amount: 2
+      - id: OlswiitFruitSeeds
+        amount: 2
 
 - type: entity
   id: CrateHydroponicsSeedsMedicinal

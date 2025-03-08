@@ -1,0 +1,19 @@
+- type: reaction
+  id: Firestarter
+  reactants:
+    JuiceInoxqa:
+      amount: 2
+    Ethanol:
+      amount: 1
+  products:
+    Firestarter: 3
+
+- type: reaction
+  id: LightFirestarter
+  reactants:
+    JuiceInoxqa:
+      amount: 2
+    Firestarter:
+      amount: 1
+  products:
+    LightFirestarter: 3

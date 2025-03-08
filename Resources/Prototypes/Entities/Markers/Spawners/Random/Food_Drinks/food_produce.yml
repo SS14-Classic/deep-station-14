@@ -160,6 +160,14 @@
       - id: DeathNettle
         amount: !type:RangeNumberSelector
           range: 1, 5
+      # Begin Moth plants
+      - id: FoodInoxqaBerries
+        amount: !type:RangeNumberSelector
+          range: 1, 5
+      - id: FoodOlswiitFruit
+        amount: !type:RangeNumberSelector
+          range: 1, 5
+      # End Moth plants
       # Begin DeltaV additions
       - id: FoodCrystalThistle
         amount: !type:RangeNumberSelector
