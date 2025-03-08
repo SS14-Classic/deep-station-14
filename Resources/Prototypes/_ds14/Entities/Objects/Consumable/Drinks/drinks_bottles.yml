@@ -18,7 +18,7 @@
   - type: Sealable
   - type: Tag
     tags:
-    - Firestarter
+#    - Firestarter
     - DrinkBottle
 
 - type: entity
@@ -40,7 +40,7 @@
   - type: Sealable
   - type: Tag
     tags:
-    - LightFirestarter
+#    - LightFirestarter
     - DrinkBottle
 
 - type: entity
@@ -62,5 +62,5 @@
   - type: Sealable
   - type: Tag
     tags:
-    - InoxqaJuice
+#    - InoxqaJuice
     - DrinkBottle
