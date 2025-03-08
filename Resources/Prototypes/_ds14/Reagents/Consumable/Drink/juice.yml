@@ -6,12 +6,6 @@
   physicalDesc: reagent-physical-desc-crisp
   flavor: sweet
   color: "#F211A4"
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.06
   
 - type: reagent
   id: JuiceOlswiit

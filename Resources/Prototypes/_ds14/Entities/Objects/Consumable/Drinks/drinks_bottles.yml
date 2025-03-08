@@ -47,13 +47,13 @@
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
   id: DrinkInoxqaJuiceBottleFull
   name: inoxqa juice bottle
-  description: Some kind of moth fruit drink or something. Is this alcoholic?
+  description: Some kind of moth fruit drink or something. Smells somewhat alcoholic for some reason?
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         reagents:
-        - ReagentId: JuiceInoqxa
+        - ReagentId: JuiceInoxqa
           Quantity: 100
   - type: Label
     currentLabel: inoxqa berry juice
