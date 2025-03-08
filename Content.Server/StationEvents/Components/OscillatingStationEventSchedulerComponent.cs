@@ -8,7 +8,7 @@ public sealed partial class OscillatingStationEventSchedulerComponent : Componen
 {
     // TODO cvars?
     [DataField]
-    public float MinChaos = 0.1f, MaxChaos = 15f;
+    public float MinChaos = 0.1f, MaxChaos = 5f;
 
     /// <summary>
     ///     The amount of chaos at the beginning of the round.

@@ -291,8 +291,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: OscillatingStationEventScheduler
-    minChaos: 0.8
-    maxChaos: 14
+    minChaos: 0.4
+    maxChaos: 4
     startingSlope: 0.2
     downwardsLimit: -0.35
     upwardsLimit: 0.4
@@ -304,8 +304,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: OscillatingStationEventScheduler
-    minChaos: 0.8
-    maxChaos: 8
+    minChaos: 0.2
+    maxChaos: 3
     startingSlope: -1
     downwardsLimit: -0.4
     upwardsLimit: 0.3

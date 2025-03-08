@@ -7,13 +7,13 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
     ///     The maximum number by which the event rate will be multiplied when shift time reaches the end time.
     /// </summary>
     [DataField]
-    public float ChaosModifier = 3f;
+    public float ChaosModifier = 2f;
 
     /// <summary>
     ///     The minimum number by which the event rate will be multiplied when the shift has just begun.
     /// </summary>
     [DataField]
-    public float StartingChaosRatio = 0.1f;
+    public float StartingChaosRatio = 0.5f;
 
     /// <summary>
     ///     The number by which all event delays will be multiplied. Unlike chaos, remains constant throughout the shift.
