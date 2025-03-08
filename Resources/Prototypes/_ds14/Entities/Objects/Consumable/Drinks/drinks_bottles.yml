@@ -1,0 +1,66 @@
+# When adding new drinks also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\drinks_bottles.yml
+- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
+  id: DrinkFirestarterBottleFull
+  name: firestarter bottle
+  description: 102% alcohol content? That's not right, is it? Maybe be a bit careful with that.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Firestarter
+          Quantity: 100
+  - type: Label
+    currentLabel: firestarter
+  - type: Sprite
+    sprite: _ds14/Objects/Consumable/Drinks/firestarterbottle.rsi
+  - type: Sealable
+  - type: Tag
+    tags:
+    - Firestarter
+    - DrinkBottle
+
+- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
+  id: DrinkLightFirestarterBottleFull
+  name: light firestarter bottle
+  description: The ''light'' is for ''lights out.''
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: LightFirestarter
+          Quantity: 100
+  - type: Label
+    currentLabel: light firestarter
+  - type: Sprite
+    sprite: _ds14/Objects/Consumable/Drinks/lightfirestarterbottle.rsi
+  - type: Sealable
+  - type: Tag
+    tags:
+    - LightFirestarter
+    - DrinkBottle
+
+- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
+  id: DrinkInoxqaJuiceBottleFull
+  name: inoxqa juice bottle
+  description: Some kind of moth fruit drink or something. Is this alcoholic?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: JuiceInoqxa
+          Quantity: 100
+  - type: Label
+    currentLabel: inoxqa berry juice
+  - type: Sprite
+    sprite: _ds14/Objects/Consumable/Drinks/inoxquajuicebottle.rsi
+  - type: Sealable
+  - type: Tag
+    tags:
+    - InoxqaJuice
+    - DrinkBottle
