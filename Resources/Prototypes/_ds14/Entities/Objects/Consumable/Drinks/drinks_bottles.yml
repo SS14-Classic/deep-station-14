@@ -58,7 +58,7 @@
   - type: Label
     currentLabel: inoxqa berry juice
   - type: Sprite
-    sprite: _ds14/Objects/Consumable/Drinks/inoxquajuicebottle.rsi
+    sprite: _ds14/Objects/Consumable/Drinks/inoxqajuicebottle.rsi
   - type: Sealable
   - type: Tag
     tags:

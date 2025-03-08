@@ -2,7 +2,7 @@
   parent: SeedBase
   name: packet of inoxqa berry seeds
   description: "These seeds grow into a berry that can be made into some of the strongest alcohol out there. These berries are also incredibly sweet."
-  id: InoxquaBerrySeeds
+  id: InoxqaBerrySeeds
   components:
     - type: Seed
       seedId: inoxqaBerries
