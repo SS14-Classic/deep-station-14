@@ -255,7 +255,7 @@
 # Example component implant
 - type: entity
   id: ComponentImplanter
-  suffix: telepathy
+  suffix: DEBUG
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
