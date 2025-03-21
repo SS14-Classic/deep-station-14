@@ -1418,7 +1418,7 @@
     collection: FootstepHull
   itemDrop: FloorTileItemRCircuit
   heatCapacity: 10000
-
+  
 # Terrain
 - type: tile
   id: FloorAsphalt
