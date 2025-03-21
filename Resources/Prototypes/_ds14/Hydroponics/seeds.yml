@@ -1,0 +1,53 @@
+- type: seed
+  id: inoxqaBerries
+  name: seeds-inoxqa-berries-name
+  noun: seeds-noun-seeds
+  displayName: seeds-inoxqa-berries-display-name
+  plantRsi: _ds14/Objects/Specific/Hydroponics/inoxqa_berries.rsi
+  packetPrototype: InoxqaBerrySeeds
+  productPrototypes:
+    - FoodInoxqaBerries
+  harvestRepeat: Repeat
+  lifespan: 50
+  maturation: 8
+  production: 3
+  yield: 4
+  idealLight: 5
+  growthStages: 3
+  nutrientConsumption: 0.6
+  chemicals:
+    Nutriment:
+      Min: 2
+      Max: 5
+      PotencyDivisor: 30
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 40
+      
+- type: seed
+  id: olswiitFruit
+  name: seeds-olswiit-fruit-name
+  noun: seeds-noun-seeds
+  displayName: seeds-olswiit-fruit-display-name
+  plantRsi: _ds14/Objects/Specific/Hydroponics/olswiit_fruit.rsi
+  packetPrototype: OlswiitFruitSeeds
+  productPrototypes:
+    - FoodOlswiitFruit
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 10
+  production: 4
+  yield: 3
+  potency: 10
+  idealLight: 6
+  growthStages: 4
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
