@@ -3,17 +3,9 @@
   name: job-name-psychologist
   description: job-description-psychologist
   playTimeTracker: JobPsychologist
-  requirements:
-    - !type:CharacterOverallTimeRequirement
-      min: 60
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Shadowkin
   startingGear: PsychologistGear
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo
-
   access:
   - Medical
   - Maintenance

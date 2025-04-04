@@ -11,11 +11,6 @@
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce
-  requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Shadowkin
   access:
   - Maintenance
   - Engineering
