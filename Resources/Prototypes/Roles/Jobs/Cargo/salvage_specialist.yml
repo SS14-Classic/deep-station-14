@@ -11,6 +11,12 @@
     - !type:CharacterDepartmentTimeRequirement
       department: Logistics
       min: 360
+    - !type:CharacterEmployerRequirement
+      inverted: true
+      employers:
+      - Unemployed
+  #  - !type:OverallPlaytimeRequirement #DeltaV
+  #    time: 36000 #10 hrs
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
