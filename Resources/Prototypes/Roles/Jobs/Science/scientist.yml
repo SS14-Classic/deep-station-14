@@ -3,14 +3,14 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
+  requirements:
+    - !type:CharacterEmployerRequirement
+      inverted: true
+      employers:
+      - Unemployed
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
-  requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Shadowkin
   access:
   - Research
   - Maintenance

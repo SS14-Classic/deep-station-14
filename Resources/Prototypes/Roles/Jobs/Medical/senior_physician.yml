@@ -10,13 +10,10 @@
     - !type:CharacterPlaytimeRequirement
       tracker: JobMedicalDoctor
       min: 21600 #6 hrs
-    - !type:CharacterDepartmentTimeRequirement
-      department: Medical
-      min: 216000 # 60 hrs
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterEmployerRequirement
       inverted: true
-      species:
-        - Shadowkin
+      employers:
+      - Unemployed
   startingGear: SeniorPhysicianGear
   icon: "JobIconSeniorPhysician"
   supervisors: job-supervisors-cmo

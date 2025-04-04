@@ -10,13 +10,10 @@
     - !type:CharacterPlaytimeRequirement
       tracker: JobStationEngineer
       min: 21600 #6 hrs
-    - !type:CharacterDepartmentTimeRequirement
-      department: Engineering
-      min: 216000 # 60 hrs
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterEmployerRequirement
       inverted: true
-      species:
-        - Shadowkin
+      employers:
+      - Unemployed
   startingGear: SeniorEngineerGear
   icon: "JobIconSeniorEngineer"
   supervisors: job-supervisors-ce

@@ -16,11 +16,10 @@
       - Blindness
       - Pacifist
       - BrittleBoneDisease
-  - !type:CharacterSpeciesRequirement
+  - !type:CharacterEmployerRequirement
     inverted: true
-    species:
-      - Shadowkin
-      - IPC
+    employers:
+    - Unemployed
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos

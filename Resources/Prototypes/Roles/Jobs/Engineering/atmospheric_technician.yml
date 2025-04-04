@@ -4,12 +4,10 @@
   description: job-description-atmostech
   playTimeTracker: JobAtmosphericTechnician
   requirements:
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterEmployerRequirement
       inverted: true
-      species:
-        - Shadowkin
-    - !type:CharacterOverallTimeRequirement
-      min: 60
+      employers:
+      - Unemployed
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce

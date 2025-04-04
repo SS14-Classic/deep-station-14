@@ -26,6 +26,10 @@
         - Blindness
         - Pacifist
         - BrittleBoneDisease
+    - !type:CharacterEmployerRequirement
+      inverted: true
+      employers:
+      - Unemployed
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos

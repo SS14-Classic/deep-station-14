@@ -3,6 +3,11 @@
   name: job-name-chef
   description: job-description-chef
   playTimeTracker: JobChef
+  requirements:
+    - !type:CharacterEmployerRequirement
+      inverted: true
+      employers:
+      - Unemployed
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop
