@@ -5,9 +5,9 @@
   playTimeTracker: JobBartender
   requirements:
     - !type:CharacterEmployerRequirement
-      inverted: true
       employers:
-      - Unemployed
+      - IdrisIncorporated
+      - NanoTrasen
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop

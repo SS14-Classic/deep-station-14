@@ -5,9 +5,8 @@
   playTimeTracker: JobChef
   requirements:
     - !type:CharacterEmployerRequirement
-      inverted: true
       employers:
-      - Unemployed
+      - NanoTrasen
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop

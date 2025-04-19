@@ -5,9 +5,10 @@
   playTimeTracker: JobChemist
   requirements:
     - !type:CharacterEmployerRequirement
-      inverted: true
       employers:
-      - Unemployed
+      - ZengHuPharmaceuticals
+      - Interdyne
+      - NanoTrasen
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo
