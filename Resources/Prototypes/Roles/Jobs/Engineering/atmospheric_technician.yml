@@ -5,9 +5,10 @@
   playTimeTracker: JobAtmosphericTechnician
   requirements:
     - !type:CharacterEmployerRequirement
-      inverted: true
       employers:
-      - Unemployed
+      - HephaestusIndustries
+      - EinsteinEngines
+      - NanoTrasen
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce

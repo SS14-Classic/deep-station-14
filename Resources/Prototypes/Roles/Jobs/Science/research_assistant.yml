@@ -5,9 +5,9 @@
   playTimeTracker: JobResearchAssistant
   requirements:
     - !type:CharacterEmployerRequirement
-      inverted: true
       employers:
-      - Unemployed
+      - NanoTrasen
+      - ZengHuPharmaceuticals
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science

@@ -24,9 +24,10 @@
         - Pacifist
         - BrittleBoneDisease
     - !type:CharacterEmployerRequirement
-      inverted: true
       employers:
-      - Unemployed
+      - ZavodskoiInterstellar
+      - PMCG
+      - NanoTrasen
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

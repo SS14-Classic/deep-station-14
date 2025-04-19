@@ -5,9 +5,10 @@
   playTimeTracker: JobMedicalDoctor
   requirements:
     - !type:CharacterEmployerRequirement
-      inverted: true
       employers:
-      - Unemployed
+      - ZengHuPharmaceuticals
+      - Interdyne
+      - NanoTrasen
   startingGear: DoctorGear
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-cmo
