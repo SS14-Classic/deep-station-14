@@ -10,6 +10,16 @@
   - UplinkAllies
 
 - type: listing
+  id: UplinkSyndicateMothroach
+  name: Syndicate Mothroach
+  description: A mischevious genetically-engineered monstrosity, bred to be a loyal servant of the Syndicate. Now featuring a custom hardsuit with a radio transmitter, making it able to keep in contact with you or your fellow Syndicate friends. Its jaws are strong enough to bite through steel and lockers, making it a great for sabotage.
+  productEntity: MobSyndicateMothroach
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkAllies
+
+- type: listing
   id: UplinkBionicSyrinxImplanter
   name: uplink-bionic-syrinx-implanter-name
   description: uplink-bionic-syrinx-implanter-desc

@@ -607,6 +607,79 @@
 
 - type: entity
   parent: MobMothroach
+  id: MobSyndicateMothroach
+  name: Syndicate mothroach
+  description: This is the adorable by-product of multiple attempts at genetically mixing nukie mothpeople and explosives with cockroaches.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: Syndicate mothroach
+    description: ghost-role-information-nukie-mouse-description
+    rules: ghost-role-information-syndicate-reinforcement-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: Sprite
+    sprite: Mobs/Animals/syndicatemothroach.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/syndicatemothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Insulated
+  - type: PressureImmunity
+  - type: Respirator
+    minSaturation: 0.0
+  - type: PointLight
+    color: green
+    radius: 1.5
+    energy: 2.3
+    offset: 0, -1
+    netsync: false
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      100: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 30
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 12
+        Slash: 5
+        Structural: 20
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: AutoTraitor
+    profile: TraitorReinforcement
+  - type: LanguageKnowledge
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
+    - TauCetiBasic
+  - type: NoSlip
+  - type: Puller
+  - type: CanEscapeInventory
+    baseResistTime: 2
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+
+
+- type: entity
+  parent: MobMothroach
   id: MobMothroachPet
   components:
   - type: HTN
