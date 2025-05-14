@@ -10,18 +10,11 @@
       species:
         - Shadowkin
         - IPC
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobWarden
-      min: 21600 #6 hrs
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobDetective
-      min: 7200 #2 hrs
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobSecurityOfficer
-      min: 21600 #6 hrs
+    - !type:CharacterOverallTimeRequirement
+      min: 60
     - !type:CharacterDepartmentTimeRequirement
       department: Security
-      min: 216000 # 60 hrs
+      min: 36000 # 10 hours
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
