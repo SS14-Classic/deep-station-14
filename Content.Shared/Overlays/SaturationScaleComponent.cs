@@ -2,5 +2,9 @@
 
 namespace Content.Shared.Overlays;
 
-[RegisterComponent, NetworkedComponent]
-public sealed partial class SaturationScaleOverlayComponent : Component { }
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class SaturationScaleOverlayComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public float SaturationScale = 1f;
+}

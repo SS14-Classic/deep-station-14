@@ -282,6 +282,7 @@ public sealed class MoodSystem : EntitySystem
             mood.NeutralMoodThreshold = component.MoodThresholds.GetValueOrDefault(MoodThreshold.Neutral);
         }
 
+        RefreshShaders(uid, component.CurrentMoodLevel);
         UpdateCurrentThreshold(uid, component);
     }
 
@@ -312,7 +313,6 @@ public sealed class MoodSystem : EntitySystem
         {
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             SetCritThreshold(uid, component, modifier);
-            RefreshShaders(uid, modifier);
         }
 
         // Modify interface
@@ -324,12 +324,11 @@ public sealed class MoodSystem : EntitySystem
         component.LastThreshold = component.CurrentMoodThreshold;
     }
 
-    private void RefreshShaders(EntityUid uid, int modifier)
+    private void RefreshShaders(EntityUid uid, float mood)
     {
-        if (modifier == -1)
-            EnsureComp<SaturationScaleOverlayComponent>(uid);
-        else
-            RemComp<SaturationScaleOverlayComponent>(uid);
+        EnsureComp<SaturationScaleOverlayComponent>(uid, out var comp);
+        comp.SaturationScale = mood / 50;
+        Dirty(uid, comp);
     }
 
     private void SetCritThreshold(EntityUid uid, MoodComponent component, int modifier)

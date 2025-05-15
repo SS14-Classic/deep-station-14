@@ -11,12 +11,9 @@
         - IPC
     - !type:CharacterOverallTimeRequirement
       min: 60
-    - !type:CharacterPlaytimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
-      tracker: JobSecurityOfficer
-      min: 43200 # DeltaV - 12 hrs
-    - !type:CharacterPlaytimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
-      tracker: JobDetective
-      min: 14400 # DeltaV - 4 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: Security
+      min: 36000 # 10 hours
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
