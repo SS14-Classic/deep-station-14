@@ -609,8 +609,7 @@
   parent: MobMothroach
   id: MobSyndicateMothroach
   name: Syndicate mothroach
-  description: This is the adorable by-product of multiple attempts at genetically mixing nukie mothpeople and explosives with cockroaches.
-  categories: [ HideSpawnMenu ]
+  description: This is the adorable by-product of multiple attempts at genetically mixing nukie mothpeople with explosive cockroaches.
   components:
   - type: GhostRole
     makeSentient: true
@@ -651,8 +650,8 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 12
-        Slash: 5
+        Piercing: 15
+        Slash: 10
         Structural: 20
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -677,6 +676,53 @@
     factions:
       - Syndicate
 
+- type: entity
+  parent: MobMothroach
+  name: pet syndicate mothroach
+  description: This is the adorable by-product of multiple attempts at genetically mixing nukie mothpeople with explosive cockroaches. Upon closer inspection, you notice this is a cheat knockoff and not an evil mothroach.
+  id: MobSyndicateMothroachPet
+  components:
+  - type: HTN
+    rootTask:
+      task: FollowCompound
+    blackboard:
+      IdleRange: !type:Single
+        1.5
+      FollowCloseRange: !type:Single
+        1.0
+      FollowRange: !type:Single
+        2.0
+  - type: Sprite
+    sprite: Mobs/Animals/syndicatemothroach.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/syndicatemothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: PressureImmunity
+  - type: Respirator
+  - type: LanguageKnowledge
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
+    - TauCetiBasic
+  - type: PointLight
+    color: green
+    radius: 1.5
+    energy: 2.3
+    offset: 0, -1
+    netsync: false
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: Pet Syndicate Mothroach
+    description: ghost-role-information-mothroach-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
 
 - type: entity
   parent: MobMothroach
