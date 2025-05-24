@@ -16038,3 +16038,242 @@ Entries:
   id: 7238
   time: '2025-05-07T19:45:10.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/2407
+- author: Will-Oliver-Br
+  changes:
+    - type: Add
+      message: Added fishing.
+  id: 7239
+  time: '2025-05-08T21:58:58.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2416
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Made bio-synthetic torso work as a body
+  id: 7240
+  time: '2025-05-08T22:00:04.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2414
+- author: Raikyr0
+  changes:
+    - type: Add
+      message: Added fun but actually real
+  id: 7241
+  time: '2025-05-08T22:05:42.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2404
+- author: Diggy0
+  changes:
+    - type: Tweak
+      message: Plasmamen can now wear Modsuit helmets.
+  id: 7242
+  time: '2025-05-08T22:16:19.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2384
+- author: ilmenwe
+  changes:
+    - type: Tweak
+      message: Logger to Logger.GetSawmill("name");
+  id: 7243
+  time: '2025-05-08T22:26:14.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2413
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: Added yellow, red, and blue sports drinks
+    - type: Add
+      message: Added vodka sports drink, ronin refresher, and deadlifter cocktails
+    - type: Add
+      message: Enabled neurotoxin cocktail recipe
+    - type: Tweak
+      message: Allowed fitness shakers to function as shakers
+  id: 7244
+  time: '2025-05-08T22:27:12.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2375
+- author: Raikyr0
+  changes:
+    - type: Add
+      message: PING
+  id: 7245
+  time: '2025-05-08T23:53:21.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2399
+- author: RocketBoss360
+  changes:
+    - type: Tweak
+      message: Shadeskip now has a new sound.
+    - type: Tweak
+      message: Shadeskip now lasts 12 seconds, and its portals despawn with it
+    - type: Tweak
+      message: Darkswap's haze cloud on cast now lasts 5 seconds
+    - type: Tweak
+      message: Telegnosic projections can now speak telepathically
+    - type: Fix
+      message: >-
+        all psionic powers are now disabled if the caster is psionically
+        insulated.
+  id: 7246
+  time: '2025-05-08T23:55:09.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2376
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Added the East-Orion Company as a selectable Employer, focusing on
+        Hydroponics. They have alternate Hydroponics uniforms, alternate
+        Security uniforms, and a high-quality plant clipper that is more gentle
+        on plants when taking a sample.
+  id: 7247
+  time: '2025-05-09T17:26:02.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2359
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Fixed some items used less power while turned on than they should.
+  id: 7248
+  time: '2025-05-09T17:26:53.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2360
+- author: Mike32oz
+  changes:
+    - type: Add
+      message: Glacier, New Evac shuttle.
+    - type: Tweak
+      message: >-
+        Glacier's back to the Mountaintop, coupled with several fixes and
+        tweaks!
+  id: 7249
+  time: '2025-05-10T19:46:35.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2415
+- author: Raikyr0
+  changes:
+    - type: Add
+      message: added blood regen to Platelets
+  id: 7250
+  time: '2025-05-10T19:47:58.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2382
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: Added Faulty Waterproofing trait
+    - type: Add
+      message: Added Fragile Circuits trait
+  id: 7251
+  time: '2025-05-15T04:15:29.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2335
+- author: troytroy400
+  changes:
+    - type: Tweak
+      message: Edited TCAF webbing sprite.
+  id: 7252
+  time: '2025-05-16T22:26:31.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2431
+- author: CyberLanos
+  changes:
+    - type: Add
+      message: ported tinted security eyepatch
+    - type: Add
+      message: added tinted eyepatch to senior office and head of security loadouts
+    - type: Tweak
+      message: added flip action and sprites to eyepatches that missed them
+  id: 7253
+  time: '2025-05-17T19:25:31.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2271
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Re-enabled the "Mood shader" after significantly reworking it. Mood
+        visual effects now scale with your character's mood, instead of only
+        ever being near-greyscale. Being high life now makes the world more
+        colorful and saturated.
+    - type: Add
+      message: >-
+        A huge variety of medicines, drugs, and even food items(based on
+        flavor!) now have mood effects. Reaching for the packet of salt now
+        actually makes food provide a better mood buff.
+    - type: Add
+      message: Being Tear-gassed causes a massive mood penalty.
+    - type: Add
+      message: Deep frying food provides a strong mood bonus.
+    - type: Add
+      message: Added new Manic, Mercurial, and Dead Emotions traits.
+  id: 7254
+  time: '2025-05-17T21:10:11.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2425
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        Turrets and NPCs can now hit players who are laying down on the floor.
+        They (by default) have a 50% chance to miss players who are laying down,
+        meaning it still offers some protection, but not perfect protection from
+        turrets. 
+  id: 7255
+  time: '2025-05-17T21:10:34.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2427
+- author: Will-Oliver-Br
+  changes:
+    - type: Add
+      message: Added a medical and security cartridge autoinjector.
+  id: 7256
+  time: '2025-05-17T21:11:03.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2258
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Markings can now use shaders. Including things like glowing light
+        effects. You can now also have glowing cybernetic eyes. IPC head screens
+        now glow. 
+  id: 7257
+  time: '2025-05-17T21:26:06.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2432
+- author: Will-Oliver-Br
+  changes:
+    - type: Tweak
+      message: Now you can enable and disable the locks on office chairs.
+  id: 7258
+  time: '2025-05-19T19:49:56.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2422
+- author: Will-Oliver-Br
+  changes:
+    - type: Fix
+      message: Escape pods now correctly dock at centcomm.
+  id: 7259
+  time: '2025-05-20T19:39:39.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2439
+- author: Tirochora
+  changes:
+    - type: Fix
+      message: Krav Maga no longer  boosts all melee damage.
+  id: 7260
+  time: '2025-05-20T19:39:57.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2430
+- author: Tirochora
+  changes:
+    - type: Tweak
+      message: Table slamming should be more consistent.
+    - type: Fix
+      message: >-
+        You should properly be able to use both hands after letting somebody go
+        from a stranglehold.
+  id: 7261
+  time: '2025-05-20T19:42:05.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2247
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        Fixed melee weapons "Bonus range for heavy attacks" not functioning
+        correctly. 
+    - type: Add
+      message: >-
+        Added support for melee weapons having bonus range on disarms or light
+        attacks.
+  id: 7262
+  time: '2025-05-20T19:42:50.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2442
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Added support for Organs(such as Cybernetics) to utilize the same
+        massive library of functions used by Traits.
+  id: 7263
+  time: '2025-05-23T22:41:30.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/2448

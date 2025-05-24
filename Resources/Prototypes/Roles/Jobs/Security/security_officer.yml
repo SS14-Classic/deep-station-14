@@ -28,6 +28,7 @@
       - ZavodskoiInterstellar
       - PMCG
       - NanoTrasen
+      - EastOrionCompany
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

@@ -17,6 +17,7 @@ public sealed class SaturationScaleOverlay : Overlay
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _shader;
+    private float _currentSaturation = 1f;
 
     public SaturationScaleOverlay()
     {
@@ -34,15 +35,14 @@ public sealed class SaturationScaleOverlay : Overlay
         return base.BeforeDraw(in args);
     }
 
-
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (ScreenTexture is null || _playerManager.LocalEntity is not { Valid: true } player
-            || !_entityManager.TryGetComponent(player, out SaturationScaleOverlayComponent? saturationComp))
+            || !_entityManager.HasComponent<SaturationScaleOverlayComponent>(player))
             return;
 
         _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
-        _shader.SetParameter("saturation", saturationComp.SaturationScale);
+        _shader.SetParameter("saturation", _currentSaturation);
 
         var handle = args.WorldHandle;
         handle.SetTransform(Matrix3x2.Identity);
@@ -54,9 +54,15 @@ public sealed class SaturationScaleOverlay : Overlay
     protected override void FrameUpdate(FrameEventArgs args)
     {
         if (ScreenTexture is null || _playerManager.LocalEntity is not { Valid: true } player
-            || !_entityManager.TryGetComponent(player, out SaturationScaleOverlayComponent? saturationComp))
+            || !_entityManager.TryGetComponent(player, out SaturationScaleOverlayComponent? saturationComp)
+            || _currentSaturation == saturationComp.SaturationScale)
             return;
 
-        _shader.SetParameter("saturation", saturationComp.SaturationScale);
+        var deltaTSlower = args.DeltaSeconds * saturationComp.FadeInMultiplier;
+        var saturationFadeIn = saturationComp.SaturationScale > _currentSaturation
+            ? deltaTSlower : -deltaTSlower;
+
+        _currentSaturation += saturationFadeIn;
+        _shader.SetParameter("saturation", _currentSaturation);
     }
 }
