@@ -85,6 +85,15 @@
     implant: MofficTranslatorImplant
 
 - type: entity
+  id: SyndicateMofficTranslatorImplanter
+  parent: MofficTranslatorImplanter
+  name: moffic translator implanter
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Medical/syndi_implanter.rsi
+      state: icon
+
+- type: entity
   id: ValyrianStandardTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
   name: valyrian standard translator implant
