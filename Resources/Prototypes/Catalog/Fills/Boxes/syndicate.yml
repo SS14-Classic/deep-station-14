@@ -84,3 +84,23 @@
       - id: WeaponBaguette
       - id: SyndicateMicrowaveMachineCircuitboard
       - id: PaperWrittenCombatBakeryKit
+
+- type: entity
+  id: SyndicateMothroachKit
+  parent: BoxCardboard
+  name: syndicate mothroach kit
+  description: A kit containing a mothroach, a moffic translator implant and a syndicate moth plushie.
+  suffix: Filled
+  components:
+    - type: Storage
+      maxItemSize: Medium
+      grid:
+        - 0,0,3,1
+    - type: StorageFill
+      contents:
+        - id: MobSyndicateMothroach
+          amount: 1
+        - id: SyndicateMofficTranslatorImplanter
+          amount: 1
+        - id: PlushieSyndicateMoth
+          amount: 1

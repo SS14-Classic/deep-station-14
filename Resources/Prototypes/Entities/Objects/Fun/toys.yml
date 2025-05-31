@@ -868,6 +868,16 @@
       path: /Audio/Voice/Moth/moth_chitter.ogg
 
 - type: entity
+  parent: PlushieMoth
+  id: PlushieSyndicateMoth
+  name: syndicate moth plushie
+  description: Cute and fluffy moth plushie. Now with more firepower!
+  components:
+    - type: Sprite
+      sprite: Objects/Fun/syndicatemoth.rsi
+      state: plushie_moth_syndicate
+
+- type: entity
   parent: BasePlushie
   id: PlushieJester #Weh!
   name: jester plushie
