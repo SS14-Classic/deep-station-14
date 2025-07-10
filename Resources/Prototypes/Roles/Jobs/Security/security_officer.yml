@@ -35,7 +35,6 @@
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Maintenance
   - Service
   - External
@@ -57,15 +56,12 @@
     jumpsuit: ClothingUniformJumpsuitSec
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesSecurity
     head: ClothingHeadHelmetBasic
-    outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier
+    outerClothing: ClothingOuterArmorPlateCarrier
     id: SecurityPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular
     belt: ClothingBeltSecurityFilled
-  innerClothingSkirt: ClothingUniformJumpskirtSec
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
 
 - type: startingGear
   id: SecurityOfficerPlasmamanGear

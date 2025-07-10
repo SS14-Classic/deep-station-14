@@ -27934,7 +27934,7 @@ entities:
           component: Armor
         title: null
     - type: InsideEntityStorage
-- proto: ClothingBackpackDeathSquadFilled
+- proto: ClothingBackpackDeathSquad
   entities:
   - uid: 819
     components:

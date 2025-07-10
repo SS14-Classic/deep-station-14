@@ -17,7 +17,7 @@
   - Maintenance
   extendedAccess:
   - Chemistry
-  - Paramedic # DeltaV - Add Paramedic access
+  - Paramedic
   special:
   - !type:AddComponentSpecial
     components:
@@ -31,17 +31,14 @@
   - DoctorPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
-    back: ClothingBackpackMedicalFilled
+    back: ClothingBackpackMedical
     shoes: ClothingShoesColorWhite
     id: MedicalPDA
     ears: ClothingHeadsetMedical
-  innerClothingSkirt: ClothingUniformJumpskirtMedicalDoctor
-  satchel: ClothingBackpackSatchelMedicalFilled
-  duffelbag: ClothingBackpackDuffelMedicalFilled
 
 - type: startingGear
   id: DoctorPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitMedicalDoctor
     head: ClothingHeadEnvirohelmMedicalDoctor

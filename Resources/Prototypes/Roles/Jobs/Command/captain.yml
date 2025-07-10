@@ -45,9 +45,9 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
-      - type: CommandStaff
-      - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
-        soulOwnedNotDevil: true
+    - type: CommandStaff
+    - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
+      soulOwnedNotDevil: true
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 8
@@ -60,17 +60,17 @@
   - CaptainPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCaptain
-    back: ClothingBackpackCaptainFilled
+    back: ClothingBackpackCaptain
     shoes: ClothingShoesBootsLaceup
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
-  innerClothingSkirt: ClothingUniformJumpskirtCaptain
-  satchel: ClothingBackpackSatchelCaptainFilled
-  duffelbag: ClothingBackpackDuffelCaptainFilled
+  storage:
+    back:
+    - Flash
 
 - type: startingGear
   id: CaptainPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitCaptain
     head: ClothingHeadEnvirohelmCaptain

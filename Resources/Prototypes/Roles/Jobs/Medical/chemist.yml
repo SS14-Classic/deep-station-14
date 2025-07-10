@@ -29,17 +29,14 @@
   - ChemistPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitChemistry
-    back: ClothingBackpackChemistryFilled
+    back: ClothingBackpackChemistry
     shoes: ClothingShoesColorWhite
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
-  innerClothingSkirt: ClothingUniformJumpskirtChemistry
-  satchel: ClothingBackpackSatchelChemistryFilled
-  duffelbag: ClothingBackpackDuffelChemistryFilled
 
 - type: startingGear
   id: ChemistPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitChemist
     head: ClothingHeadEnvirohelmChemist
