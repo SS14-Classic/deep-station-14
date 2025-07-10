@@ -15,6 +15,13 @@
             - AnomalousPositronics
     - !type:CharacterEmployerRequirement
       inverted: true
+      species:
+      - IPC
+    - !type:CharacterTraitRequirement
+      traits:
+      - AnomalousPositronics
+    - !type:CharacterEmployerRequirement
+      inverted: true
       employers:
       - Unemployed
     - !type:CharacterItemGroupRequirement
@@ -37,8 +44,8 @@
       powerPool: ElementalistPowerPool
     - type: InnatePsionicPowers
       powersToAdd:
-        - HealingWordPower
-        - SummonRemiliaPower
+      - HealingWordPower
+      - SummonRemiliaPower
     - type: Condemned
 
 - type: startingGear
@@ -52,13 +59,10 @@
     id: ChaplainPDA
     ears: ClothingHeadsetScience
     pocket1: BookPsionicsGuidebook
-  innerClothingSkirt: ClothingUniformJumpskirtChaplain
-  satchel: ClothingBackpackSatchelChaplainFilled
-  duffelbag: ClothingBackpackDuffelChaplainFilled
 
 - type: startingGear
   id: ChaplainPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitChaplain
     head: ClothingHeadEnvirohelmChaplain
