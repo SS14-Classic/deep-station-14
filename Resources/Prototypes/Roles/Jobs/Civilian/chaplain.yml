@@ -4,28 +4,24 @@
   description: job-description-chaplain
   playTimeTracker: JobChaplain
   requirements:
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - IPC
-        - !type:CharacterTraitRequirement
-          traits:
-            - AnomalousPositronics
-    - !type:CharacterEmployerRequirement
+  - !type:CharacterDepartmentTimeRequirement
+    department: Epistemics # Chaplain is now one of the station's "Crew-Aligned Wizards"
+    min: 14400 # 4 hours
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterSpeciesRequirement
       inverted: true
       species:
       - IPC
     - !type:CharacterTraitRequirement
       traits:
       - AnomalousPositronics
-    - !type:CharacterEmployerRequirement
-      inverted: true
-      employers:
-      - Unemployed
-    - !type:CharacterItemGroupRequirement
-      group: TraitsCasterType
+  - !type:CharacterEmployerRequirement
+    inverted: true
+    employers:
+    - Unemployed
+  - !type:CharacterItemGroupRequirement
+    group: TraitsCasterType
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-rd
