@@ -4,43 +4,26 @@
   description: job-description-rd
   playTimeTracker: JobResearchDirector
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: TraitsCasterType
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - IPC
-        - !type:CharacterTraitRequirement
-          traits:
-            - AnomalousPositronics
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          species:
-            - Human
-            - Harpy
-            - Dwarf
-        - !type:CharacterTraitRequirement
-          traits:
-            - Mk3LoyaltyImplant
-    - !type:CharacterTraitRequirement
+  - !type:CharacterItemGroupRequirement
+    group: TraitsCasterType
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterSpeciesRequirement
       inverted: true
       species:
       - IPC
     - !type:CharacterTraitRequirement
       traits:
       - AnomalousPositronics
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-      - Muted
-      - Foreigner
-      - ForeignerLight
-    - !type:CharacterEmployerRequirement
-      employers:
-      - NanoTrasen
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Muted
+    - Foreigner
+    - ForeignerLight
+  - !type:CharacterEmployerRequirement
+    employers:
+    - NanoTrasen
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
