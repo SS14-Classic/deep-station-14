@@ -29,6 +29,10 @@
       "directions": 4
     },
     {
+        "name": "equipped-head-vulpkanin",
+        "directions": 4
+    },
+    {
       "name": "equipped-head-light-vox",
       "directions": 4
     }
