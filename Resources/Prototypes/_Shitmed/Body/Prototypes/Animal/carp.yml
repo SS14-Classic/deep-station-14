@@ -8,6 +8,7 @@
       connections:
       - tail
       organs:
+        brain: OrganAnimalbrain
         lungs: OrganSpaceAnimalLungs # Immunity to airloss
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
